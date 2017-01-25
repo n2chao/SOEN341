@@ -8,3 +8,4 @@ Clone this repo, create a new branch and add your name below
 * Paul Richard
 * Ho Man Chan
 * Karine Zhang
+* Johnny Interiano
