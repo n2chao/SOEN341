@@ -1,8 +1,6 @@
-# SOEN-341-E-Learning
+# SOEN 341 Project
 
-## Team members
-
-Clone this repo, create a new branch and add your name below
+## Team Members
 
 * Nathan Chao
 * Paul Richard
