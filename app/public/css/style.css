@@ -1,0 +1,8 @@
+.jumbotron{
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
+	text-align: center;
+	font-variant: small-caps;
+	line-height: 10%;
+	margin-top: 60px;
+	background-color: transparent !important;
+}
