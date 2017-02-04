@@ -86,7 +86,13 @@
         </nav>
 
         @yield('content')
+        
+        <!--Footer-->
+        <div id="container-foot" class="container">
+            <footer id="footer">THANKS FOR VISITING !</footer>
+        </div>  
     </div>
+    
 
     <!-- Scripts -->
     <script src="/js/app.js"></script>
