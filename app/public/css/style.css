@@ -4,7 +4,7 @@
 	line-height: 10%;
 
 }
-.item .slide1, .item .slide2, .item .slide3{
+.item .slide {
 	font-family: Helvetica, sans-serif;
 	font-variant: small-caps;
 	text-align: center;
@@ -27,7 +27,7 @@
 }
 
 /*app page template - footer styles*/
-#footer{
+footer{
 	position: absolute;
 	border-top-style: solid;
 	border-top-width: 2px;

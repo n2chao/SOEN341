@@ -43,7 +43,7 @@
                     @else
                         href="{{ url('/home') }}" 
                     @endif >
-                        Buddy UP
+                        {{ config('app.name', 'Laravel') }}
                     </a>
                 </div>
 
@@ -88,9 +88,8 @@
         @yield('content')
         
         <!--Footer-->
-        <div id="container-foot" class="container">
-            <footer id="footer">THANKS FOR VISITING !</footer>
-        </div>  
+        <footer>THANKS FOR VISITING !</footer>
+        
     </div>
     
 
