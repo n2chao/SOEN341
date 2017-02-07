@@ -4,9 +4,10 @@
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
-            <div class="panel panel-default">
-                <div class="panel-heading">Login</div>
+            <div id="login-panel" class="panel panel-default">
+            <div class="panel-heading">Login</div> 
                 <div class="panel-body">
+                    <!--username/password form-->
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
                         {{ csrf_field() }}
 
@@ -57,6 +58,16 @@
                                 <a class="btn btn-link" href="{{ url('/password/reset') }}">
                                     Forgot Your Password?
                                 </a>
+                            </div>
+                        </div>
+                    <!--facebook form-->
+                    </form>
+                    <form id="fb-login" class="form-horizontal" role="form" method="POST" action="">
+                        <div class="form-group">
+                            <div class="col-md-8 col-md-offset-4">
+                                <button type="submit" class="btn btn-primary">
+                                    Login with Facebook
+                                </button>
                             </div>
                         </div>
                     </form>

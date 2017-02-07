@@ -1,0 +1,41 @@
+/* Landing Page Carousel styles*/
+#bg-fade-carousel{
+	border-color: black;
+	line-height: 10%;
+
+}
+.item .slide {
+	font-family: Helvetica, sans-serif;
+	font-variant: small-caps;
+	text-align: center;
+	
+}
+
+.item-p{
+	font-family: Helvetica, sans-serif;
+	text-align: center;
+	font-size: 1.5em;
+	line-height: 1.4;
+}
+
+/* register and Login styles*/
+#login-panel, #register-panel{
+	border-style: solid;
+	border-color: black;
+	border-width: 2px;
+
+}
+
+/*app page template - footer styles*/
+footer{
+	position: absolute;
+	border-top-style: solid;
+	border-top-width: 2px;
+	border-top-color: black;
+	right: 0;
+ 	bottom: 0;
+  	left: 0;
+  	padding: 1rem;
+  	background-color: #efefef;
+  	text-align: center;
+}
