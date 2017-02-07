@@ -4,6 +4,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Custom CSS -->
+    <link media="all" type="text/css" rel="stylesheet" href="{{asset('css/style.css')}}">
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -34,8 +36,13 @@
                         <span class="icon-bar"></span>
                     </button>
 
-                    <!-- Branding Image -->
-                    <a class="navbar-brand" href="{{ url('/') }}">
+                     <!-- Branding Image -->
+                    <a class="navbar-brand" 
+                    @if (Auth::guest())
+                        href="{{ url('/') }}" 
+                    @else
+                        href="{{ url('/home') }}" 
+                    @endif >
                         {{ config('app.name', 'Laravel') }}
                     </a>
                 </div>
@@ -79,7 +86,12 @@
         </nav>
 
         @yield('content')
+        
+        <!--Footer-->
+        <footer>THANKS FOR VISITING !</footer>
+        
     </div>
+    
 
     <!-- Scripts -->
     <script src="/js/app.js"></script>
