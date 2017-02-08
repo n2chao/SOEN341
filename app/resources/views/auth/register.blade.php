@@ -65,16 +65,8 @@
                                 <button type="submit" class="btn btn-primary">
                                     Register
                                 </button>
-                            </div>
-                        </div>
-                    </form>
-                    <!--Register with Facebook-->
-                     <form id="fb-login" class="form-horizontal" role="form" method="POST" action="">
-                        <div class="form-group">
-                            <div class="col-md-8 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Register with Facebook
-                                </button>
+                                <!--Register with Facebook-->
+                                <a href="{{route('facebook.login')}}" class="btn btn-primary">Login with Facebook</a>
                             </div>
                         </div>
                     </form>
