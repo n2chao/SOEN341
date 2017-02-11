@@ -37,11 +37,11 @@
                     </button>
 
                      <!-- Branding Image -->
-                    <a class="navbar-brand" 
+                    <a class="navbar-brand"
                     @if (Auth::guest())
-                        href="{{ url('/') }}" 
+                        href="{{ url('/') }}"
                     @else
-                        href="{{ url('/home') }}" 
+                        href="{{ url('/home') }}"
                     @endif >
                         {{ config('app.name', 'Laravel') }}
                     </a>
@@ -85,13 +85,16 @@
             </div>
         </nav>
 
-        @yield('content')
-        
+        <section class="content">
+        	@yield('main-content')
+        </section>
+
+
         <!--Footer-->
         <footer>THANKS FOR VISITING !</footer>
-        
+
     </div>
-    
+
 
     <!-- Scripts -->
     <script src="/js/app.js"></script>
