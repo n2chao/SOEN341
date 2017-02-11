@@ -85,8 +85,8 @@
             </div>
         </nav>
 
-        <section class="content">
-        	@yield('main-content')
+        <section class="wrap-content">
+        	@yield('content')
         </section>
 
 
