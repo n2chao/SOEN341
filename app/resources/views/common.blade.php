@@ -1,23 +1,26 @@
 @section('content')
 
 <div class="container">
-  <div class="row profile">
+  <div class="row">
    <div class="col-md-3">
-     <div class="profile-sidebar">
+
+      <!-- SIDEBAR -->
+     <div>
        <!-- SIDEBAR USERPIC -->
-       <div class="profile-userpic">
+       <div>
+         <!-- Placeholder incase we wish to implement pictures, I can remove this if requested-->
          <img src="https://placehold.it/100x100" class="img-responsive" alt="">
        </div>
        <!-- END SIDEBAR USERPIC -->
+
        <!-- SIDEBAR USER TITLE -->
-       <div class="profile-usertitle">
-         <div class="profile-usertitle-name">
+       <div>
            <h3>{{ Auth::user()->name }}</h3>
-         </div>
        </div>
        <!-- END SIDEBAR USER TITLE -->
+
        <!-- SIDEBAR MENU -->
-       <div class="profile-usermenu">
+       <div>
          <ul class="nav">
            <li class="active default">
              <a href="#">
@@ -33,7 +36,7 @@
            </li>
            <li>
              <a href="#">
-              Find a TA</a>
+              Find an Instructor</a>
            </li>
            <li>
              <a href="#">
