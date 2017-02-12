@@ -38,7 +38,7 @@ return [
     'facebook' => [
         'client_id' => '614904608698316',
         'client_secret' => '377f027399ae9651d9e45860b5276584',
-        'redirect' => 'http://soen341.dev/auth/facebook/callback',
+        'redirect' => env(APP_URL) + '/auth/facebook/callback',
     ],
 
 ];
