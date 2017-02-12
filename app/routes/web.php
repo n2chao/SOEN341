@@ -34,7 +34,9 @@ Route::group(['middleware' => 'auth'], function () {
     
     //get form to create a new enrollment
 //    Route::get('/courses/enroll', 'EnrollmentController@create'); //missing course argument!!
-    
+
+    //create new enrollment (returns view)
+    Route::get('/courses/enroll', 'EnrollmentController@create');
     //create new enrollment
     Route::post('/courses', 'EnrollmentController@store');
     

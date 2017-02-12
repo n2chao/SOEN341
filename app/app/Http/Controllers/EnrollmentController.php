@@ -10,6 +10,8 @@ class EnrollmentController extends Controller
 {
     //see dependency injection (import models by overriding constructor)
     protected $users;
+    //mass assignment protection
+    protected $fillable = ['course_id'];
     
     /**
      * Override default constructor, inject the User dependency.
@@ -29,33 +31,21 @@ class EnrollmentController extends Controller
     }
         
     /**
-    * Responds to GET /courses/enroll
+    * Responds to POST /courses
     */
-    public function create($course_id){
-        $user = Auth::user();
-        $user->courses()->attach($course_id);
-    }
-    
     public function store() {
-        //prevent cross site request forgery
-        //ensures that post is sent to the correct endpoint
-        //compares token against what it has in the session
-        {{csrf_field()}}
-        dd(request()->all());
-        $user = Auth::user();
-        
-        //create a new enrollment
-        $enrollment = new \App\Enrollment;
-        $enrollment->user_id = ...
-        $enrollment->course_id = request('body');
-        //save it to the database
-        $enrollment->save();
-        //redirect to the home page
+        $user = Auth::user();  //get authenticated user 
+        //validate course_id (is course_id valid, is user already authenticated)
+        $user->courses()->attach(request('course_id')); //attach course_id to user
         return redirect('/home');
         
-        //why not do the following
-        //$user->courses->attach($course_id);
+    }
+    
+    /**
+    * Responds to GET /courses/enroll
+    */
+    public function create(){
+        return view('courses.enroll');
         
-        //from laracast form request data and csrf
     }
 }
