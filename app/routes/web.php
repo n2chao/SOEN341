@@ -18,5 +18,12 @@ Route::get('/', function () {
 
 Auth::routes();
 Route::get('/home', 'HomeController@index');
+
+//instructor meetings
 Route::get('instructor/chooseinstr', 'InstructorController@index');
 Route::get('/choosetime', 'InstructorController@show');
+
+//facebook login
+Route::get('auth/facebook', 'FacebookController@facebookRedirect')->name('facebook.login');
+Route::get('auth/facebook/callback', 'FacebookController@facebookCallback');
+

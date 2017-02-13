@@ -2,8 +2,6 @@
 
 @section('extra-content')
 <div class="col-md-9">
-        <div class="profile-content">
-          <div class="col-md-12">
               <div class="panel panel-default">
                   <div class="panel-heading">Dashboard</div>
 
@@ -33,8 +31,6 @@
                   </div>
               </div>
 
-          </div>
-      </div>
         </div>
 @endsection
 @include('common')
