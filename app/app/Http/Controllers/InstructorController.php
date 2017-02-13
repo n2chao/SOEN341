@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use DB;
-
+use App\User;
+use Illuminate\Http\Request;
 
 
 class InstructorController extends Controller
@@ -20,6 +21,12 @@ class InstructorController extends Controller
     
     	return view('instructors/chooseinstr', compact('teachers', 'tas'));
     }
+    public function show()
 
+    {
+    	$instrname = request('instructor');
+  		$email = DB::table('users')->where('name', '=', $instrname)->value('email');
+		return view('instructors/choosetime', compact('email'));
+    }
    
 }
