@@ -7,13 +7,15 @@
 				<div class="panel panel-default">
 					<div class="panel-heading">Choose a Meeting Time</div>
 					<div class="panel-body">
-						<h3>Choose a time that fits in your schedule</h3>
+						<h3>Select a Time</h3>
 						<form id="instructor-names" method="GET" action="#">
 							<div class="radio">
-								<h4>Select a Time</h4>
+								<h4>Times that match your free time.</h4>
 								<label><input type="radio" name="optradio">{{ $email }}</label></br>
+								<h4>Other times the instructor is available.</h4>
+								<p>{TIMES GO HERE}</p>
 							</div>
-							<button class="btn btn-default" type="submit" name="instructor-names-next">Schedule</button>
+							<button class="btn btn-default" type="submit" name="instructor-names-next">Add to Schedule</button>
 						</form>
 					</div>
 				</div>
