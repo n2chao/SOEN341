@@ -55,13 +55,15 @@
                                     Login
                                 </button>
 
+                                <a href="{{route('facebook.login')}}" class="btn btn-primary">Login with Facebook</a>
+
                                 <a class="btn btn-link" href="{{ url('/password/reset') }}">
                                     Forgot Your Password?
                                 </a>
                             </div>
                         </div>
-                    <!--facebook form-->
                     </form>
+                    <!--facebook form
                     <form id="fb-login" class="form-horizontal" role="form" method="POST" action="">
                         <div class="form-group">
                             <div class="col-md-8 col-md-offset-4">
@@ -71,6 +73,7 @@
                             </div>
                         </div>
                     </form>
+                    -->
                 </div>
             </div>
         </div>

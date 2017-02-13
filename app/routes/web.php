@@ -19,3 +19,6 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+
+Route::get('auth/facebook', 'FacebookController@facebookRedirect')->name('facebook.login');
+Route::get('auth/facebook/callback', 'FacebookController@facebookCallback');
