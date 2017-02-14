@@ -75,7 +75,7 @@ class EnrollmentController extends Controller
         $add = array_diff($data, $courses);
         $add = array_unique($add);
         foreach ($add as $course){
-            if(!$courses->cointains($course)){      //if user is not enrolled
+            if(!in_array($course, $courses)){      //if user is not enrolled
                 $user->courses()->attach($course);  //attach course
             }
         }      
@@ -99,7 +99,7 @@ class EnrollmentController extends Controller
         $drop = array_intersect($data, $courses);
         $drop = array_unique($drop);
         foreach ($drop as $course){
-            if($courses->cointains($course)){       //if user is enrolled
+             if(in_array($course, $courses)){       //if user is enrolled
                 $user->courses()->detach($course);  //detach course
             }
         }        
