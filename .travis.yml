@@ -6,7 +6,7 @@ php:
 
 before_script:
   - cd app
-  - cd .env.example .env
+  - cp .env.example .env
   - php artisan key:generate
   - composer self-update
   - composer install --no-interaction
