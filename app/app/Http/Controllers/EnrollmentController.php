@@ -8,16 +8,13 @@ use Illuminate\Support\Facades\Auth;
 //required for request validation
 use Illuminate\Validation\Rule;
 use Validator;
-//use Illuminate\Support\Facades\Validator;
-//use Illuminate\Contracts\Validation\Validator;
-
 
 class EnrollmentController extends Controller
 {
     //see dependency injection (import models by overriding constructor)
     protected $users;
     //mass assignment protection
-    protected $fillable = ['course_id'];
+    protected $fillable = ['add_course_id', 'drop_course_id'];
     
     /**
      * Override default constructor, inject the User dependency.
@@ -41,7 +38,13 @@ class EnrollmentController extends Controller
     * Responds to GET /courses/enroll
     */
     public function create(){
-        return view('courses.enroll');
+        $user = Auth::user();
+        //get array of all available courses
+        $allCourses = \App\Course::all()->pluck('id', 'code');
+        //get array of all enrolled courses
+        $courses = $user->courses->pluck('id', 'code')->toArray();
+        //pass $allCourses and $courses array to view
+        return view('courses.enroll', compact('courses', 'allCourses'));
     }
     
     /**
@@ -50,9 +53,9 @@ class EnrollmentController extends Controller
     */
     public function store() {
         $user = Auth::user();  //get authenticated user
+        //call addCourses and dropCourses helper methods
         $this->addCourses(request('add_course_ids'));
         $this->dropCourses(request('drop_course_ids'));
-
         return redirect('/courses');  
     }
     
@@ -62,17 +65,17 @@ class EnrollmentController extends Controller
     */
     private function addCourses(array $data){
         $user = Auth::user();  //get authenticated user
-        Validator::make($data, [
+        Validator::make($data, [    //rule validation
             'add_course_ids' => [
-                'unique', 
-                'required',             //required
-                'integer',              //is an integer
+                'unique',
+                'required',
+                'integer',
                 'exists:courses,id',    //exists in courses table, column id
             ],
         ]);
         //only add course if user is not already enrolled
         $courses = $user->courses->pluck('id')->toArray();  //create array of authenticated user's courses
-        $add = array_diff($data, $courses);
+        $add = array_diff($data, $courses);     //array of courses to be added
         $add = array_unique($add);
         foreach ($add as $course){
             if(!in_array($course, $courses)){      //if user is not enrolled
@@ -87,16 +90,16 @@ class EnrollmentController extends Controller
     */
     private function dropCourses(array $data){
         $user = Auth::user();  //get authenticated user
-        Validator::make($data, [
+        Validator::make($data, [    //rule validation
             'drop_course_ids' => [
-                'required',             //required
-                'integer',              //is an integer
+                'required',
+                'integer',
                 'exists:courses,id',    //exists in courses table, column id
             ],
         ]);
         //only add course if user is not already enrolled
         $courses = $user->courses->pluck('id')->toArray();  //create array of authenticated user's courses
-        $drop = array_intersect($data, $courses);
+        $drop = array_intersect($data, $courses);   //array of courses to be dropped
         $drop = array_unique($drop);
         foreach ($drop as $course){
              if(in_array($course, $courses)){       //if user is enrolled
