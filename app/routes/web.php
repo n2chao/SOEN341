@@ -12,12 +12,17 @@
 */
 
 Route::get('/', function () {
+    //return view('landing');
     return view('landing');
 });
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+
 Route::get('/course', function(){
   return view('course');
 }); 
+
+Route::get('auth/facebook', 'FacebookController@facebookRedirect')->name('facebook.login');
+Route::get('auth/facebook/callback', 'FacebookController@facebookCallback');
