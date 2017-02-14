@@ -40,4 +40,11 @@ class User extends Authenticatable
     public function enrollments() {
         return $this->hasMany('App\Enrollment');
     }
+    
+    /**
+    * Check if a user is enrolled in a give course.
+    */
+//    public function isEnrolled('App\Course' as $course){
+//        
+//    }
 }

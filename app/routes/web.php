@@ -12,6 +12,7 @@
 */
 
 Route::get('/', function () {
+    //return view('landing');
     return view('landing');
 });
 
@@ -19,26 +20,25 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
-//NOTE it is best to achieve www.site.com/patrickspensieri/courses...
-
 //get all available courses
 Route::get('/allcourses', 'CourseController@index');
 
 
 
 
-//routes with auth
+//groups all routes requiring authentication
 Route::group(['middleware' => 'auth'], function () {
-    //get courses enrolled by the user
+    //GET courses user is enrolled in
     Route::get('/courses', 'EnrollmentController@index');
-    
-    //get form to create a new enrollment
-//    Route::get('/courses/enroll', 'EnrollmentController@create'); //missing course argument!!
 
-    //create new enrollment (returns view)
+    //GET view for enrolling in new courses
     Route::get('/courses/enroll', 'EnrollmentController@create');
-    //create new enrollment
+    
+    //POST enroll courses
     Route::post('/courses', 'EnrollmentController@store');
+    
+    //DELETE drop courses
+    Route::delete('/courses', 'EnrollmentController@destroy');
     
 });
 
