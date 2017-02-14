@@ -6,6 +6,7 @@ php:
   - 7.0
 
 before_script:
+  - cd app
   - composer self-update
   - composer install --no-interaction
 
