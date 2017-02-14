@@ -6,9 +6,10 @@ php:
 
 before_script:
   - cd app
+  - cd .env.example .env
+  - php artisan key:generate
   - composer self-update
   - composer install --no-interaction
-  - php artisan config:clear
 
 script:
   - vendor/bin/phpunit
