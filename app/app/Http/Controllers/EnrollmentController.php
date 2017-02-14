@@ -45,21 +45,25 @@ class EnrollmentController extends Controller
     }
     
     /**
-    * Adds courses to user's enrollment.
+    * Adds courses to user's enrollment. 
     * Responds to POST /courses
     */
     public function store() {
         $user = Auth::user();  //get authenticated user
-        $this->addCourses(request('add_course_id'));
-        $this->dropCourses(request('drop_course_id'));
+        $this->addCourses(request('add_course_ids'));
+        $this->dropCourses(request('drop_course_ids'));
 
         return redirect('/courses');  
     }
     
+    /**
+    * Helper function. Add courses specified in $data.
+    * @param $data array of course_id
+    */
     private function addCourses(array $data){
         $user = Auth::user();  //get authenticated user
         Validator::make($data, [
-            'add_course_id' => [
+            'add_course_ids' => [
                 'unique', 
                 'required',             //required
                 'integer',              //is an integer
@@ -70,14 +74,21 @@ class EnrollmentController extends Controller
         $courses = $user->courses->pluck('id')->toArray();  //create array of authenticated user's courses
         $add = array_diff($data, $courses);
         $add = array_unique($add);
-        $user->courses()->attach($add); //attach array of course_id to user
-        
+        foreach ($add as $course){
+            if(!$courses->cointains($course)){      //if user is not enrolled
+                $user->courses()->attach($course);  //attach course
+            }
+        }      
     }
     
+    /**
+    * Helper function. Drop courses specified in $data.
+    * @param $data array of course_id
+    */
     private function dropCourses(array $data){
         $user = Auth::user();  //get authenticated user
         Validator::make($data, [
-            'drop_course_id' => [
+            'drop_course_ids' => [
                 'required',             //required
                 'integer',              //is an integer
                 'exists:courses,id',    //exists in courses table, column id
@@ -87,9 +98,11 @@ class EnrollmentController extends Controller
         $courses = $user->courses->pluck('id')->toArray();  //create array of authenticated user's courses
         $drop = array_intersect($data, $courses);
         $drop = array_unique($drop);
-        $user->courses()->detach($drop); //detach array of course_id from user
-//        Session::flash('message', 'Successfully deleted courses!');
-        
+        foreach ($drop as $course){
+            if($courses->cointains($course)){       //if user is enrolled
+                $user->courses()->detach($course);  //detach course
+            }
+        }        
     }
     
     /**
@@ -113,7 +126,6 @@ class EnrollmentController extends Controller
 //        $courses = $user->courses->pluck('id')->toArray();  //create array of authenticated user's courses
 //        $drop = array_intersect($data, $courses);
 //        $user->courses()->detach($drop); //detach array of course_id from user
-//        Session::flash('message', 'Successfully deleted courses!');
 //        return redirect('/courses');  
 //    }
 }
