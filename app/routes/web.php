@@ -20,5 +20,19 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
+//GET all available courses
+Route::get('/allcourses', 'CourseController@index');
+
+//groups all routes requiring authentication
+Route::group(['middleware' => 'auth'], function () {
+
+    //GET view for enrolling in new courses
+    Route::get('/courses', 'EnrollmentController@create');
+    
+    //POST enroll courses
+    Route::post('/courses', 'EnrollmentController@store');    
+});
+
+//Facebook routes
 Route::get('auth/facebook', 'FacebookController@facebookRedirect')->name('facebook.login');
 Route::get('auth/facebook/callback', 'FacebookController@facebookCallback');
