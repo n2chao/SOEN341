@@ -10,7 +10,7 @@
 						<h3>Choose a Teacher or TA</h3>
 
 
-						<form id="instructor-names" method="GET" action="instructors/choosetime">
+						<form id="instructor-names" method="GET" action="/choosetime">
 
 							{{csrf_field()}}
 

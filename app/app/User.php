@@ -27,5 +27,26 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-   
+    
+    /**
+     * Get enrolled courses for user.
+     */
+    public function courses() {
+        return $this->belongsToMany('App\Course', 'enrollments');
+    }
+    
+    /**
+    * Get all enrollments for the user.
+    */
+    public function enrollments() {
+        return $this->hasMany('App\Enrollment');
+    }
+    
+    /**
+    * Check if a user is enrolled in a give course.
+    */
+//    public function isEnrolled('App\Course' as $course){
+//        
+//    }
+
 }
