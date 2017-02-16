@@ -1,4 +1,5 @@
 @extends('layouts.app')
+
 @section('extra-content')
 <div class="col-md-9">
               <div class="panel panel-default">

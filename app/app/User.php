@@ -26,6 +26,7 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
     
     /**
      * Get enrolled courses for user.
@@ -47,4 +48,5 @@ class User extends Authenticatable
 //    public function isEnrolled('App\Course' as $course){
 //        
 //    }
+
 }

@@ -17,8 +17,18 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-
 Route::get('/home', 'HomeController@index');
+
+Route::get('/chooseinstr', 'InstructorController@index');
+Route::get('/choosetime', 'InstructorController@show');
+
+
+
+//instructor meetings
+Route::get('instructors/chooseinstr', 'InstructorController@index');
+Route::get('instructors/choosetime', 'InstructorController@show');
+
+
 
 //GET all available courses
 Route::get('/allcourses', 'CourseController@index');
@@ -34,5 +44,8 @@ Route::group(['middleware' => 'auth'], function () {
 });
 
 //Facebook routes
+
 Route::get('auth/facebook', 'FacebookController@facebookRedirect')->name('facebook.login');
 Route::get('auth/facebook/callback', 'FacebookController@facebookCallback');
+
+
