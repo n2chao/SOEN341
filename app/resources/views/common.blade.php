@@ -35,7 +35,7 @@
              Find a Buddy </a>
            </li>
            <li>
-             <a href="#">
+             <a href="instructors/chooseinstr">
               Find an Instructor</a>
            </li>
            <li>
