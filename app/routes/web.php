@@ -17,4 +17,11 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');
+Route::group(['middleware' => ['auth']], function () {
+    Route::get('/home', 'HomeController@index');
+    Route::get('/schedule','ScheduleController@index');
+    Route::get('/schedule/create','ScheduleController@create');
+    Route::post('/schedule/create','ScheduleController@store');
+    Route::get('/schedule/edit','ScheduleController@edit');
+    Route::post('/schedule/edit','ScheduleController@update');
+});
