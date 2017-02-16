@@ -92,7 +92,6 @@
 
         <!--Footer-->
         <footer>THANKS FOR VISITING !</footer>
-
     </div>
 
 
