@@ -29,6 +29,10 @@ class ScheduleController extends Controller
      */
     public function create()
     {
+        $schedule = Schedule::where('user_id', Auth::id())->oldest()->first();
+        if(isset($schedule)) {
+          return redirect('schedule');
+        }
         return view( 'schedule.create' );
     }
 
