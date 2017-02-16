@@ -39,7 +39,7 @@
               Find an Instructor</a>
            </li>
            <li>
-             <a href="#">
+             <a href="{{url("schedule")}}">
               Edit Availabilities</a>
            </li>
            <li>
