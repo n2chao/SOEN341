@@ -43,7 +43,7 @@
               Edit Availabilities</a>
            </li>
            <li>
-             <a href="#">
+             <a href="/course">
               Edit Courses</a>
            </li>
          </ul>
