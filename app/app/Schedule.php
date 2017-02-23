@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Schedule extends Model
 {
     //
-    public function users(){
+    public function user(){
     	return $this->hasOne('App\User');
     }
 }

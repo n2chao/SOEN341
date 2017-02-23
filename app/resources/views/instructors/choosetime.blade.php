@@ -11,7 +11,9 @@
 						<form id="instructor-names" method="GET" action="#">
 							<div class="radio">
 								<h4>Times that match your free time.</h4>
-								<label><input type="radio" name="optradio">{{ $email }}</label></br>
+								@foreach ($availMatch as $match)
+									<label><input type="radio" name="match">{{ $match }}</label></br>
+								@endforeach
 								<h4>Other times the instructor is available.</h4>
 								<p>{TIMES GO HERE}</p>
 							</div>
