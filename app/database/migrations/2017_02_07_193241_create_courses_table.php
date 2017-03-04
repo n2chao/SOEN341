@@ -19,6 +19,16 @@ class CreateCoursesTable extends Migration
             $table->string('name');
             $table->timestamps();
         });
+
+        foreach(file('./storage/app/engineering_courses.csv') as $line) {
+            $line_ar = explode(",", $line);
+            DB::table('courses')->insert(
+                array(
+                    'code' => $line_ar[0],
+                    'name' => $line_ar[3]
+                )
+            );
+        }
     }
 
     /**

@@ -34,7 +34,7 @@ class EnrollmentController extends Controller
     }
     
     /**
-    * Returns for alowing user to add and drop courses.
+    * Returns for allowing user to add and drop courses.
     * Responds to GET /courses/enroll
     */
     public function create(){
@@ -55,8 +55,8 @@ class EnrollmentController extends Controller
         $user = Auth::user();  //get authenticated user
         //call addCourses and dropCourses helper methods
         $this->addCourses(request('add_course_ids'));
-        $this->dropCourses(request('drop_course_ids'));
-        return redirect('/courses');  
+        //$this->dropCourses(request('drop_course_ids'));
+        return redirect('/course');
     }
     
     /**
@@ -65,23 +65,61 @@ class EnrollmentController extends Controller
     */
     private function addCourses(array $data){
         $user = Auth::user();  //get authenticated user
-        Validator::make($data, [    //rule validation
+
+        foreach($data as $input){
+            $rules = Array('code' => 'required|exists:courses,code|unique:enrollments,course_id');
+            $v = validator::make(array('code'=>$input), $rules);
+            $failed = array();
+
+            if( $v->passes() ) {
+                # code for validation success!
+                $courses = $user->courses->pluck('id')->toArray();  //create array of authenticated user's courses
+                $add = array_diff($data, $courses);     //array of courses to be added
+                $add = array_unique($add);
+                foreach ($add as $course){
+                    if(!in_array($course, $courses)){      //if user is not enrolled
+                        $user->courses()->attach($course);  //attach course
+                    }
+                }
+            } else {
+                # code for validation failure
+                array_push($failed, $input);
+            }
+            if(count($failed) != 0){
+                $failed_courses = "Courses not added:";
+                foreach($failed as $code){
+                    $failed_courses = $failed_courses. '\n' . $code;
+                }
+                echo '<script language="javascript">';
+                echo 'alert('. $failed_courses .')';
+                echo '</script>';
+            }
+        }
+
+/*
+        $v = Validator::make($data, [    //rule validation
             'add_course_ids' => [
                 'unique',
                 'required',
                 'integer',
-                'exists:courses,id',    //exists in courses table, column id
+                'exists:courses,code',    //exists in courses table, column id
             ],
         ]);
-        //only add course if user is not already enrolled
-        $courses = $user->courses->pluck('id')->toArray();  //create array of authenticated user's courses
-        $add = array_diff($data, $courses);     //array of courses to be added
-        $add = array_unique($add);
-        foreach ($add as $course){
-            if(!in_array($course, $courses)){      //if user is not enrolled
-                $user->courses()->attach($course);  //attach course
+        if( $v->passes() ) {
+            # code for validation success!
+            //only add course if user is not already enrolled
+            $courses = $user->courses->pluck('id')->toArray();  //create array of authenticated user's courses
+            $add = array_diff($data, $courses);     //array of courses to be added
+            $add = array_unique($add);
+            foreach ($add as $course){
+                if(!in_array($course, $courses)){      //if user is not enrolled
+                    $user->courses()->attach($course);  //attach course
+                }
             }
-        }      
+        } else {
+            # code for validation failure
+        }
+*/
     }
     
     /**
