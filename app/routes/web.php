@@ -75,6 +75,16 @@ Route::group(['middleware' => ['auth']], function () {
   //instructor meetings
   Route::get('instructors/chooseinstr', 'InstructorController@index');
   Route::get('instructors/choosetime', 'InstructorController@show');
+    
+    //GET all meetings
+    Route::get('meetings','MeetingController@index');
+    
+    //POST new meeting
+    Route::post('instructorMeeting','MeetingController@store');
+    //GET specific meeting
+    Route::get('meetings/{meeting}', 'MeetingController@show');
+    //DELETE specific meeting
+    Route::delete('meetings/{meeting}', 'MeetingController@destroy')->name('meetings.destroy');
 });
 
 Route::get('/course', function(){

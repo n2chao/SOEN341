@@ -15,9 +15,9 @@ class InstructorController extends Controller
 	*/
     public function index()
     {
-    	$teachers = DB::table('users')->where('title', '=', 'teacher')->pluck('name');
+    	$teachers = DB::table('users')->where('title', '=', 'teacher')->pluck('id', 'name');
 
-    	$tas = DB::table('users')->where('title', '=', 'ta')->pluck('name');
+    	$tas = DB::table('users')->where('title', '=', 'ta')->pluck('id', 'name');
     
     	return view('instructors/chooseinstr', compact('teachers', 'tas'));
     }

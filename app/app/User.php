@@ -43,10 +43,11 @@ class User extends Authenticatable
     }
     
     /**
-    * Check if a user is enrolled in a give course.
+    * Get all the meetings associated with the user.
+    * Many-to-Many relationship.
     */
-//    public function isEnrolled('App\Course' as $course){
-//        
-//    }
+    public function meetings(){
+        return $this->belongsToMany('App\Meeting', 'attendances');
+    }
 
 }
