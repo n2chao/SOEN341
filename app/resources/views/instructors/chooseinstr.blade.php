@@ -9,13 +9,14 @@
 					<div class="panel-body">
 						<h3>Choose a Teacher or TA</h3>
 
-
+						
 						<form id="instructor-names" method="GET" action="/choosetime">
 
 							{{csrf_field()}}
 
 							<div class="radio">
 								<h4>Teachers</h4>
+
 								@foreach ($teachers as $teacher)
 									<label><input id="teacher-name" name="instructor" value="{{$teacher}}" type="radio">{{ $teacher }}</label></br>
 								@endforeach

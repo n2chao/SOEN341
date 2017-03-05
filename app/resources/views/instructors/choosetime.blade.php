@@ -7,8 +7,33 @@
 				<div class="panel panel-default">
 					<div class="panel-heading">Choose a Meeting Time</div>
 					<div class="panel-body">
-						<h3>Select a Time</h3>
-						<form id="instructor-names" method="GET" action="#">
+						<!-- Form for changing the week -->
+						<form id="changeWeek" method="GET" action="/choosetime">
+							{{csrf_field()}}
+
+							<div class="row">
+								<div class="col-md-3">
+									<p id="newWeek">From: <?php echo date("D, M d, Y", $week[0])?></p>
+								</div>
+								<div class="col-md-3">
+									<p id="newWeek">To: <?php echo date("D, M d, Y", $week[1])?></p>
+								</div>
+							</div>
+
+							<input type="hidden" name="instructor" value="{{$instructor}}">
+							<input type="hidden" name="weekStart" value="{{$week[0]}}">
+							<input type="hidden" name="weekEnd" value="{{$week[1]}}">
+
+							<div>
+								<button type="btn btn-default" name="prevWeek" value="prevWeek">Previous Week</button>  
+								<button type="btn btn-default" name="nextWeek" value="nextWeek">Next Week</button>
+							</div>
+						</form>
+						<!-- Form for selecting a meeting time -->
+						<form id="instructor-times" method="POST" action="/confirminstr">
+							{{csrf_field()}}
+							
+							<h3>Select a Time</h3>
 							<div class="radio">
 								<h4>Times that match your free time.</h4>
 								@foreach ($availMatch as $match)
