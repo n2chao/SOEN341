@@ -9,8 +9,8 @@
 					<div class="panel-body">
 						<h3>Choose a Teacher or TA</h3>
 
-
-						<form id="instructor-names" method="POST" action="/instructorMeeting">
+						<!-- <form id="instructor-names" method="POST" action="/instructorMeeting"> -->
+						<form id="instructor-names" method="GET" action="/choosetime">
 
 							{{csrf_field()}}
 
@@ -26,14 +26,14 @@
 								@endforeach
 							</div>
 
-							<button class="btn btn-default" type="submit" >Next</button>
+							<button class="btn btn-default" type="submit" value="selection" name="instructor-names-next">Next</button>
 
 						</form>
 
 
 					</div>
 				</div>
-			</div>	
+			</div>
 		</div>
 	</div>
 @endsection
