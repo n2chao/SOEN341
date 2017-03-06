@@ -47,5 +47,4 @@ Route::group(['middleware' => ['auth']], function () {
   //instructor meetings
   Route::get('instructors/chooseinstr', 'InstructorController@index');
   Route::get('/choosetime', 'matchTimeController@create');
-  Route::post('instructors/confirminstr', 'InstructorController@meeting');
 });

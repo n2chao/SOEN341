@@ -21,11 +21,11 @@ trait weekTraits
 		{
 			if(date("l")=="Saturday")
 			{
-				$week = array(strtotime("today"), strtotime("today"));
+				$week = array(strtotime("today"), strtotime("today +11 hours"));
 			}
 			else
 			{
-				$week = array(strtotime("today"), strtotime("next Saturday"));
+				$week = array(strtotime("tomorrow"), strtotime("next Saturday +11 hours"));
 			}
         	
 		}
@@ -71,7 +71,7 @@ trait weekTraits
 		}
 		else if(request('prevWeek') == "prevWeek")
 		{
-			if(strtotime("today") == $oldWeek[0]){
+			if(strtotime("tomorrow") == $oldWeek[0]){
 				return $oldWeek;
 			}
 			if(date("l", $oldWeek[0])=="Saturday")

@@ -48,6 +48,8 @@ class User extends Authenticatable
     public function schedule(){
         return $this->hasOne('App\Schedule');
     }
+
+   
     /**
     * Check if a user is enrolled in a give course.
     */

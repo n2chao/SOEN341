@@ -13,10 +13,10 @@
 
 							<div class="row">
 								<div class="col-md-3">
-									<p id="newWeek">From: <?php echo date("D, M d, Y", $week[0])?></p>
+									<p id="newWeek">From: <?php echo date("D, M d, Y H:i:s", $week[0])?></p>
 								</div>
 								<div class="col-md-3">
-									<p id="newWeek">To: <?php echo date("D, M d, Y", $week[1])?></p>
+									<p id="newWeek">To: <?php echo date("D, M d, Y H:i:s", $week[1])?></p>
 								</div>
 							</div>
 

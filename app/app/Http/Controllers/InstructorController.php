@@ -26,21 +26,5 @@ class InstructorController extends Controller
     
     	return view('instructors/chooseinstr', compact('teachers', 'tas'));
     }
-
-    /*
-        Displays free time matching with the student
-        and/or free time in given hours
-    */
-    public function show()
-
-    {
-
-       
-    }
-
-    public function meeting()
-    {
-
-    }
    
 }
