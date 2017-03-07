@@ -33,11 +33,13 @@
 						<form id="instructor-times" method="POST" action="/instructorMeeting">
 							{{csrf_field()}}
 
+							<input type="hidden" name="currentWeek" value="{{$week[0]}}">
+
 							<h3>Select a Time</h3>
 							<div class="radio">
 								<h4>Times that match your free time.</h4>
 								@foreach ($availMatch as $match)
-									<label><input type="radio" name="match">{{ $match }}</label></br>
+									<label><input type="radio" name="start_time" value="{{$match}}">{{ $match }}</label></br>
 								@endforeach
 								<h4>Other times the instructor is available.</h4>
 								<p>{TIMES GO HERE}</p>

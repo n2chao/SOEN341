@@ -20,7 +20,7 @@ class matchTimeController extends Controller
     {
         $userSchedule = Auth::user()->schedule->freetime;	//get authenticated user
         $instructor = User::find(request('instructor'));
-				$instrSchedule = $instructor->schedule->freetime;
+		$instrSchedule = $instructor->schedule->freetime;
         // $instrSchedule =  User::where('name', '=', request('instructor'))->first()->schedule->freetime; //getting the instructors free time
         $week = $this->week();
         $availMatch = $this->match($userSchedule, $instrSchedule);

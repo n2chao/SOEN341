@@ -24,8 +24,8 @@ trait MeetingTraits
         $meeting = new \App\Meeting();
         $meeting->course_id = $data->course_id;
         $meeting->instructorMeeting = $data->instructorMeeting;
-        $meeting->start_time = $data->start_time;
-        $meeting->end_time = $data->end_time;
+        $meeting->start_time = $data->meetingStart;
+        $meeting->end_time = $data->meetingEnd;
         $meeting->save();
         //attach authenticated user and professor to the meeting
         $meeting->users()->attach($user);

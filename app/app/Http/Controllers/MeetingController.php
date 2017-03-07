@@ -5,22 +5,32 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use \App\Http\Traits\MeetingTraits;
+use \App\Http\Traits\timeToWeekTraits;
 
 class MeetingController extends Controller
 {
     use MeetingTraits;
-
+    use timeToWeekTraits;
     /**
     * Create a new meeting
     * Responds to POST /instructorMeeting
     */
     public function store(Request $request){   
         $data = $request;
+
+        $meetingTime = $this->timeToWeek($data->currentWeek, $data->start_time);
+
         //arbitraty test values
         $data->course_id = 1;
-        $data->start_time = new \DateTime();
-        $data->end_time = new \DateTime();
+        $start = new \DateTime();
+        $start->setTimestamp($meetingTime);
+        $end = new \DateTime();
+        $end->setTimestamp(strtotime("+1 hour", $meetingTime));
+
+        $data->meetingStart = $start;
+        $data->meetingEnd = $end;
         $data->instructorMeeting = true;
+
         //createMeeting() defined in MeetingTraits
         $this->createMeeting($data);
         return redirect('home');
