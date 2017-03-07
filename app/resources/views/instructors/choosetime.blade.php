@@ -34,7 +34,7 @@
 							{{csrf_field()}}
 
 							<input type="hidden" name="currentWeek" value="{{$week[0]}}">
-
+							<input type="hidden" name="instructor" value="{{$instructor->id}}">
 							<h3>Select a Time</h3>
 							<div class="radio">
 								<h4>Times that match your free time.</h4>
