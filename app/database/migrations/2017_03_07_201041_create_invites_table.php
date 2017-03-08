@@ -14,11 +14,11 @@ class CreateInvitesTable extends Migration
     public function up()
     {
         Schema::create('invites', function (Blueprint $table) {
-          $table->increments('id');
-          $table->integer('request_id');
-          $table->integer('user_id');
-          $table->boolean('sender');  //boolean sender is true if user sent/created the request
-          $table->timestamps();
+            $table->increments('id');
+            $table->integer('request_id');
+            $table->integer('user_id');
+            $table->boolean('sender');  //boolean sender is true if user sent/created the request
+            $table->timestamps();
         });
     }
 
