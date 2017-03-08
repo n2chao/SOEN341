@@ -46,17 +46,14 @@ Auth::routes();
 //groups all routes requiring authentication
 Route::group(['middleware' => ['auth']], function () {
   //GET all available courses
-  Route::get('/allcourses', 'CourseController@index');
+  Route::get('allcourses', 'CourseController@index');
 
-  //GET view for enrolling in new courses
-  Route::get('/courses', 'EnrollmentController@create');
-  //POST enroll courses
-  Route::post('/courses', 'EnrollmentController@store');
-
-  //GET view for enrolling in new courses
-  Route::get('/course', 'EnrollmentController@create');
-  //POST enroll courses
-  Route::post('/course', 'EnrollmentController@store');
+  //Courses
+  Route::get('courses/course', 'EnrollmentController@index');
+  Route::get('courses/course/{code}', 'EnrollmentController@dropCourse');
+  Route::get('/course', 'EnrollmentController@create');     //GET view for enrolling in new courses
+  Route::post('/course', 'EnrollmentController@store');     //POST enroll courses
+  //end Courses
 
   //Schedules
   Route::get('/schedule','ScheduleController@index');
@@ -75,7 +72,3 @@ Route::group(['middleware' => ['auth']], function () {
   Route::get('instructors/chooseinstr', 'InstructorController@index');
   Route::get('instructors/choosetime', 'InstructorController@show');
 });
-
-Route::get('course', function(){
-    return view('courses/course');
- });
