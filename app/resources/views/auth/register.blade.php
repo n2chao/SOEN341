@@ -10,6 +10,18 @@
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">
                         {{ csrf_field() }}
 
+                        <div class="form-group">
+                          <label class="control-label col-sm-offset-2 col-sm-2" for="title">Register As</label>
+                          <div class="col-sm-6 col-md-4">
+                            <select id="title" class="form-control">
+                              <option value="Student">Student</option>
+                              <option value="TA">Teacher Assistant</option>
+                              <option value ="Teacher">Teacher</option>
+                            </select>
+                          </div>
+                        </div>
+
+
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                             <label for="name" class="col-md-4 control-label">Name</label>
 
