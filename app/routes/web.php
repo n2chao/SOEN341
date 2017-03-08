@@ -40,9 +40,9 @@ Route::group(['middleware' => 'auth'], function () {
 
     //GET view for enrolling in new courses
     Route::get('/courses', 'EnrollmentController@create');
-    
+
     //POST enroll courses
-    Route::post('/courses', 'EnrollmentController@store');    
+    Route::post('/courses', 'EnrollmentController@store');
 });
 
 //Facebook routes
@@ -75,8 +75,20 @@ Route::group(['middleware' => ['auth']], function () {
   //instructor meetings
   Route::get('instructors/chooseinstr', 'InstructorController@index');
   Route::get('instructors/choosetime', 'InstructorController@show');
+
+  //Find_Buddy
+  Route::get('/findBuddy','findBuddyController@index');
+//  Route::get('/schedule/create','ScheduleController@create');
+  // Route::post('/schedule/create','ScheduleController@store');
+  // Route::get('/schedule/edit','ScheduleController@edit');
+  // Route::post('/schedule/edit','ScheduleController@update');
+  // //End Find_buddy
 });
 
 Route::get('/course', function(){
     return view('course');
+
+
+
+
  });
