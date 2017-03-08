@@ -13,8 +13,8 @@ trait MeetingTraits
         $request = new \App\Request();
         $request->course_id = $data->course_id;
         // $request->instructorMeeting = false; assumed to be studentMeeting
-        $request->start_time = $data->meetingStart;
-        $request->end_time = $data->meetingEnd;
+        $request->start_time = $data->start_time;
+        $request->end_time = $data->end_time;
         $request->save();
         //attach authenticated user and other student to the request
         $request->users()->attach($user);
@@ -33,9 +33,9 @@ trait MeetingTraits
         //is() method compares primary keys of two objects being compared
         if($request->receiver->is($user)){
             //create the new meeting
-            //HERE
-            //review createMeetings() method, make it more abstract by removing
-            //the instructor? How to?
+            $data=clone($request);
+            $data->instructorMeeting = false;
+            $data->student = $request->sender;
         }
     }
 
@@ -45,6 +45,14 @@ trait MeetingTraits
      * @param  $request the meeting request
      */
     private function declineMeetingRequest(\App\Request $request){
+        $user = Auth::user();
+        //if sender or receiver of meeting request
+        if($request->receiver->is($user) || $request->sender->is($user)){
+            foreach($request->invites as $invite){
+                $invite->delete();
+            }
+            $request->delete();
+        }
 
     }
 
@@ -56,12 +64,17 @@ trait MeetingTraits
         $meeting = new \App\Meeting();
         $meeting->course_id = $data->course_id;
         $meeting->instructorMeeting = $data->instructorMeeting;
-        $meeting->start_time = $data->meetingStart;
-        $meeting->end_time = $data->meetingEnd;
+        $meeting->start_time = $data->start_time;
+        $meeting->end_time = $data->end_time;
         $meeting->save();
-        //attach authenticated user and professor to the meeting
+        //attach authenticated user and instructor XOR student to the meeting
         $meeting->users()->attach($user);
-        $meeting->users()->attach($data->instructor);
+        if($data->instructorMeeting){
+            $meeting->users()->attach($data->instructor);
+        }
+        else{
+            $meeting->users()->attach($data->student);
+        }
     }
 
     /**

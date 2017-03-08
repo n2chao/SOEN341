@@ -11,6 +11,7 @@ class MeetingController extends Controller
 {
     use MeetingTraits;
     use timeToWeekTraits;
+
     /**
     * Create a new meeting
     * Responds to POST /instructorMeeting
@@ -18,17 +19,17 @@ class MeetingController extends Controller
     public function store(Request $request){
         $data = clone($request);
         $meetingTime = $this->timeToWeek($data->currentWeek, $data->start_time);
-        //arbitraty test values
+        //arbitraty course_id value
         $data->course_id = 1;
+        //set meeting start and end times
         $start = new \DateTime();
         $start->setTimestamp($meetingTime);
         $end = new \DateTime();
         $end->setTimestamp(strtotime("+1 hour", $meetingTime));
-
-        $data->meetingStart = $start;
-        $data->meetingEnd = $end;
+        $data->start_time = $start;
+        $data->end_time = $end;
+        //set meeting type to instructorMeeting
         $data->instructorMeeting = true;
-
         //createMeeting() defined in MeetingTraits
         $this->createMeeting($data);
         return redirect('home');
