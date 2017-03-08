@@ -6,7 +6,7 @@ trait MeetingTraits
 {
     /**
      * Creates a new meeting request.
-     * @param  $data array containing relevant meeting request information.
+     * @param  $data object containing relevant meeting request information.
      */
      private function createMeetingRequest($data){
         $user = Auth::user();    //get authenticated user
@@ -30,7 +30,6 @@ trait MeetingTraits
     private function acceptMeetingRequest(\App\Request $request){
         $user = Auth::user();
         //if user is the receiver of the meeting request
-        //is() method compares primary keys of two objects being compared
         if($request->receiver->is($user)){
             //create the new meeting
             $data=clone($request);
@@ -56,8 +55,11 @@ trait MeetingTraits
 
     }
 
-    //create a new meeting
-    //$data array holds relevant fields and two users
+    /**
+     * Create a new meeting. Either a student-student meeting,
+     * or an instructor-student meeting.
+     * @param $data object containing relevant meeting information.
+     */
     private function createMeeting($data)
     {
         $user = Auth::user();  //get authenticated user
