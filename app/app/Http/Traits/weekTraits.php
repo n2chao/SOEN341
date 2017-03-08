@@ -59,28 +59,35 @@ trait weekTraits
 					default:
 						break;
 				}
+				$num = $num*24;
 			
-				$week = array(strtotime("+$num days", $oldWeek[0]), strtotime("+7 days", $oldWeek[1]));
+				$week = array(strtotime("+$num hours", $oldWeek[0]), strtotime("+168 hours", $oldWeek[1]));
 			}
 			else
 			{
-				$week = array(strtotime("+7 days", $oldWeek[0]), strtotime("+7 days", $oldWeek[1]));
+				$week = array(strtotime("+168 hours", $oldWeek[0]), strtotime("+168 hours", $oldWeek[1]));
 			}
 			
 		
 		}
+
 		else if(request('prevWeek') == "prevWeek")
 		{
-			if(strtotime("tomorrow") == $oldWeek[0]){
-				return $oldWeek;
-			}
-			if(date("l", $oldWeek[0])=="Saturday")
+			if(strtotime("tomorrow") == $oldWeek[0])
 			{
-				$week = array(strtotime("-6 days", $oldWeek[0]), $oldWeek[1]);
+				$week = $oldWeek;
+			}
+			else if(strtotime("tomorrow") > strtotime("-168 hours", $oldWeekStart))
+			{
+				$week = array(strtotime("tomorrow"), strtotime("-168 hours", $oldWeek[1]));
+			}
+			else if(date("l", $oldWeek[0])=="Saturday")
+			{
+				$week = $oldWeek;
 			}
 			else
 			{
-				$week = array(strtotime("last Sunday", $oldWeek[0]), strtotime("last Saturday", $oldWeek[1]));
+				$week = array(strtotime("-168 hours", $oldWeek[0]), strtotime("-168 hours", $oldWeek[1]));
 			}
 			
 		}

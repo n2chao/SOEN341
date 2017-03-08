@@ -8,13 +8,17 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Traits\matchTraits;
 use App\Http\Traits\weekTraits;
+use App\Http\Traits\truncateTraits;
+use App\Http\Traits\stringToDatesTraits;
+
 
 
 class matchTimeController extends Controller
 {
 	use matchTraits;
 	use weekTraits;
-
+    use truncateTraits;
+    use stringToDatesTraits;
 
     public function create()
     {
@@ -24,6 +28,8 @@ class matchTimeController extends Controller
         // $instrSchedule =  User::where('name', '=', request('instructor'))->first()->schedule->freetime; //getting the instructors free time
         $week = $this->week();
         $availMatch = $this->match($userSchedule, $instrSchedule);
-        return view('instructors/choosetime', compact('availMatch', 'week', 'instructor'));
+        $finalMatch = $this->truncate($availMatch, $week[0]);
+        
+        return view('instructors/choosetime', compact('finalMatch', 'week', 'instructor'));
     }
 }

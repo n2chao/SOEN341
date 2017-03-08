@@ -38,7 +38,7 @@
 							<h3>Select a Time</h3>
 							<div class="radio">
 								<h4>Times that match your free time.</h4>
-								@foreach ($availMatch as $match)
+								@foreach ($finalMatch as $match)
 									<label><input type="radio" name="start_time" value="{{$match}}">{{ $match }}</label></br>
 								@endforeach
 								<h4>Other times the instructor is available.</h4>
