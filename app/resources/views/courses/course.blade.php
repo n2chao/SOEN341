@@ -8,7 +8,7 @@
             @if(empty($userCourses))
               <p>You are not enrolled in any courses</p>
             @else
-              <table>
+              <table class="table table-hover">
                 @foreach($userCourses as $userCourse)
                   <tr>
                     <td class="course_row">
