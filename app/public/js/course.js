@@ -19,12 +19,8 @@ function addRow(tableID) {
 	var rowCount = table.rows.length;
 	if(rowCount < 7){
 		var row = table.insertRow(rowCount);
-		var colCount = table.rows[0].cells.length;
-		for(var i=0; i<colCount; i++) {
-			var newcell = row.insertCell(i);
-			newcell.innerHTML = table.rows[0].cells[i].innerHTML;
-
-		}
+		var newcell = row.insertCell(0);
+		newcell.innerHTML = '<tr><p><td><div class="form-group"><label for="course_name" class="col-md-4 control-label">Course Name: </label> <div class="col-md-6"> <input id="course_name" type="text" placeholder="i.e SOEN341" class="form-control" name="add_course_ids['+rowCount+']"> </div> <input type="button" value="Remove" onClick="deleteRow(\'dataTable\')" class="btn btn-primary btn-xs"  /> </div> </td></p> </tr>'
 	}else{
 		alert("You can only add up to 7 courses.");
 
@@ -37,7 +33,7 @@ function deleteRow(tableID) {
 	if(rowCount<=1){
 		alert("You must enter at least one course.")
 	}else{
-		document.getElementById(tableID).deleteRow(0);
+		document.getElementById(tableID).deleteRow(rowCount-1);
 		rowCount--;
 	}
 	/*var table = document.getElementById(tableID);

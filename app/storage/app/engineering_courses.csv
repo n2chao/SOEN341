@@ -1,0 +1,278 @@
+AERO201,AERO,201,Introduction to Flight and Aerospace System
+AERO371,AERO,371,Modelling and Control Systems
+AERO417,AERO,417,STNDRDS/REGUL N/CERTIF N
+AERO431,AERO,431,PRINCIPLES OF AEROELASTICITY
+AERO462,AERO,462,TURBOMACHINERY+PROPULSION
+AERO464,AERO,464,AERODYNAMICS
+AERO465,AERO,465,GAS TURBINE DESIGN
+AERO480,AERO,480,FLIGHT CONTROL SYSTEMS
+AERO482,AERO,482,AVIONIC NAVIGATION SYSTEMS
+AERO483,AERO,483,INTEGR. OF AVIONIC SYSTEMS
+AERO485,AERO,485,INTRO. TO SPACE SYSTEMS
+AERO486,AERO,486,AIRCRAFT STRESS ANALYSIS
+AERO487,AERO,487,DESIGN OF AIRCRAFT STRUCTURE
+BCEE231,BCEE,231,Structured Programming and Applications for Building and Civil Engineers
+BCEE342,BCEE,342,Structural Analysis I
+BCEE343,BCEE,343,Structural Analysis II
+BCEE344,BCEE,344,Structural Design I
+BCEE345,BCEE,345,Structural Design II
+BCEE371,BCEE,371,Surveying
+BCEE451,BCEE,451,Construction Engineering
+BCEE452,BCEE,452,Matrix Analysis of Structures
+BCEE455,BCEE,455,Introduction to Structural Dynamics
+BCEE464,BCEE,464,Project Cost Estimating
+BCEE465,BCEE,465,Construction Planning and Control
+BCEE466,BCEE,466,Simulations and Design of Construction Operations
+BLDG212,BLDG,212,Building Engineering Drawing and Introduction to Design
+BLDG341,BLDG,341,Building Engineering Systems
+BLDG365,BLDG,365,Building Science
+BLDG366,BLDG,366,Acoustics and Lighting
+BLDG371,BLDG,371,Building Service Systems
+BLDG390,BLDG,390,Building Engineering Design Project
+BLDG463,BLDG,463,Building Envelope Design
+BLDG465,BLDG,465,Fire and Smoke Control in Buildings
+BLDG471,BLDG,471,HVAC System Design
+BLDG474,BLDG,474,Building Illumination and Daylighting
+BLDG475,BLDG,475,Indoor Air Quality
+BLDG476,BLDG,476,Thermal Analysis of Buildings
+BLDG478,BLDG,478,Project Management for Construction
+BLDG482,BLDG,482,Impact of Technology on Society and Architecture
+BLDG490,BLDG,490,Capstone Building Engineering Design Project
+BLDG490A,BLDG,490A,Capstone Building Engineering Design Project
+BLDG490B,BLDG,490B,BLDG 490B Capstone Building Engineering Design Project
+BLDG491,BLDG,491,Labour and Industrial Relations in Construction
+BLDG492,BLDG,492,Construction Processes
+BLDG493,BLDG,493,Legal Issues in Construction
+BLDG498,BLDG,498,TOPICS/BLDG ENGINEERING
+CIVI212,CIVI,212,Civil Engineering Drawing and Introduction to Design
+CIVI231,CIVI,231,Geology for Civil Engineers
+CIVI321,CIVI,321,Engineering Materials
+CIVI341,CIVI,341,Civil Engineering Systems
+CIVI361,CIVI,361,Introduction to Environmental Engineering
+CIVI372,CIVI,372,Transportation Engineering
+CIVI381,CIVI,381,Hydraulics
+CIVI382,CIVI,382,Water Resources Engineering
+CIVI390,CIVI,390,Civil Engineering Design Project
+CIVI432,CIVI,432,Soil Mechanics
+CIVI435,CIVI,435,Foundation Design
+CIVI437,CIVI,437,Advanced Geotechnical Engineering
+CIVI453,CIVI,453,Design of Reinforced Concrete Structures
+CIVI454,CIVI,454,Design of Steel Structures
+CIVI464,CIVI,464,Environmental Impact Assessment
+CIVI465,CIVI,465,Water Pollution and Control
+CIVI466,CIVI,466,Engineering Aspects of Chemical and Biological Processes
+CIVI467,CIVI,467,Air Pollution and Emission Control
+CIVI468,CIVI,468,Waste Management
+CIVI471,CIVI,471,Highway and Pavement Design
+CIVI474,CIVI,474,Transportation Planning and Design
+CIVI484,CIVI,484,Hydraulic Engineering
+CIVI490,CIVI,490,Capstone Civil Engineering Design Project
+CIVI498,CIVI,498,Topics in Civil Engineering
+COEN212,COEN,212,Digital Systems Design I
+COEN231,COEN,231,Introduction to Discrete Mathematics
+COEN243,COEN,243,Programming Methodology I
+COEN244,COEN,244,Programming Methodology II
+COEN311,COEN,311,Computer Organization and Software
+COEN313,COEN,313,Digital Systems Design II
+COEN315,COEN,315,Digital Electronics
+COEN316,COEN,316,Computer Architecture and Design
+COEN317,COEN,317,Microprocessor Systems
+COEN320,COEN,320,Introduction to Real?Time Systems
+COEN346,COEN,346,Operating Systems
+COEN352,COEN,352,Data Structures and Algorithms
+COEN390,COEN,390,COMP. ENG. PROD DESIGN PROJ.
+COEN421,COEN,421,Embedded Systems and Software Design
+COEN445,COEN,445,Communication Networks and Protocols
+COEN451,COEN,451,VLSI Circuit Design
+COEN490,COEN,490,Capstone Computer Engineering Design Project
+COEN498,COEN,498,TOPICS/COMPUTER ENGINEERING
+COMP201,COMP,201,Introduction to Computing
+COMP207,COMP,207,COMP SCI INDUS EXPERIENCE II
+COMP208,COMP,208,Computer Science Industrial Experience Reflective Learning II
+COMP218,COMP,218,Fundamentals of Programming
+COMP228,COMP,228,System Hardware
+COMP232,COMP,232,Mathematics for Computer Science
+COMP233,COMP,233,Probability and Statistics for Computer Science
+COMP248,COMP,248,Object-Oriented Programming I
+COMP249,COMP,249,Object-Oriented Programming II
+COMP326,COMP,326,Computer Architecture
+COMP335,COMP,335,Introduction to Theoretical Computer Science
+COMP339,COMP,339,COMBINATORICS
+COMP345,COMP,345,ADVANCED PROGRAM DESIGN, C++
+COMP346,COMP,346,Operating Systems
+COMP348,COMP,348,Principles of Programming Languages
+COMP352,COMP,352,Data Structures and Algorithms
+COMP353,COMP,353,Databases
+COMP354,COMP,354,Introduction to Software Engineering
+COMP361,COMP,361,Elementary Numerical Methods
+COMP367,COMP,367,Techniques in Symbolic Computation
+COMP371,COMP,371,Computer Graphics
+COMP376,COMP,376,Introduction to Game Development
+COMP426,COMP,426,Multicore Programming
+COMP428,COMP,428,Parallel Programming
+COMP442,COMP,442,Compiler Design
+COMP445,COMP,445,Data Communication and Computer Networks
+COMP465,COMP,465,Design and Analysis of Algorithms
+COMP472,COMP,472,Artificial Intelligence
+COMP473,COMP,473,Pattern Recognition
+COMP474,COMP,474,Intelligent Systems
+COMP476,COMP,476,Advanced Game Development
+COMP477,COMP,477,Animation for Computer Games
+COMP478,COMP,478,Image Processing
+COMP479,COMP,479,Information Retrieval and Web Search
+COMP490,COMP,490,Computer Science Project I
+COMP492,COMP,492,Computer Science Project II
+COMP495,COMP,495,Honours Seminar
+COMP498,COMP,498,TOPICS IN COMPUTER SCIENCE
+ELEC242,ELEC,242,Continuous-Time Signals and Systems
+ELEC251,ELEC,251,Fundamentals of Applied Electromagnetics
+ELEC273,ELEC,273,Basic Circuit Analysis
+ELEC275,ELEC,275,Principles of Electrical Engineering
+ELEC311,ELEC,311,Electronics I
+ELEC312,ELEC,312,Electronics II
+ELEC321,ELEC,321,Introduction to Semiconductor Materials and Devices
+ELEC331,ELEC,331,Fundamentals of Electrical Power Engineering
+ELEC342,ELEC,342,Discrete-Time Signals and Systems
+ELEC351,ELEC,351,Electromagnetic Waves and Guiding Structures
+ELEC353,ELEC,353,Transmission Lines, Waves and Signal Integrity
+ELEC365,ELEC,365,Complex Variables and Partial Differential Equations
+ELEC367,ELEC,367,Introduction to Digital Communications
+ELEC372,ELEC,372,Fundamentals of Control Systems
+ELEC390,ELEC,390,ELEC. ENG. PROD DESIGN PROJ.
+ELEC421,ELEC,421,Solid State Devices
+ELEC424,ELEC,424,VLSI PROCESS TECHNOLOGY
+ELEC425,ELEC,425,Optical Devices for High?Speed Communications
+ELEC430,ELEC,430,Electrical Power Equipment
+ELEC431,ELEC,431,Electrical Power Systems
+ELEC432,ELEC,432,Control of Electrical Power Conversion Systems
+ELEC433,ELEC,433,Power Electronics
+ELEC434,ELEC,434,Behaviour of Power Systems
+ELEC435,ELEC,435,Electromechanical Energy Conversion Systems
+ELEC436,ELEC,436,Protection of Power Systems
+ELEC437,ELEC,437,Renewable Energy Systems
+ELEC438,ELEC,438,Industrial Electrical Systems
+ELEC440,ELEC,440,Controlled Electric Drives
+ELEC441,ELEC,441,Modern Analog Filter Design
+ELEC442,ELEC,442,Digital Signal Processing
+ELEC453,ELEC,453,Microwave Engineering
+ELEC456,ELEC,456,Antennas
+ELEC457,ELEC,457,Design of Wireless RF Systems
+ELEC458,ELEC,458,Techniques in Electromagnetic Compatibility
+ELEC463,ELEC,463,Telecommunication Networks
+ELEC464,ELEC,464,Wireless Communications
+ELEC466,ELEC,466,Introduction to Optical Communication Systems
+ELEC472,ELEC,472,Advanced Telecommunication Networks
+ELEC481,ELEC,481,Linear Systems
+ELEC482,ELEC,482,System Optimization
+ELEC483,ELEC,483,REAL-TIME COMPUTER CONTROL SYSTEM
+ELEC490,ELEC,490,Capstone Electrical Engineering Design Project
+ELEC498,ELEC,498,TOPICS IN ELECTR. ENG.
+ENCS272,ENCS,272,Composition and Argumentation for Engineers
+ENCS282,ENCS,282,Technical Writing and Communication
+ENCS393,ENCS,393,Social and Ethical Dimensions of Information and Communication Technologies
+ENCS483,ENCS,483,INN.&CRITICL THKNG SCI&TECH
+ENCS484,ENCS,484,DEVELOPMENT & GLOBAL ENGR
+ENCS498,ENCS,498,TOPICS IN ENGINEERING AND COMPUTER SCIENCE
+ENGR201,ENGR,201,Professional Practice and Responsibility
+ENGR202,ENGR,202,Sustainable Development and Environmental Stewardship
+ENGR207,ENGR,207,ENGR INDUS EXPERIENCE II
+ENGR208,ENGR,208,Engineering Industrial Experience Reflective Learning II
+ENGR213,ENGR,213,Applied Ordinary Differential Equations
+ENGR233,ENGR,233,Applied Advanced Calculus
+ENGR242,ENGR,242,Statics
+ENGR243,ENGR,243,Dynamics
+ENGR244,ENGR,244,Mechanics of Materials
+ENGR245,ENGR,245,Mechanical Analysis
+ENGR251,ENGR,251,Thermodynamics I
+ENGR290,ENGR,290,INTRO. ENGR TEAM DESIGN PROJ
+ENGR301,ENGR,301,Engineering Management Principles and Economics
+ENGR307,ENGR,307,ENGR INDUS EXPERIENCE III
+ENGR308,ENGR,308,Engineering Industrial Experience Reflective Learning III
+ENGR311,ENGR,311,Transform Calculus and Partial Differential Equations
+ENGR361,ENGR,361,Fluid Mechanics I
+ENGR371,ENGR,371,Probability and Statistics in Engineering
+ENGR391,ENGR,391,Numerical Methods in Engineering
+ENGR392,ENGR,392,Impact of Technology on Society
+ENGR411,ENGR,411,Special Technical Report
+ENGR412,ENGR,412,HONOURS RESEARCH PROJECT
+IADI301,IADI,301,Undergraduate Aerospace Industry Project I
+IADI401,IADI,401,Undergraduate Aerospace Industry Project II
+INDU211,INDU,211,Introduction to Production and Manufacturing Systems
+INDU311,INDU,311,Simulation of Industrial Systems
+INDU320,INDU,320,Production Engineering
+INDU321,INDU,321,Lean Manufacturing
+INDU323,INDU,323,Operations Research I
+INDU324,INDU,324,Operations Research II
+INDU330,INDU,330,Engineering Management
+INDU342,INDU,342,Logistics Network Models
+INDU371,INDU,371,Stochastic Models in Industrial Engineering
+INDU372,INDU,372,Quality Control and Reliability
+INDU410,INDU,410,Safety Engineering
+INDU411,INDU,411,Computer Integrated Manufacturing
+INDU412,INDU,412,Human Factors Engineering
+INDU421,INDU,421,Facilities Design and Material Handling Systems
+INDU423,INDU,423,Inventory Control
+INDU440,INDU,440,Product Design and Development
+INDU441,INDU,441,Introduction to Six Sigma
+INDU466,INDU,466,Decision Models in Service Sector
+INDU475,INDU,475,Advanced Concepts in Quality Improvement
+INDU480,INDU,480,Cases in Industrial Engineering
+INDU490,INDU,490,Capstone Industrial Engineering Design Project
+MECH211,MECH,211,Mechanical Engineering Drawing
+MECH215,MECH,215,Programming for Mechanical and Industrial Engineers
+MECH221,MECH,221,Materials Science
+MECH311,MECH,311,Manufacturing Processes
+MECH313,MECH,313,Machine Drawing and Design
+MECH321,MECH,321,Properties and Failure of Materials
+MECH343,MECH,343,Theory of Machines
+MECH344,MECH,344,Machine Element Design
+MECH351,MECH,351,Thermodynamics II
+MECH352,MECH,352,Heat Transfer I
+MECH361,MECH,361,Fluid Mechanics II
+MECH368,MECH,368,Electronics for Mechanical Engineers
+MECH370,MECH,370,Modelling, Simulation and Control Systems
+MECH375,MECH,375,Mechanical Vibrations
+MECH390,MECH,390,Mechanical Engineering Design Project
+MECH411,MECH,411,Instrumentation and Measurements
+MECH412,MECH,412,Computer?Aided Mechanical Design
+MECH414,MECH,414,Computer Numerically Controlled Machining
+MECH415,MECH,415,Advanced Programming for Mechanical and Industrial Engineers
+MECH421,MECH,421,Mechanical Shaping of Metals and Plastics
+MECH422,MECH,422,Mechanical Behaviour of Polymer Composite Materials
+MECH423,MECH,423,CAST/WELD/HEAT TREATING
+MECH424,MECH,424,MEMS � Design and Fabrication
+MECH425,MECH,425,Manufacturing of Composites
+MECH426,MECH,426,Stress and Failure Analysis of Machinery
+MECH447,MECH,447,Fundamentals of Vehicle System Design
+MECH448,MECH,448,Vehicle Dynamics
+MECH452,MECH,452,Heat Transfer II
+MECH453,MECH,453,Heating, Ventilation and Air Conditioning Systems
+MECH454,MECH,454,Vehicular Internal Combustion Engines
+MECH460,MECH,460,Finite Element Analysis
+MECH461,MECH,461,Gas Dynamics
+MECH471,MECH,471,Microcontrollers for Mechatronics
+MECH472,MECH,472,Mechatronics and Automation
+MECH473,MECH,473,Control System Design
+MECH474,MECH,474,Mechatronics
+MECH490A,MECH,490A,Capstone Mechanical Engineering Design Project
+MECH490B,MECH,490B,Capstone Mechanical Engineering Design Project
+MECH490C,MECH,490C,Capstone Mechanical Engineering Design Project
+SOEN228,SOEN,228,System Hardware
+SOEN287,SOEN,287,Web Programming
+SOEN321,SOEN,321,Information Systems Security
+SOEN331,SOEN,331,Introduction to Formal Methods for Software Engineering
+SOEN341,SOEN,341,Software Process
+SOEN342,SOEN,342,Software Requirements and Specifications
+SOEN343,SOEN,343,Software Architecture and Design I
+SOEN344,SOEN,344,Software Architecture and Design II
+SOEN345,SOEN,345,Software Testing, Verification and Quality Assurance
+SOEN357,SOEN,357,User Interface Design
+SOEN384,SOEN,384,Management, Measurement and Quality Control
+SOEN385,SOEN,385,Control Systems and Applications
+SOEN387,SOEN,387,Web-Based Enterprise Application Design
+SOEN390,SOEN,390,Software Engineering Team Design Project
+SOEN422,SOEN,422,Embedded Systems and Software
+SOEN423,SOEN,423,Distributed Systems
+SOEN487,SOEN,487,Web Services and Applications
+SOEN490,SOEN,490,Capstone Software Engineering Design Project
+SOEN498,SOEN,498,TOPICS/SOFTWARE ENGINEERING
