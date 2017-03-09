@@ -35,7 +35,6 @@ Route::get('instructors/choosetime', 'InstructorController@show');
 //GET all available courses
 Route::get('/allcourses', 'CourseController@index');
 
-
 //Facebook routes
 Route::get('auth/facebook', 'FacebookController@facebookRedirect')->name('facebook.login');
 Route::get('auth/facebook/callback', 'FacebookController@facebookCallback');
@@ -71,4 +70,12 @@ Route::group(['middleware' => ['auth']], function () {
   //instructor meetings
   Route::get('instructors/chooseinstr', 'InstructorController@index');
   Route::get('instructors/choosetime', 'InstructorController@show');
+
+  //Find_Buddy
+  Route::get('/findBuddy','findBuddyController@index');
+//  Route::get('/schedule/create','ScheduleController@create');
+  // Route::post('/schedule/create','ScheduleController@store');
+  // Route::get('/schedule/edit','ScheduleController@edit');
+  // Route::post('/schedule/edit','ScheduleController@update');
+  // //End Find_buddy
 });
