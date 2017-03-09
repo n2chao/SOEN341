@@ -44,7 +44,7 @@
                         <p><input type="text" class="form-control" id="drop_course_ids" placeholder="Enter course_id" name="drop_course_ids[1]" ></p>
                         <p><input type="text" class="form-control" id="drop_course_ids" placeholder="Enter course_id" name="drop_course_ids[2]"></p>
                       </div>
-                      <button type="submit" class="btn btn-primary">Submit</button>
+                      <button type="submit" class="btn-primary">Submit</button>
                     </form>
                 </div>
             </div>
