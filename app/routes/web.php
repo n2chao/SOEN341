@@ -35,6 +35,7 @@ Route::get('instructors/choosetime', 'InstructorController@show');
 //GET all available courses
 Route::get('/allcourses', 'CourseController@index');
 
+
 //groups all routes requiring authentication
 Route::group(['middleware' => 'auth'], function () {
 
@@ -45,19 +46,25 @@ Route::group(['middleware' => 'auth'], function () {
     Route::post('/courses', 'EnrollmentController@store');
 });
 
+
 //Facebook routes
 Route::get('auth/facebook', 'FacebookController@facebookRedirect')->name('facebook.login');
 Route::get('auth/facebook/callback', 'FacebookController@facebookCallback');
 
+
 Auth::routes();
 
+//groups all routes requiring authentication
 Route::group(['middleware' => ['auth']], function () {
   //GET all available courses
-  Route::get('/allcourses', 'CourseController@index');
-  //GET view for enrolling in new courses
-  Route::get('/courses', 'EnrollmentController@create');
-  //POST enroll courses
-  Route::post('/courses', 'EnrollmentController@store');
+  Route::get('allcourses', 'CourseController@index');
+
+  //Courses
+  Route::get('courses/course', 'EnrollmentController@index');
+  Route::get('courses/course/{code}', 'EnrollmentController@dropCourse');
+  Route::get('/course', 'EnrollmentController@create');     //GET view for enrolling in new courses
+  Route::post('/course', 'EnrollmentController@store');     //POST enroll courses
+  //end Courses
 
   //Schedules
   Route::get('/schedule','ScheduleController@index');
@@ -89,6 +96,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/choosetime', 'matchTimeController@create');
 });
 
+
 Route::get('/course', function(){
     return view('course');
  });
+
