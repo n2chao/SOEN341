@@ -5,12 +5,18 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use \App\Http\Traits\MeetingTraits;
-use \App\Http\Traits\timeToWeekTraits;
+use App\Http\Traits\matchTraits;
+use App\Http\Traits\weekTraits;
+use App\Http\Traits\truncateTraits;
+use App\Http\Traits\stringToDatesTraits;
 
 class RequestController extends Controller
 {
     use MeetingTraits;
-    use timeToWeekTraits;
+    use matchTraits;
+    use weekTraits;
+    use truncateTraits;
+    use stringToDatesTraits;
 
     /**
      * Create a new meeting request.
@@ -33,6 +39,30 @@ class RequestController extends Controller
         //createMeetingRequest() defined in MeetingTraits
         $this->createMeetingRequest($data);
         return redirect('home');
+    }
+
+    /**
+    * Return the form containing matched students for the selected course.
+    * @param  $request the GET request
+    */
+    public function create(Request $request){
+        $user = Auth::user();                           //get authenticated user
+        $course = \App\Course::find($request->course);  //get selected course
+        $students = $course->users->where('title', 'student')->except($user->id);  //get all classmates
+        $matches = [];          //array of matching times corresponding to each student
+        $week = $this->week();
+        foreach($students as $student){
+            //get available matches for authenticated user and student
+            $availMatch = $this->match($user->schedule, $student->schedule);
+            $truncatedMatch = $this->truncate($availMatch, $week[0]);
+            if(count($truncatedMatch) > 0){                         //if at least one match
+                $matches[(string)$student->id] = $truncatedMatch;   //add to matches
+            }
+            else{
+                $students->forget($student->id);                    //remove student from collection
+            }
+        }
+        return view('students/choosestudenttime', compact('students', 'matches', 'week', 'course'));
     }
 
     /**

@@ -2,18 +2,22 @@
 
 namespace App\Http\Traits;
 
-use DB;
-use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-
 trait matchTraits
 {
-    
     public function match($userSchedule, $instrSchedule)
     {
-        //avoid hardcoding values
+        // $matchTime = [];
+        // for($i = 0; $i < strlen($schedule1); $i++){
+        //     if($schedule1[$i] == 1 && $schedule2[$i] == 1){
+        //         $matchTime[$i] = 1;
+        //     }
+        //     else{
+        //         $matchTime[$i] = 0;
+        //     }
+        // }
         for($x = 0; $x < 168; ) //itterates through each character in the bit string
         {
             $userBit = substr($userSchedule, $x, 1); //inspects one bit of the users free time
@@ -29,8 +33,6 @@ trait matchTraits
                 $x++;
             }
         }
-        
-        
         return $matchTime;
     }
 }

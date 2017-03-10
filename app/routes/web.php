@@ -19,19 +19,6 @@ Route::get('/', function () {
 Auth::routes();
 Route::get('/home', 'HomeController@index');
 
-
-
-Route::get('/chooseinstr', 'InstructorController@index');
-Route::get('/choosetime', 'InstructorController@show');
-
-
-
-//instructor meetings
-Route::get('instructors/chooseinstr', 'InstructorController@index');
-Route::get('instructors/choosetime', 'InstructorController@show');
-
-
-
 //GET all available courses
 Route::get('/allcourses', 'CourseController@index');
 
@@ -69,24 +56,29 @@ Route::group(['middleware' => ['auth']], function () {
 
   Route::get('/home', 'HomeController@index');
 
-  Route::get('/chooseinstr', 'InstructorController@index');
-  Route::get('/choosetime', 'InstructorController@show');
 
   //instructor meetings
   Route::get('instructors/chooseinstr', 'InstructorController@index');
-  Route::get('instructors/choosetime', 'InstructorController@show');
+  Route::get('/choosetime', 'matchTimeController@create');
 
-    //GET all meetings
+    //GET all meetings (student or instructor)
     Route::get('meetings','MeetingController@index');
-
-    //POST new meeting
+    //POST new meeting (instructor only)
     Route::post('instructorMeeting','MeetingController@store');
-    //GET specific meeting
+    //GET specific meeting (student or instructor)
     Route::get('meetings/{meeting}', 'MeetingController@show');
-    //DELETE specific meeting
+    //DELETE specific meeting (student or instructor) (named route to send DELETE request)
     Route::delete('meetings/{meeting}', 'MeetingController@destroy')->name('meetings.destroy');
-
-    Route::get('/choosetime', 'matchTimeController@create');
+    //GET all enrolled courses for student
+    Route::get('requests', 'StudentController@index');
+    //GET form for creating student meeting request for given course
+    Route::get('requests/create', 'RequestController@create');
+    //POST to create new student meeting request
+    Route::post('requests/create', 'RequestContoller@store');
+    //DELETE specific meeting request (named route to send DELETE request)
+    Route::delete('requests/{request}', 'RequestController@destroy')->name('requests.destroy');
+    //GET specific meeting request
+    Route::get('requests/{request}', 'RequestController@show');
 });
 
 Route::get('/course', function(){
