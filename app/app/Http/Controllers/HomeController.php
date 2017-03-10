@@ -27,8 +27,9 @@ class HomeController extends Controller
     public function index()
     {
         $user = Auth::user();
-        //pass user's meetings to home view
+        //pass user's meetings and meeting requests to home view
         $meetings = $user->meetings;
-        return view('home', compact('meetings'));
+        $requests = $user->requests;
+        return view('home', compact('meetings', 'requests'));
     }
 }

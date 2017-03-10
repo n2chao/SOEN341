@@ -61,7 +61,7 @@ class RequestController extends Controller
         foreach($students as $student){
             //get available matches for authenticated user and student
             $availMatch = $this->match($user->schedule, $student->schedule);
-            //HERE MUST BE WEEK[0] ... temporary to avoid bug
+            //HERE MUST BE WEEK[0] ... temporary change to avoid bug
             $truncatedMatch = $this->truncate($availMatch, $week[1]);
             //is count() sufficient to check if at least one match?
             if(count($truncatedMatch) > 0){                         //if at least one match

@@ -51,10 +51,17 @@ class User extends Authenticatable
 
 
     /**
-    * Check if a user is enrolled in a give course.
+    * Get all meetings where user is an attendee.
     */
     public function meetings(){
         return $this->belongsToMany('App\Meeting', 'attendances');
+    }
+
+    /**
+    * Get all meeting requests where user is an attendee.
+    */
+    public function requests(){
+        return $this->belongsToMany('App\Request', 'invites');
     }
 
 }

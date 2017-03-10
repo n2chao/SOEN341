@@ -46,13 +46,13 @@ trait MeetingTraits
     private function declineMeetingRequest(\App\Request $request){
         $user = Auth::user();
         //if sender or receiver of meeting request
-        if($request->receiver->is($user) || $request->sender->is($user)){
+        // if($request->receiver->is($user) || $request->sender->is($user)){
+        if($request->users->contains($user)){
             foreach($request->invites as $invite){
                 $invite->delete();
             }
             $request->delete();
         }
-
     }
 
     /**

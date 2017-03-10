@@ -79,6 +79,8 @@ Route::group(['middleware' => ['auth']], function () {
     Route::delete('requests/{request}', 'RequestController@destroy')->name('requests.destroy');
     //GET specific meeting request
     Route::get('requests/{request}', 'RequestController@show');
+    //GET to accept a meeting request
+    Route::get('requests/{request}/accept', 'RequestController@accept');
 });
 
 Route::get('/course', function(){
