@@ -48,3 +48,29 @@ Route::group(['middleware' => ['auth']], function () {
   Route::get('instructors/chooseinstr', 'InstructorController@index');
   Route::get('instructors/choosetime', 'InstructorController@show');
 });
+
+Route::group(['middleware' => ['install']], function () {
+  //GET all available courses
+  Route::get('/allcourses', 'CourseController@index');
+  //GET view for enrolling in new courses
+  // Route::get('/courses', 'EnrollmentController@create');
+  //POST enroll courses
+  // Route::post('/courses', 'EnrollmentController@store');
+
+  //Schedules
+  Route::get('/schedule','ScheduleController@index');
+  // Route::get('/schedule/create','ScheduleController@create');
+  // Route::post('/schedule/create','ScheduleController@store');
+  Route::get('/schedule/edit','ScheduleController@edit');
+  Route::post('/schedule/edit','ScheduleController@update');
+  //End Schedule
+
+  Route::get('/home', 'HomeController@index');
+
+  Route::get('/chooseinstr', 'InstructorController@index');
+  Route::get('/choosetime', 'InstructorController@show');
+
+  //instructor meetings
+  Route::get('instructors/chooseinstr', 'InstructorController@index');
+  Route::get('instructors/choosetime', 'InstructorController@show');
+});
