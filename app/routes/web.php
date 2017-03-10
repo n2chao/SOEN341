@@ -96,7 +96,6 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/choosetime', 'matchTimeController@create');
 });
 
-<<<<<<< HEAD
 Route::group(['middleware' => ['install']], function () {
   //GET all available courses
   Route::get('/allcourses', 'CourseController@index');
@@ -122,10 +121,7 @@ Route::group(['middleware' => ['install']], function () {
   Route::get('instructors/chooseinstr', 'InstructorController@index');
   Route::get('instructors/choosetime', 'InstructorController@show');
 });
-=======
 
 Route::get('/course', function(){
     return view('course');
  });
-
->>>>>>> c2f400f7633a80560d569e9c65d7c5064183f76d
