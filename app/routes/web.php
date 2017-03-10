@@ -121,7 +121,3 @@ Route::group(['middleware' => ['install']], function () {
   Route::get('instructors/chooseinstr', 'InstructorController@index');
   Route::get('instructors/choosetime', 'InstructorController@show');
 });
-
-Route::get('/course', function(){
-    return view('course');
- });
