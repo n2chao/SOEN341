@@ -80,7 +80,7 @@ Route::group(['middleware' => ['auth']], function () {
     //GET specific meeting request
     Route::get('requests/{request}', 'RequestController@show');
     //GET to accept a meeting request
-    Route::get('requests/{request}/accept', 'RequestController@accept');
+    Route::get('requests/{request}/accept', 'RequestController@accept')->name('requests.accept');;
 });
 
 Route::get('/course', function(){

@@ -55,6 +55,12 @@
                     {{ Form::open(['method' => 'DELETE', 'route' => ['requests.destroy', $request->id]]) }}
                     {{ Form::submit('Close Meeting Request', ['class' => 'btn btn-danger']) }}
                     {{ Form::close() }}
+                    @if($request->receiver()->is(Auth::user()))
+                    <p></p>
+                    {{ Form::open(['method' => 'GET', 'route' => ['requests.accept', $request->id]]) }}
+                    {{ Form::submit('Accept Meeting Request', ['class' => 'btn btn-default']) }}
+                    {{ Form::close() }}
+                    @endif
                       <p>--------------------------------------</p>
                       @endforeach
                   </div>

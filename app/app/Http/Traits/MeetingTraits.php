@@ -30,11 +30,16 @@ trait MeetingTraits
     private function acceptMeetingRequest(\App\Request $request){
         $user = Auth::user();
         //if user is the receiver of the meeting request
-        if($request->receiver->is($user)){
+        if($request->receiver()->is($user)){
             //create the new meeting
             $data=clone($request);
             $data->instructorMeeting = false;
-            $data->student = $request->sender;
+            $data->student = $request->sender();
+            $this->createMeeting($data);
+            foreach($request->invites as $invite){
+                $invite->delete();
+            }
+            $request->delete();
         }
     }
 
@@ -46,7 +51,6 @@ trait MeetingTraits
     private function declineMeetingRequest(\App\Request $request){
         $user = Auth::user();
         //if sender or receiver of meeting request
-        // if($request->receiver->is($user) || $request->sender->is($user)){
         if($request->users->contains($user)){
             foreach($request->invites as $invite){
                 $invite->delete();
