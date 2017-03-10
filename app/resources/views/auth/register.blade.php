@@ -10,6 +10,18 @@
                     <form class="form-horizontal" role="form" method="POST" action="{{ url('/register') }}">
                         {{ csrf_field() }}
 
+                        <div class="form-group">
+                          <label class="control-label col-sm-offset-2 col-sm-2" for="title">Register As</label>
+                          <div class="col-sm-6 col-md-4">
+                            <select id="title" name="title" class="form-control">
+                              <option id="student"  value="student">Student</option>
+                              <option id="ta"  value="ta">Teacher Assistant</option>
+                              <option id="teacher"  value ="teacher">Teacher</option>
+                            </select>
+                          </div>
+                        </div>
+
+
                         <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                             <label for="name" class="col-md-4 control-label">Name</label>
 
@@ -67,16 +79,6 @@
                                 </button>
                                 <!--Register with Facebook-->
                                 <a href="{{route('facebook.login')}}" class="btn btn-primary">Register with Facebook</a>
-                            </div>
-                        </div>
-                    </form>
-                    <!--Register with Facebook-->
-                     <form id="fb-login" class="form-horizontal" role="form" method="POST" action="">
-                        <div class="form-group">
-                            <div class="col-md-8 col-md-offset-4">
-                                <button type="submit" class="btn btn-primary">
-                                    Register with Facebook
-                                </button>
                             </div>
                         </div>
                     </form>

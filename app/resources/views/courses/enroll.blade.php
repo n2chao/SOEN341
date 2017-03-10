@@ -17,7 +17,7 @@
                     @endif
                     </div>
             </div>
-            
+
             <!-- Enrolled courses-->
             <div class="panel panel-default">
                 <div class="panel-body">
@@ -38,13 +38,13 @@
                         {{csrf_field()}}
                       <div class="form-group">
                         <label for="course_id">MOCK_UI : Add Course</label>
-                        <p><input type="number" class="form-control" id="add_course_ids" placeholder="Enter course_id" name="add_course_ids[1]" required></p>
-                        <p><input type="number" class="form-control" id="add_course_ids" placeholder="Enter course_id" name="add_course_ids[2]"></p>
+                        <p><input type="text" class="form-control" id="add_course_ids" placeholder="Enter course_id" name="add_course_ids[1]" required></p>
+                        <p><input type="text" class="form-control" id="add_course_ids" placeholder="Enter course_id" name="add_course_ids[2]"></p>
                         <label for="drop_course_id">MOCK_UI : Delete Course</label>
-                        <p><input type="number" class="form-control" id="drop_course_ids" placeholder="Enter course_id" name="drop_course_ids[1]" ></p>
-                        <p><input type="number" class="form-control" id="drop_course_ids" placeholder="Enter course_id" name="drop_course_ids[2]"></p>
+                        <p><input type="text" class="form-control" id="drop_course_ids" placeholder="Enter course_id" name="drop_course_ids[1]" ></p>
+                        <p><input type="text" class="form-control" id="drop_course_ids" placeholder="Enter course_id" name="drop_course_ids[2]"></p>
                       </div>
-                      <button type="submit" class="btn btn-primary">Submit</button>
+                      <button type="submit" class="btn-primary">Submit</button>
                     </form>
                 </div>
             </div>

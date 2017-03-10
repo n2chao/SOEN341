@@ -35,7 +35,7 @@
              Find a Buddy </a>
            </li>
            <li>
-             <a href="instructors/chooseinstr">
+             <a href="/instructors/chooseinstr">
               Find an Instructor</a>
            </li>
            <li>
@@ -43,7 +43,7 @@
               Edit Availabilities</a>
            </li>
            <li>
-             <a href="#">
+             <a href="/courses/course">
               Edit Courses</a>
            </li>
          </ul>

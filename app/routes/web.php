@@ -16,20 +16,55 @@ Route::get('/', function () {
     return view('landing');
 });
 
-//Facebook routes
+Auth::routes();
+Route::get('/home', 'HomeController@index');
 
+
+
+Route::get('/chooseinstr', 'InstructorController@index');
+Route::get('/choosetime', 'InstructorController@show');
+
+
+
+//instructor meetings
+Route::get('instructors/chooseinstr', 'InstructorController@index');
+Route::get('instructors/choosetime', 'InstructorController@show');
+
+
+
+//GET all available courses
+Route::get('/allcourses', 'CourseController@index');
+
+
+//groups all routes requiring authentication
+Route::group(['middleware' => 'auth'], function () {
+
+    //GET view for enrolling in new courses
+    Route::get('/courses', 'EnrollmentController@create');
+
+    //POST enroll courses
+    Route::post('/courses', 'EnrollmentController@store');
+});
+
+
+//Facebook routes
 Route::get('auth/facebook', 'FacebookController@facebookRedirect')->name('facebook.login');
 Route::get('auth/facebook/callback', 'FacebookController@facebookCallback');
 
+
 Auth::routes();
 
+//groups all routes requiring authentication
 Route::group(['middleware' => ['auth']], function () {
   //GET all available courses
-  Route::get('/allcourses', 'CourseController@index');
-  //GET view for enrolling in new courses
-  Route::get('/courses', 'EnrollmentController@create');
-  //POST enroll courses
-  Route::post('/courses', 'EnrollmentController@store');
+  Route::get('allcourses', 'CourseController@index');
+
+  //Courses
+  Route::get('courses/course', 'EnrollmentController@index');
+  Route::get('courses/course/{code}', 'EnrollmentController@dropCourse');
+  Route::get('/course', 'EnrollmentController@create');     //GET view for enrolling in new courses
+  Route::post('/course', 'EnrollmentController@store');     //POST enroll courses
+  //end Courses
 
   //Schedules
   Route::get('/schedule','ScheduleController@index');
@@ -47,8 +82,21 @@ Route::group(['middleware' => ['auth']], function () {
   //instructor meetings
   Route::get('instructors/chooseinstr', 'InstructorController@index');
   Route::get('instructors/choosetime', 'InstructorController@show');
+
+    //GET all meetings
+    Route::get('meetings','MeetingController@index');
+
+    //POST new meeting
+    Route::post('instructorMeeting','MeetingController@store');
+    //GET specific meeting
+    Route::get('meetings/{meeting}', 'MeetingController@show');
+    //DELETE specific meeting
+    Route::delete('meetings/{meeting}', 'MeetingController@destroy')->name('meetings.destroy');
+
+    Route::get('/choosetime', 'matchTimeController@create');
 });
 
+<<<<<<< HEAD
 Route::group(['middleware' => ['install']], function () {
   //GET all available courses
   Route::get('/allcourses', 'CourseController@index');
@@ -74,3 +122,10 @@ Route::group(['middleware' => ['install']], function () {
   Route::get('instructors/chooseinstr', 'InstructorController@index');
   Route::get('instructors/choosetime', 'InstructorController@show');
 });
+=======
+
+Route::get('/course', function(){
+    return view('course');
+ });
+
+>>>>>>> c2f400f7633a80560d569e9c65d7c5064183f76d
