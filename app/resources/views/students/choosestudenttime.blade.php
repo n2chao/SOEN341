@@ -29,6 +29,7 @@
 						</form>
                         <!-- Form for selecting a meeting time -->
 						<form method="POST" action="/requests/create">
+							<input type="hidden" name="course_id" value="{{$course->id}}">
                             <input type="hidden" name="currentWeek" value="{{$week[0]}}">
                             {{csrf_field()}}
 							<div class="radio">
@@ -36,7 +37,8 @@
                                 @foreach ($students as $student)
                                     <h4>{{$student->name}}</h4>
                                     @foreach ($matches[$student->id] as $match)
-                                    <label><input name="match" value="{{$match}}" type="radio">{{ $match }}</label></br>
+									<!-- serialization allows array to be passed as value. Any better ways of associating selected time with corresponding student->id? -->
+                                    <label><input name="studentid_starttime_serialized_array" value="{{serialize(array($match, $student->id))}}" type="radio">{{ $match }}</label></br>
                                     @endforeach
                                 @endforeach
 							</div>

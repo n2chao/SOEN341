@@ -74,7 +74,7 @@ Route::group(['middleware' => ['auth']], function () {
     //GET form for creating student meeting request for given course
     Route::get('requests/create', 'RequestController@create');
     //POST to create new student meeting request
-    Route::post('requests/create', 'RequestContoller@store');
+    Route::post('requests/create', 'RequestController@store');
     //DELETE specific meeting request (named route to send DELETE request)
     Route::delete('requests/{request}', 'RequestController@destroy')->name('requests.destroy');
     //GET specific meeting request

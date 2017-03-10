@@ -17,8 +17,8 @@ trait MeetingTraits
         $request->end_time = $data->end_time;
         $request->save();
         //attach authenticated user and other student to the request
-        $request->users()->attach($user);
-        $request->users()->attach($data->student);
+        $request->users()->attach($user, ['sender' => true]);
+        $request->users()->attach($data->student, ['sender' => false]);
    }
 
     /**
