@@ -28,6 +28,7 @@ class matchTimeController extends Controller
         // $instrSchedule =  User::where('name', '=', request('instructor'))->first()->schedule->freetime; //getting the instructors free time
         $week = $this->week();
         $availMatch = $this->match($userSchedule, $instrSchedule);
+        
         $finalMatch = $this->truncate($availMatch, $week[0]);
         
         return view('instructors/choosetime', compact('finalMatch', 'week', 'instructor'));
