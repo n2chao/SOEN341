@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateEnrollmentsTable extends Migration
+class CreateInvitesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class CreateEnrollmentsTable extends Migration
      */
     public function up()
     {
-        Schema::create('enrollments', function (Blueprint $table) {
+        Schema::create('invites', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('course_id');
+            $table->integer('request_id');
             $table->integer('user_id');
+            $table->boolean('sender');  //boolean sender is true if user sent/created the request
             $table->timestamps();
         });
     }
@@ -28,6 +29,6 @@ class CreateEnrollmentsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('enrollments');
+        Schema::dropIfExists('invites');
     }
 }

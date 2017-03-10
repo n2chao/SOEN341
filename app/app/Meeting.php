@@ -13,7 +13,7 @@ class Meeting extends Model
     public function course(){
         return $this->hasOne('App/Course');
     }
-    
+
     /**
     * Get all the users associated with the meeting.
     * Many-to-Many relationship.
@@ -21,9 +21,9 @@ class Meeting extends Model
     public function users(){
         return $this->belongsToMany('App\User', 'attendances');
     }
-    
+
     /**
-    * Return all meeting attendees.
+    * Return all meeting attendances.
     */
     public function attendances(){
         return $this->hasMany('App\Attendance');
