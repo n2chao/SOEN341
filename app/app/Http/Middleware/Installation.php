@@ -20,7 +20,7 @@ class Installation
     {
       $enrollments= Enrollment::where( 'user_id', Auth::id() )->oldest()->first();
       if( !isset($enrollments) ) {
-        return redirect('course');
+        return redirect('courses/course');
       }
 
       $schedule = Schedule::where( 'user_id', Auth::id() )->oldest()->first();
