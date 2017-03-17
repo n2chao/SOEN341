@@ -34,7 +34,8 @@ class Request extends Model
     * @return User
     */
     public function sender(){
-        return $this->invites->where('sender', true);
+        $id = $this->invites->where('sender', true)->first()->user_id;
+        return \App\User::find($id);
     }
 
     /**
@@ -42,6 +43,7 @@ class Request extends Model
      * @return User
      */
     public function receiver(){
-        return $this->invites->where('sender', false);
+        $id = $this->invites->where('sender', false)->first()->user_id;
+        return \App\User::find($id);
     }
 }

@@ -19,7 +19,6 @@ class CreateRequestsTable extends Migration
           //instructorMeeting boolean not included because requests only sent for studentMeetings
           $table->datetime('start_time');
           $table->datetime('end_time');
-          $table->integer('user_id');
           $table->timestamps();
         });
     }
