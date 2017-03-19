@@ -18,51 +18,60 @@
               <div class="panel panel-default">
                   <div class="panel-heading">Scheduled Meetings</div>
 
-                  <div class="panel-body">
-                      @foreach ($meetings as $meeting)
-                      <!-- HTMl can't make DELETE request, so 'method spoofing' is used-->
-                      <!-- Display calendar of week with 7 days and timeslots-->
-                      <p>id = {{$meeting->id}}</p>
-                      <p>start_time = {{$meeting->start_time}}</p>
-                      <p><Label>Attendee(s)</Label></p>
-                      <!--TEST : Calling eloquent relationships from the view is bad practice -->
-                        @foreach ($meeting->users->except(Auth::id()) as $attendee)
-                        <p>{{$attendee->name}}</p>
+                    <div class="panel-body">
+                    @if(!$meetings->isEmpty())
+                        <p><Label>Scheduled meetings</Label></p>
+                        @foreach ($meetings as $meeting)
+                        <!-- HTMl can't make DELETE request, so 'method spoofing' is used-->
+                        <!-- Display calendar of week with 7 days and timeslots-->
+                            <p>id = {{$meeting->id}}</p>
+                            <p>start_time = {{$meeting->start_time}}</p>
+                            <p><Label>Attendee(s)</Label></p>
+                            <!--TEST : Calling eloquent relationships from the view is bad practice -->
+                            @foreach ($meeting->users->except(Auth::id()) as $attendee)
+                                <p>{{$attendee->name}}</p>
+                            @endforeach
+                            {{ Form::open(['method' => 'DELETE', 'route' => ['meetings.destroy', $meeting->id]]) }}
+                            {{ Form::submit('Leave meeting', ['class' => 'btn btn-danger']) }}
+                            {{ Form::close() }}
+                            <p>--------------------------------------</p>
                         @endforeach
-                    {{ Form::open(['method' => 'DELETE', 'route' => ['meetings.destroy', $meeting->id]]) }}
-                    {{ Form::submit('Leave meeting', ['class' => 'btn btn-danger']) }}
-                    {{ Form::close() }}
-                      <p>--------------------------------------</p>
-                      @endforeach
-                  </div>
+                    @else
+                        <p><Label>No scheduled meetings</Label></p>
+                    @endif
+                    </div>
               </div>
 
               <div class="panel panel-default">
                   <div class="panel-heading">Open Meeting Requests</div>
 
-                  <div class="panel-body">
-                      @foreach ($requests as $request)
-                      <!-- HTMl can't make DELETE request, so 'method spoofing' is used-->
-                      <!-- Display calendar of week with 7 days and timeslots-->
-                      <p>id = {{$request->id}}</p>
-                      <p>course_id = {{$request->course_id}}</p>
-                      <p>start_time = {{$meeting->start_time}}</p>
-                      <p><Label>Attendee(s)</Label></p>
-                      <!--TEST : Calling eloquent relationships from the view is bad practice -->
-                        @foreach ($request->users->except(Auth::id()) as $attendee)
-                        <p>{{$attendee->name}}</p>
-                        @endforeach
-                    {{ Form::open(['method' => 'DELETE', 'route' => ['requests.destroy', $request->id]]) }}
-                    {{ Form::submit('Close Meeting Request', ['class' => 'btn btn-danger']) }}
-                    {{ Form::close() }}
-                    @if($request->receiver()->is(Auth::user()))
-                    <p></p>
-                    {{ Form::open(['method' => 'GET', 'route' => ['requests.accept', $request->id]]) }}
-                    {{ Form::submit('Accept Meeting Request', ['class' => 'btn btn-default']) }}
-                    {{ Form::close() }}
-                    @endif
-                      <p>--------------------------------------</p>
-                      @endforeach
+                        <div class="panel-body">
+                        @if(!$requests->isEmpty())
+                            @foreach ($requests as $request)
+                            <!-- HTMl can't make DELETE request, so 'method spoofing' is used-->
+                            <!-- Display calendar of week with 7 days and timeslots-->
+                                <p>id = {{$request->id}}</p>
+                                <p>course_id = {{$request->course_id}}</p>
+                                <p>start_time = {{$request->start_time}}</p>
+                                <p><Label>Attendee(s)</Label></p>
+                                <!--TEST : Calling eloquent relationships from the view is bad practice -->
+                                @foreach ($request->users->except(Auth::id()) as $attendee)
+                                    <p>{{$attendee->name}}</p>
+                                @endforeach
+                                {{ Form::open(['method' => 'DELETE', 'route' => ['requests.destroy', $request->id]]) }}
+                                {{ Form::submit('Close Meeting Request', ['class' => 'btn btn-danger']) }}
+                                {{ Form::close() }}
+                                @if($request->receiver()->is(Auth::user()))
+                                    <p></p>
+                                    {{ Form::open(['method' => 'GET', 'route' => ['requests.accept', $request->id]]) }}
+                                    {{ Form::submit('Accept Meeting Request', ['class' => 'btn btn-default']) }}
+                                    {{ Form::close() }}
+                                @endif
+                                <p>--------------------------------------</p>
+                            @endforeach
+                        @else
+                            <p><Label>No meeting request</Label></p>
+                        @endif
                   </div>
               </div>
 
