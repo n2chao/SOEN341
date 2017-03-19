@@ -77,11 +77,11 @@ Route::group(['middleware' => ['auth']], function () {
   Route::get('/home', 'HomeController@index');
 
   Route::get('/chooseinstr', 'InstructorController@index');
-  Route::get('/choosetime', 'InstructorController@show');
+  
 
   //instructor meetings
   Route::get('instructors/chooseinstr', 'InstructorController@index');
-  Route::get('instructors/choosetime', 'InstructorController@show');
+  Route::get('/choosetime', 'matchTimeController@create');
 
     //GET all meetings
     Route::get('meetings','MeetingController@index');
@@ -93,7 +93,7 @@ Route::group(['middleware' => ['auth']], function () {
     //DELETE specific meeting
     Route::delete('meetings/{meeting}', 'MeetingController@destroy')->name('meetings.destroy');
 
-    Route::get('/choosetime', 'matchTimeController@create');
+    
 });
 
 
