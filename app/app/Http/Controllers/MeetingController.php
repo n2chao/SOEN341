@@ -17,8 +17,11 @@ class MeetingController extends Controller
     * Responds to POST /instructorMeeting
     */
     public function store(Request $request){
+        date_default_timezone_set("America/New_York");
         $data = clone($request);
+
         $meetingTime = $this->timeToWeek($data->currentWeek, $data->start_time);
+        
         //arbitraty course_id value
         $data->course_id = 1;
         //set meeting start and end times

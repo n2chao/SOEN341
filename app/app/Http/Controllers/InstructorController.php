@@ -18,15 +18,10 @@ class InstructorController extends Controller
     */
     public function index()
     {
-        $userCourses = Auth::user()->enrollments->pluck('course_id');
-        dd($userCourses);
-
-        @foreach ($courses as $course) {
-            $teachers = Enrollments::where('course_id' '=' $course);
-
-            $tas = User::where('title', '=', 'ta')->pluck('id', 'name');
-        }
         
+        $teachers = User::where('title', '=', 'teacher')->pluck('id', 'name');
+
+        $tas = User::where('title', '=', 'ta')->pluck('id', 'name');
 
         return view('instructors/chooseinstr', compact('teachers', 'tas'));
         
