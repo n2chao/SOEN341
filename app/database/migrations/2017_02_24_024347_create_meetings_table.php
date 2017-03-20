@@ -19,6 +19,7 @@ class CreateMeetingsTable extends Migration
             $table->boolean('instructorMeeting');
             $table->datetime('start_time');
             $table->datetime('end_time');
+            $table->boolean('expired')->default(false);  //meeting status, where 1 = open/futureDate, 0 = closed/expired
             $table->timestamps();
         });
     }
