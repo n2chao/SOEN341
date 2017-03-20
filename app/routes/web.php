@@ -51,6 +51,7 @@ Route::group(['middleware' => ['auth']], function () {
     //Courses
     Route::get('courses/course', 'EnrollmentController@index');
     Route::get('courses/course/{code}', 'EnrollmentController@dropCourse');
+    Route::get('courses/course/{id}', 'EnrollmentController@idToCourse');
     Route::get('/course', 'EnrollmentController@create');     //GET view for enrolling in new courses
     Route::post('/course', 'EnrollmentController@store');     //POST enroll courses
     //end Courses

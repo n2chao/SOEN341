@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;    //required to use Auth
 use Illuminate\Validation\Rule;         //required for request validation
 use Validator;
+use App\User;
+use App\Course;
+use App\Enrollment;
+use Log;
 
 class EnrollmentController extends Controller
 {
@@ -27,9 +31,13 @@ class EnrollmentController extends Controller
     * Responds to GET /courses
     */
     public function index(){
-
         $user = Auth::user();
-        $userCourses = $user->enrollments()->pluck('course_id')->toArray();  //create array of authenticated user's courses
+        $userCoursesArray = $user->enrollments()->pluck('course_id')->toArray();  //create array of authenticated user's courses
+        $userCourses = array();
+        foreach($userCoursesArray as $userCourse){
+            $course = Course::where('id', '=', $userCourse)->first();
+            array_push($userCourses, $course['code']);
+        }
         return view('courses/course', compact('userCourses'));
     }
 
@@ -64,20 +72,44 @@ class EnrollmentController extends Controller
     */
     private function addCourses(array $data){
         $user = Auth::user();  //get authenticated user
+
         //$input is a single course code ie soen341
         foreach($data as $input){
-            $rules = Array('code' => 'required|exists:courses,code|unique:enrollments,course_id');
+            $rules = Array('code' => 'required|exists:courses');
             $v = validator::make(array('code'=>$input), $rules);
             $failed = array();
 
             if($v->passes()){
                 # code for validation success
-                $user->courses()->attach($input);
+                $courseInfo = Course::where('code', '=', $input)->first();
+                $alreadyEnrolled = Enrollment::where(['course_id'=>$courseInfo['id'], 'user_id'=>$user->id])->first();
+                if ($alreadyEnrolled == null) {
+                    // user is not enrolled in this class yet
+                    $user->courses()->attach($courseInfo);
+                }
+                /*
+                 * OLD VALIDATION
+                $alreadyEnrolled = false;
+                $userCourses = $user->enrollments()->get();
+                foreach($userCourses as $userCourse) {
+                    //if ($userCourse['course_id'] === $codeId){
+                    if ($userCourse['course_id'] == $courseInfo['id']){
+                        $alreadyEnrolled = true;
+                        break;
+                    }
+                }
+                if (!$alreadyEnrolled) {
+                    // user is not enrolled in this class yet
+                    $user->courses()->attach($courseInfo);
+                }
+                */
+
             } else {
                 # code for validation failure
                 array_push($failed, $input);
             }
             if(count($failed) != 0){
+                //create error message for courses that were not added
                 $failed_courses = "Courses not added:";
                 foreach($failed as $code){
                     $failed_courses = $failed_courses. '\n' . $code;
