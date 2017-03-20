@@ -18,7 +18,7 @@ class EnrollmentController extends Controller
     protected $userCourses;
     //mass assignment protection
     protected $fillable = ['add_course_id', 'drop_course_id'];
-    
+
     /**
      * Override default constructor, inject the User dependency.
      */
@@ -26,7 +26,7 @@ class EnrollmentController extends Controller
     {
         $this->users = $users;
     }
-    
+
     /*
     * Responds to GET /courses
     */
@@ -55,7 +55,7 @@ class EnrollmentController extends Controller
     }
 
     /**
-    * Adds courses to user's enrollment. 
+    * Adds courses to user's enrollment.
     * Responds to POST /courses
     */
     public function store() {
@@ -65,45 +65,24 @@ class EnrollmentController extends Controller
         //$this->dropCourses(request('drop_course_ids'));
         return redirect('courses/course');
     }
-    
-    /** 
+
+    /**
     * Helper function. Add courses specified in $data.
     * @param $data array of courses the user has added
     */
     private function addCourses(array $data){
         $user = Auth::user();  //get authenticated user
-
         //$input is a single course code ie soen341
         foreach($data as $input){
-            $rules = Array('code' => 'required|exists:courses');
-            $v = validator::make(array('code'=>$input), $rules);
+            $rules = Array('code' => 'required|exists:courses,code',
+                'course_id' => Rule::unique('enrollments')->where('user_id', $user->id));
+            //get course_id corresponding to course code ie soen341
+            $course_id = Course::where('code', $input)->first()->id;
+            $v = validator::make(array('code'=>$input, 'course_id'=>$course_id), $rules);
             $failed = array();
 
             if($v->passes()){
-                # code for validation success
-                $courseInfo = Course::where('code', '=', $input)->first();
-                $alreadyEnrolled = Enrollment::where(['course_id'=>$courseInfo['id'], 'user_id'=>$user->id])->first();
-                if ($alreadyEnrolled == null) {
-                    // user is not enrolled in this class yet
-                    $user->courses()->attach($courseInfo);
-                }
-                /*
-                 * OLD VALIDATION
-                $alreadyEnrolled = false;
-                $userCourses = $user->enrollments()->get();
-                foreach($userCourses as $userCourse) {
-                    //if ($userCourse['course_id'] === $codeId){
-                    if ($userCourse['course_id'] == $courseInfo['id']){
-                        $alreadyEnrolled = true;
-                        break;
-                    }
-                }
-                if (!$alreadyEnrolled) {
-                    // user is not enrolled in this class yet
-                    $user->courses()->attach($courseInfo);
-                }
-                */
-
+                $user->courses()->attach($course_id);
             } else {
                 # code for validation failure
                 array_push($failed, $input);
@@ -117,14 +96,16 @@ class EnrollmentController extends Controller
             }
         }
     }
-    
+
     /**
     * Helper function. Drop courses specified in $data.
     * @param $data array of course_id
     */
     public function dropCourse($code){
         $user = Auth::user();  //get authenticated user
-        $user->courses()->detach($code);  //detach course
+        //get course_id corresponding to course code ie soen341
+        $course_id = Course::where('code', $code)->first()->id;
+        $user->courses()->detach($course_id);  //detach course
         return redirect('courses/course');
     }
 }
