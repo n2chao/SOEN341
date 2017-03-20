@@ -66,7 +66,7 @@ class EnrollmentController extends Controller
         return redirect('courses/course');
     }
     
-    /**
+    /** 
     * Helper function. Add courses specified in $data.
     * @param $data array of courses the user has added
     */
@@ -127,28 +127,4 @@ class EnrollmentController extends Controller
         $user->courses()->detach($code);  //detach course
         return redirect('courses/course');
     }
-    
-    /**
-    * Drops class from user's enrollment.
-    * Responds to DELETE /courses
-    */
-//    public function destroy(Request $request) {
-//        dd($request);
-//        $user = Auth::user();  //get authenticated user 
-//        //validate array of course_id
-//        $data = request('course_id');
-//        dd($data);
-//        Validator::make($data, [
-//            'course_id' => [
-//                'required',             //required
-//                'integer',              //is an integer
-//                'exists:courses,id',    //exists in courses table, column id
-//            ],
-//        ]);
-//        //only drop course if user is currently enrolled
-//        $courses = $user->courses->pluck('id')->toArray();  //create array of authenticated user's courses
-//        $drop = array_intersect($data, $courses);
-//        $user->courses()->detach($drop); //detach array of course_id from user
-//        return redirect('/courses');  
-//    }
 }

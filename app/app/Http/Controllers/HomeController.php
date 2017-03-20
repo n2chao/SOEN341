@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
+use \App\Http\Traits\MeetingTraits;
 
 class HomeController extends Controller
 {
+    use MeetingTraits;
     /**
      * Create a new controller instance.
      *
@@ -23,6 +26,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $user = Auth::user();
+        //pass user's meetings to home view
+        $meetings = $user->meetings;
+        return view('home', compact('meetings'));
     }
 }
