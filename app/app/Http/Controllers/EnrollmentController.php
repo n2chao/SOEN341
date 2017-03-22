@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;    //required to use Auth
 use Illuminate\Validation\Rule;         //required for request validation
 use Validator;
+use App\User;
+use App\Course;
+use App\Enrollment;
+use Log;
 
 class EnrollmentController extends Controller
 {
@@ -14,7 +18,7 @@ class EnrollmentController extends Controller
     protected $userCourses;
     //mass assignment protection
     protected $fillable = ['add_course_id', 'drop_course_id'];
-    
+
     /**
      * Override default constructor, inject the User dependency.
      */
@@ -22,14 +26,18 @@ class EnrollmentController extends Controller
     {
         $this->users = $users;
     }
-    
+
     /*
     * Responds to GET /courses
     */
     public function index(){
-
         $user = Auth::user();
-        $userCourses = $user->enrollments()->pluck('course_id')->toArray();  //create array of authenticated user's courses
+        $userCoursesArray = $user->enrollments()->pluck('course_id')->toArray();  //create array of authenticated user's courses
+        $userCourses = array();
+        foreach($userCoursesArray as $userCourse){
+            $course = Course::where('id', '=', $userCourse)->first();
+            array_push($userCourses, $course['code']);
+        }
         return view('courses/course', compact('userCourses'));
     }
 
@@ -48,7 +56,7 @@ class EnrollmentController extends Controller
     }
 
     /**
-    * Adds courses to user's enrollment. 
+    * Adds courses to user's enrollment.
     * Responds to POST /courses
     */
     public function store()
@@ -59,8 +67,8 @@ class EnrollmentController extends Controller
         //$this->dropCourses(request('drop_course_ids'));
         return redirect('courses/course');
     }
-    
-    /** 
+
+    /**
     * Helper function. Add courses specified in $data.
     * @param $data array of courses the user has added
     */
@@ -69,18 +77,21 @@ class EnrollmentController extends Controller
         $user = Auth::user();  //get authenticated user
         //$input is a single course code ie soen341
         foreach($data as $input){
-            $rules = Array('code' => 'required|exists:courses,code|unique:enrollments,course_id');
-            $v = validator::make(array('code'=>$input), $rules);
+            $rules = Array('code' => 'required|exists:courses,code',
+                'course_id' => Rule::unique('enrollments')->where('user_id', $user->id));
+            //get course_id corresponding to course code ie soen341
+            $course_id = Course::where('code', $input)->first()->id;
+            $v = validator::make(array('code'=>$input, 'course_id'=>$course_id), $rules);
             $failed = array();
 
             if($v->passes()){
-                # code for validation success
-                $user->courses()->attach($input);
+                $user->courses()->attach($course_id);
             } else {
                 # code for validation failure
                 array_push($failed, $input);
             }
             if(count($failed) != 0){
+                //create error message for courses that were not added
                 $failed_courses = "Courses not added:";
                 foreach($failed as $code){
                     $failed_courses = $failed_courses. '\n' . $code;
@@ -88,14 +99,16 @@ class EnrollmentController extends Controller
             }
         }
     }
-    
+
     /**
     * Helper function. Drop courses specified in $data.
     * @param $data array of course_id
     */
     public function dropCourse($code){
         $user = Auth::user();  //get authenticated user
-        $user->courses()->detach($code);  //detach course
+        //get course_id corresponding to course code ie soen341
+        $course_id = Course::where('code', $code)->first()->id;
+        $user->courses()->detach($course_id);  //detach course
         return redirect('courses/course');
     }
 }
