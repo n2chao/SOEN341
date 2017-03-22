@@ -105,7 +105,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/home', 'HomeController@index');
 
     Route::get('/chooseinstr', 'InstructorController@index');
-    Route::get('/choosetime', 'InstructorController@show');
+    
 
     //instructor meetings
     Route::get('instructors/chooseinstr', 'InstructorController@index');
