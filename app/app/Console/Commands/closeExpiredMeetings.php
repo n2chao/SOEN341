@@ -4,7 +4,7 @@ namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
 
-class closeExpiredMeetings extends Command
+class CloseExpiredMeetings extends Command
 {
     /**
      * The name and signature of the console command.
@@ -18,7 +18,7 @@ class closeExpiredMeetings extends Command
      *
      * @var string
      */
-    protected $description = 'Close all expired meeting requests';
+    protected $description = 'Close all expired meetings';
 
     /**
      * Create a new command instance.
@@ -31,15 +31,20 @@ class closeExpiredMeetings extends Command
     }
 
     /**
-     * Execute the console command.
+     * Close all expired meetings.
+     *      Soft delete all meetings having occured in the past.
      *
-     * @return mixed
      */
     public function handle()
     {
-        $now = new DateTime();
-        foreach(App\Meeting::where('end_time', '<', $now) as $meeting){
-            $meeting->expired = true;
+        $now = new \DateTime();
+        $meetings = \App\Meeting::where('end_time', '<', $now)->get();
+        foreach($meetings as $meeting){
+            //soft delete the meeting and associated attendances
+            foreach($meeting->attendances as $attendance){
+                $attendance->delete();
+            }
+            $meeting->delete();
         }
     }
 }
