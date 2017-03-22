@@ -18,7 +18,8 @@ class RequestController extends Controller
      * for student-student meetings.
      * @param $request the POST request
      */
-     public function store(Request $request){
+     public function store(Request $request)
+     {
         $data = clone($request);
         $meetingTime = $this->timeToWeek($data->currentWeek, $data->start_time);
         //arbitrary course_id value
@@ -39,7 +40,8 @@ class RequestController extends Controller
      * Show details for a given meeting request.
      * @param  $request Meeting request object
      */
-     public function show(\App\Request $request){
+     public function show(\App\Request $request)
+     {
         return $request;
     }
 
@@ -48,7 +50,8 @@ class RequestController extends Controller
      * This deletes the meeting request and all associated invites,
      * @param $request Meeting request object
      */
-     public function destroy(\App\Request $request){
+     public function destroy(\App\Request $request)
+     {
         //declineMeetingRequest defined in MeetingTraits
         $this->declineMeetingRequest($request);
         return redirect('home');
@@ -58,7 +61,8 @@ class RequestController extends Controller
     * Accept a meeting request.
     * @param $request Meeting request object
     */
-    public function accept(\App\Request $request){
+    public function accept(\App\Request $request)
+    {
         //acceptMeetingRequest defined in MeetingTraits
         $this->acceptMeetingRequest($request);
         return redirect('home');

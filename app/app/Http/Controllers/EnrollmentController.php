@@ -37,7 +37,8 @@ class EnrollmentController extends Controller
     * Returns for allowing user to add and drop courses.
     * Responds to GET /courses/enroll
     */
-    public function create(){
+    public function create()
+    {
         $user = Auth::user();
         //get array of all available courses
         $allCourses = \App\Course::all()->pluck('id', 'code');
@@ -50,7 +51,8 @@ class EnrollmentController extends Controller
     * Adds courses to user's enrollment. 
     * Responds to POST /courses
     */
-    public function store() {
+    public function store()
+    {
         $user = Auth::user();  //get authenticated user
         //call addCourses and dropCourses helper methods
         $this->addCourses(request('add_course_ids'));
@@ -62,7 +64,8 @@ class EnrollmentController extends Controller
     * Helper function. Add courses specified in $data.
     * @param $data array of courses the user has added
     */
-    private function addCourses(array $data){
+    private function addCourses(array $data)
+    {
         $user = Auth::user();  //get authenticated user
         //$input is a single course code ie soen341
         foreach($data as $input){

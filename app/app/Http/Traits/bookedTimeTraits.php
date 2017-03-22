@@ -21,8 +21,7 @@ trait bookedTimeTraits
 
         //Convert timestamp back to unix time for comparison
         $c=0;
-        foreach($userBooked as $booked)
-        {
+        foreach($userBooked as $booked){
             $userBooked[$c] = strtotime($booked);
             $c++;
         }
@@ -45,9 +44,7 @@ trait bookedTimeTraits
                         $meetingHour[$i] = date("H", $booked); //Hour in the day
                         $i++;
                     }
-                    
                 }
-               
                 $startDay = date(strtotime("+1 hour", $startDay));
             }
 

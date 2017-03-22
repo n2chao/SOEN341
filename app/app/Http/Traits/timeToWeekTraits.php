@@ -8,8 +8,8 @@ use App\User;
 
 trait timeToWeekTraits
 {
-	public function timeToWeek($currentWeek, $startTime){
-		
+	public function timeToWeek($currentWeek, $startTime)
+	{
 		date_default_timezone_set("America/New_York");
 		$meeting = $currentWeek;
 		

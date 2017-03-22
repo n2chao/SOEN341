@@ -15,34 +15,22 @@ trait matchTraits
     {
         $matchTime = array();
 
-        if(($userSchedule == null) && ($instrSchedule == null))
-        {
-            for($i=0; $i < 168; $i++)
-            {
+        if(($userSchedule == null) && ($instrSchedule == null)){
+            for($i=0; $i < 168; $i++){
                 $matchTime[$i] = 0;
             }
-        }
-        else if(($userSchedule == null && $instrSchedule != null))
-        {
+        }else if(($userSchedule == null && $instrSchedule != null)){
             $matchTime = $instrSchedule;
-        }
-        else if(($userSchedule != null && $instrSchedule == null))
-        {
+        }else if(($userSchedule != null && $instrSchedule == null)){
             $matchTime = $userSchedule;
-        }
-        else
-        {
-           for($x = 0; $x < 168; ) //itterates through each character in the bit string
-            {
+        }else{
+           for($x = 0; $x < 168; ){ //itterates through each character in the bit string
                 $userBit = substr($userSchedule, $x, 1); //inspects one bit of the users free time
                 $instrBit = substr($instrSchedule, $x, 1); //inspects one bit of the instructors free time
-                if(($userBit == 1) && ($instrBit==1)) //if they are both equal add to the "matchTime" bit string
-                {
+                if(($userBit == 1) && ($instrBit==1)){ //if they are both equal add to the "matchTime" bit string
                     $matchTime[$x] = 1;
                     $x++;
-                }
-                else
-                {
+                }else{
                     $matchTime[$x] = 0;
                     $x++;
                 }

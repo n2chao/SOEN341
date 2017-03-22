@@ -35,8 +35,7 @@ class matchTimeController extends Controller
         $instructor = User::find(request('instructor'));
         $instrSchedule = $instructor->schedule->freetime;
         $instrMeetings = $instructor->meetings->pluck('start_time');
-        
-;        
+                
         $week = $this->week();
        
         $availMatch = $this->match($userSchedule, $instrSchedule);

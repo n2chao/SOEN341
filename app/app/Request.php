@@ -10,7 +10,8 @@ class Request extends Model
     * Get the course associated with the meeting.
     * One-to-One relationship.
     */
-    public function course(){
+    public function course()
+    {
       return $this->hasOne('App/Course');
     }
 
@@ -18,14 +19,16 @@ class Request extends Model
     * Get all the users associated with the meeting request.
     * Many-to-Many relationship.
     */
-    public function users(){
+    public function users()
+    {
       return $this->belongsToMany('App\User', 'invites');
     }
 
     /**
     * Return all meeting invitations.
     */
-    public function invites(){
+    public function invites()
+    {
       return $this->hasMany('App\Invite');
     }
 
@@ -33,7 +36,8 @@ class Request extends Model
     * Return the sender of the meeting request.
     * @return User
     */
-    public function sender(){
+    public function sender()
+    {
         return $this->invites->where('sender', true);
     }
 
@@ -41,7 +45,8 @@ class Request extends Model
      * Return the receiver of the meeting request.
      * @return User
      */
-    public function receiver(){
+    public function receiver()
+    {
         return $this->invites->where('sender', false);
     }
 }

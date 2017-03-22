@@ -16,7 +16,8 @@ class MeetingController extends Controller
     * Create a new meeting
     * Responds to POST /instructorMeeting
     */
-    public function store(Request $request){
+    public function store(Request $request)
+    {
         date_default_timezone_set("America/New_York");
         $data = clone($request);
 
@@ -42,7 +43,8 @@ class MeetingController extends Controller
     * Show the details for specified meeting
     * Responds to GET /meetings/{id}
     */
-    public function show(\App\Meeting $meeting){
+    public function show(\App\Meeting $meeting)
+    {
         return $meeting;
     }
 
@@ -50,7 +52,8 @@ class MeetingController extends Controller
     * Delete a meeting and attendances.
     * Responds to DELETE /meetings/{id}
     */
-    public function destroy(\App\Meeting $meeting){
+    public function destroy(\App\Meeting $meeting)
+    {
         //leaveMeeting() defined in MeetingTraits
         $this->leaveMeeting($meeting);
         return redirect('home');
