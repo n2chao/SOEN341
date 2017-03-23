@@ -31,7 +31,7 @@
              Account Settings </a>
            </li>
            <li>
-             <a href="#">
+             <a href="/courseDisplay">
              Find a Buddy </a>
            </li>
            <li>
