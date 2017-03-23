@@ -7,10 +7,11 @@
 				<div class="panel panel-default">
 					<div class="panel-heading">Choose a Meeting Time</div>
 					<div class="panel-body">
+
 						<!-- Form for changing the week -->
 						<form id="changeWeek" method="GET" action="/choosetime">
 							{{csrf_field()}}
-
+							
 							<div class="row">
 								<div class="col-md-3">
 									<p id="newWeek">From: <?php echo date("D, M d, Y H:i:s", $week[0])?></p>
