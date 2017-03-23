@@ -25,6 +25,8 @@ class EnrollmentTest extends BrowserKitTestCase
         $this->actingAs($user)
             ->visit('courses/course')
             ->type('soen341', 'add_course_ids[0]')
+            ->type('soen341', 'add_course_ids[0]')
+            ->type('soen341', 'add_course_ids[0]')
             ->press('Add Courses')
             ->seeInDatabase('enrollments', ['course_id' => 264, 'user_id'=>$user->id]);
 
