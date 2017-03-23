@@ -39,7 +39,7 @@
                                     	<h4>{{$student->name}}</h4>
 	                                    @foreach ($matches[$student->id] as $match)
 										<!-- serialization allows array to be passed as value. Any better ways of associating selected time with corresponding student->id? -->
-	                                    <label><input name="studentid_starttime_serialized_array" value="{{serialize(array($match, $student->id))}}" type="radio">{{ $match }}</label></br>
+	                                    <label><input name="time" value="{{serialize(array($match, $student->id))}}" type="radio">{{ $match }}</label></br>
 	                                    @endforeach
 	                                @endforeach
 								@else
@@ -47,6 +47,17 @@
 								@endif
 							</div>
 							<button class="btn btn-default" type="submit" value="selection">Next</button>
+							@if (count($errors))
+								<div class='form-group'>
+									<div class='alert alert-danger'>
+										<ul>
+											@foreach ($errors->all() as $error)
+												<li>{{ $error }}</li>
+											@endforeach
+										</ul>
+									</div>
+								</div>
+							@endif
 						</form>
 					</div>
 				</div>

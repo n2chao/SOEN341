@@ -27,12 +27,15 @@ class RequestController extends Controller
      * @param $request the POST request
      */
      public function store(Request $request){
+         $this->validate(request(), [
+             'time' => 'required'
+             ]);
         $data = clone($request);
         //array is serialized in client
         //serialization allows an array to be passed as value
         //ALTERNATIVE
         //Any better way to associate selected time with corresponding student->id?
-        $student_time_array = unserialize($data->studentid_starttime_serialized_array);
+        $student_time_array = unserialize($data->time);
         $meetingTime = $this->timeToWeek($data->currentWeek, $student_time_array[0]);
         //set start and end time for meeting request
         $start = new \DateTime();
@@ -53,6 +56,9 @@ class RequestController extends Controller
     * @param  $request the GET request
     */
     public function create(Request $request){
+        $this->validate(request(), [
+            'course' => 'required'
+            ]);
         $user = Auth::user();                           //get authenticated user
         $course = \App\Course::find($request->course);  //get selected course
         $students = $course->users->where('title', 'student')->except($user->id);  //get all classmates
