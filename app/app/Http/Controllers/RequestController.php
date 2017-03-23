@@ -62,12 +62,11 @@ class RequestController extends Controller
             //get available matches for authenticated user and student
             $availMatch = $this->match($user->schedule->freetime, $student->schedule->freetime);
             $truncatedMatch = $this->truncate($availMatch, $week[0]);
-            //is count() sufficient to check if at least one match?
             if(count($truncatedMatch) > 0){                         //if at least one match
                 $matches[(string)$student->id] = $truncatedMatch;   //add to matches
             }
             else{
-                $students->forget($student->id);                    //remove student from collection
+                $students = $students->except($student->id);                    //remove student from collection
             }
         }
         return view('students/choosestudenttime', compact('students', 'matches', 'week', 'course'));

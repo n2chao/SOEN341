@@ -34,13 +34,17 @@
                             {{csrf_field()}}
 							<div class="radio">
 								<h4>Select a Meeting Time</h4>
-                                @foreach ($students as $student)
-                                    <h4>{{$student->name}}</h4>
-                                    @foreach ($matches[$student->id] as $match)
-									<!-- serialization allows array to be passed as value. Any better ways of associating selected time with corresponding student->id? -->
-                                    <label><input name="studentid_starttime_serialized_array" value="{{serialize(array($match, $student->id))}}" type="radio">{{ $match }}</label></br>
-                                    @endforeach
-                                @endforeach
+								@if(!$students->isEmpty())
+                                	@foreach ($students as $student)
+                                    	<h4>{{$student->name}}</h4>
+	                                    @foreach ($matches[$student->id] as $match)
+										<!-- serialization allows array to be passed as value. Any better ways of associating selected time with corresponding student->id? -->
+	                                    <label><input name="studentid_starttime_serialized_array" value="{{serialize(array($match, $student->id))}}" type="radio">{{ $match }}</label></br>
+	                                    @endforeach
+	                                @endforeach
+								@else
+									<p><Label>No student matches</Label></p>
+								@endif
 							</div>
 							<button class="btn btn-default" type="submit" value="selection">Next</button>
 						</form>
