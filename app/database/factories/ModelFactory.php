@@ -39,8 +39,9 @@ $factory->define(App\User::class, function (Faker\Generator $faker) {
 
 $factory->define(App\Enrollment::class, function (Faker\Generator $faker) {
 
+    $array = array('SOEN341', 'ENGR371');
     return [
-        'course_id' => $faker->numberBetween($min = 1, $max = 2),
+        'course_id' => $array[$faker->numberBetween($min = 0, $max = 1)],
         'user_id' => $faker->unique()->numberBetween($min = 1, $max = 10),
     ];
 });
