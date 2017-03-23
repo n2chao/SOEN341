@@ -36,4 +36,11 @@ class Meeting extends Model
     public function attendances(){
         return $this->hasMany('App\Attendance');
     }
+
+    /**
+    * Return all attendances including SOFT DELETED.
+    */
+    public function attendancesTrashed(){
+        return $this->hasMany('App\Attendance')->withTrashed();
+    }
 }

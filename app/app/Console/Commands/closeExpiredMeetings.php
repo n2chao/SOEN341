@@ -38,9 +38,10 @@ class CloseExpiredMeetings extends Command
     public function handle()
     {
         $now = new \DateTime();
-        $meetings = \App\Meeting::where('end_time', '<', $now)->get();
+        // '>' for FUTURE meetings
+        $meetings = \App\Meeting::where('end_time', '>', $now)->get();
         foreach($meetings as $meeting){
-            //soft delete the meeting and associated attendances
+            //SOFT DELETE the meeting and associated attendances
             foreach($meeting->attendances as $attendance){
                 $attendance->delete();
             }
