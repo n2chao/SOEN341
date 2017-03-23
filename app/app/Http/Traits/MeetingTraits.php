@@ -8,7 +8,8 @@ trait MeetingTraits
      * Creates a new meeting request.
      * @param  $data object containing relevant meeting request information.
      */
-     private function createMeetingRequest($data){
+     private function createMeetingRequest($data)
+     {
         $user = Auth::user();    //get authenticated user
         $request = new \App\Request();
         $request->course_id = $data->course_id;
@@ -27,7 +28,8 @@ trait MeetingTraits
     * Hence, the sender cannot confirm the request.
     * @param  $request the meeting request
     */
-    private function acceptMeetingRequest(\App\Request $request){
+    private function acceptMeetingRequest(\App\Request $request)
+    {
         $user = Auth::user();
         //if user is the receiver of the meeting request
         if($request->receiver->is($user)){
@@ -43,7 +45,8 @@ trait MeetingTraits
      * Both the sender and receiver of the request can decline.
      * @param  $request the meeting request
      */
-    private function declineMeetingRequest(\App\Request $request){
+    private function declineMeetingRequest(\App\Request $request)
+    {
         $user = Auth::user();
         //if sender or receiver of meeting request
         if($request->receiver->is($user) || $request->sender->is($user)){
@@ -73,8 +76,7 @@ trait MeetingTraits
         $meeting->users()->attach($user);
         if($data->instructorMeeting){
             $meeting->users()->attach($data->instructor);
-        }
-        else{
+        }else{
             $meeting->users()->attach($data->student);
         }
     }
@@ -85,7 +87,8 @@ trait MeetingTraits
     * the meeting and all attendances are canceled
     * once an attendant leaves.
     */
-    private function leaveMeeting(\App\Meeting $meeting){
+    private function leaveMeeting(\App\Meeting $meeting)
+    {
         $user = Auth::user();
         //if user is attending meeting, delete meeting and attendances
         if($meeting->users->contains($user)){
