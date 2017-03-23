@@ -31,7 +31,7 @@
              Account Settings </a>
            </li>
            <li>
-             <a href="requests">
+             <a href="/requests">
              Find a Buddy </a>
            </li>
            <li>
