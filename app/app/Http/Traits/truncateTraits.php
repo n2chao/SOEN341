@@ -51,8 +51,7 @@ trait truncateTraits
 		}
 
 		for($x = $j; $x < 168; ) //itterates through each character in the bit string
-        {
-            
+        {  
             if($schedule[$x] == 1) //if they are both equal add to the "matchTime" bit string
             {
                 $truncatedMatches[$x] = 1;

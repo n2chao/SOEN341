@@ -18,11 +18,14 @@ class InstructorController extends Controller
     */
     public function index()
     {
-    	$teachers = User::where('title', '=', 'teacher')->pluck('id', 'name');
+        
+        $teachers = User::where('title', '=', 'teacher')->pluck('id', 'name');
 
-    	$tas = User::where('title', '=', 'ta')->pluck('id', 'name');
+        $tas = User::where('title', '=', 'ta')->pluck('id', 'name');
 
-    	return view('instructors/chooseinstr', compact('teachers', 'tas'));
+        return view('instructors/chooseinstr', compact('teachers', 'tas'));
+        
+    	
     }
 
 }

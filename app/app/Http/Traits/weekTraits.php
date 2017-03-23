@@ -17,22 +17,15 @@ trait weekTraits
 
 		date_default_timezone_set("America/New_York");
 
-		if(request('nextWeek')== null && request('prevWeek') == null)
-		{
-			if(date("l")=="Saturday")
-			{
+		if(request('nextWeek')== null && request('prevWeek') == null){
+			if(date("l")=="Saturday"){
 				$week = array(strtotime("today"), strtotime("today +11 hours"));
-			}
-			else
-			{
+			}else{
 				$week = array(strtotime("tomorrow"), strtotime("next Saturday +11 hours"));
 			}
         	
-		}
-		else if(request('nextWeek') == "nextWeek")
-		{
-			if(date("l", $oldWeek[0])!="Sunday")
-			{
+		}else if(request('nextWeek') == "nextWeek"){
+			if(date("l", $oldWeek[0])!="Sunday"){
 				$num = 0;
 				$day = date("l", $oldWeek[0]);
 
@@ -62,31 +55,17 @@ trait weekTraits
 				$num = $num*24;
 			
 				$week = array(strtotime("+$num hours", $oldWeek[0]), strtotime("+168 hours", $oldWeek[1]));
-			}
-			else
-			{
+			}else{
 				$week = array(strtotime("+168 hours", $oldWeek[0]), strtotime("+168 hours", $oldWeek[1]));
 			}
-			
-		
-		}
-
-		else if(request('prevWeek') == "prevWeek")
-		{
-			if(strtotime("tomorrow") == $oldWeek[0])
-			{
+		}else if(request('prevWeek') == "prevWeek"){
+			if(strtotime("tomorrow") == $oldWeek[0]){
 				$week = $oldWeek;
-			}
-			else if(strtotime("tomorrow") > strtotime("-168 hours", $oldWeekStart))
-			{
+			}else if(strtotime("tomorrow") > strtotime("-168 hours", $oldWeekStart)){
 				$week = array(strtotime("tomorrow"), strtotime("-168 hours", $oldWeek[1]));
-			}
-			else if(date("l", $oldWeek[0])=="Saturday")
-			{
+			}else if(date("l", $oldWeek[0])=="Saturday"){
 				$week = $oldWeek;
-			}
-			else
-			{
+			}else{
 				$week = array(strtotime("-168 hours", $oldWeek[0]), strtotime("-168 hours", $oldWeek[1]));
 			}
 			
