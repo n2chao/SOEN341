@@ -25,7 +25,7 @@ class EnrollmentTest extends BrowserKitTestCase
         $user = \App\User::find(1);
         $this->be($user);
         */
-
+        /*
         $this->seed(\userSeed::class);  //creates a user with email bob@bob.com
         $user = \App\User::find(1);
         $this->actingAs($user)
@@ -33,9 +33,8 @@ class EnrollmentTest extends BrowserKitTestCase
             ->type('soen341', 'add_course_ids[0]')
             ->press('Add Courses')
             ->seeInDatabase('enrollments', ['course_id' => 264, 'user_id'=>$user->id]);
-
+        */
     }
-
     public function testRemoveCourse(){
 
     }
