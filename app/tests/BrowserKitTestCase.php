@@ -12,7 +12,7 @@ abstract class BrowserKitTestCase extends BaseTestCase
      *
      * @var string
      */
-    public $baseUrl = '';
+    public $baseUrl = 'http://localhost';
 
     /**
      * Creates the application.

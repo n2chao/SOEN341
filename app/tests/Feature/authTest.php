@@ -8,18 +8,18 @@ use Illuminate\Foundation\Testing\DatabaseMigrations;
 use Illuminate\Foundation\Testing\DatabaseTransactions;
 use App\User;
 
-class authTest extends BrowserKitTestCase
+class AuthTest extends BrowserKitTestCase
 {
     use DatabaseMigrations;
     //use WithoutMiddleware;
     use DatabaseTransactions;
-
+/*
     /**
      * Test the case where a user registers successfully
      * Confirms that the user is redirected to /home AND the user exists in the database
      */
     public function testRegistrationSuccess(){
-        $this->visit('/register')
+        $this->visit('register')
             ->type('Bilbo', 'name')
             ->type('bilbo@baggins.com', 'email')
             ->type('bilbo123', 'password')
@@ -36,13 +36,13 @@ class authTest extends BrowserKitTestCase
      * Confirms that the user stays on /register when some fields are empty
      */
     public function testRegistrationFailure(){
-        $this->visit('/register')
+        $this->visit('register')
             //->type('Bilbo', 'name')   //user does not enter a name
             ->type('bilbo@baggins.com', 'email')
             ->type('bilbo123', 'password')
             ->type('bilbo123', 'password_confirmation')
             ->press('Register')
-            ->seePageIs('http://localhostregister');
+            ->seePageIs('http://localhost/register');
     }
 
     /**
@@ -56,7 +56,7 @@ class authTest extends BrowserKitTestCase
             'title' => 'student',
             'email' => 'bill@bill.com',
         ]);
-        $this->visit('/login')
+        $this->visit('login')
             ->type('bill@bill.com', 'email')
             ->type('secret', 'password')
             ->press('Login')
@@ -74,11 +74,11 @@ class authTest extends BrowserKitTestCase
             'title' => 'student',
             'email' => 'bob@bob.com',
         ]);
-        $this->visit('/login')
+        $this->visit('login')
             ->type('bob@bob.com', 'email')
             ->type('asdasd', 'password') //enter a wrong password
             ->press('Login')
-            ->seePageIs('http://localhostlogin');
+            ->seePageIs('http://localhost/login');
     }
 
 }
