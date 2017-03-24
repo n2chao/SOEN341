@@ -51,7 +51,7 @@
        <!-- END MENU -->
      </div>
    </div>
-  @yield('extra-content')
-</div>
+   @yield('extra-content')
+  </div>
 </div>
 @endsection

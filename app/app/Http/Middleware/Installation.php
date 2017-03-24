@@ -4,8 +4,10 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Auth;
+use App\User;
 use App\Schedule;
 use App\Enrollment;
+
 class Installation
 {
     /**
@@ -18,14 +20,20 @@ class Installation
      */
     public function handle($request, Closure $next)
     {
-      $enrollments= Enrollment::where( 'user_id', Auth::id() )->oldest()->first();
-      if( !isset($enrollments) ) {
-        return redirect('courses/course');
-      }
+      // $enrollments= Enrollment::where( 'user_id', Auth::id() )->oldest()->first();
+      // if( !isset($enrollments) ) {
+      //   return redirect('courses/course');
+      // }
+      //
+      // $schedule = Schedule::where( 'user_id', Auth::id() )->oldest()->first();
+      // if( !isset($schedule) ) {
+      //   return redirect('schedule/create');
+      // }
 
-      $schedule = Schedule::where( 'user_id', Auth::id() )->oldest()->first();
-      if( !isset($schedule) ) {
-        return redirect('schedule/create');
+      $user = User::find(Auth::id());
+
+      if($user->setup == true) {
+        return redirect('setup');
       }
         return $next($request);
     }

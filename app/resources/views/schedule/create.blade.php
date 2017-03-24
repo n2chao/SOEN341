@@ -67,6 +67,7 @@
                       <button type="submit" name="button" value="submit">Next</button>
                     </form>
                   </div>
+
               </div>
         </div>
 @endsection

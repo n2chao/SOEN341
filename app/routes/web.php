@@ -39,6 +39,12 @@ Route::get('/allcourses', 'CourseController@index');
 //groups all routes requiring authentication
 Route::group(['middleware' => 'auth'], function () {
 
+    Route::get('/setup', 'SetupController@index');
+    Route::get('/setup/title', 'SetupController@Title');
+    Route::post('/setup/title', 'SetupController@setTitle');
+    Route::get('/setup/course', 'SetupController@course');
+    Route::post('/setup/course', 'SetupController@setCourse');
+
     //GET view for enrolling in new courses
     Route::get('/courses', 'EnrollmentController@create');
 

@@ -65,6 +65,9 @@
             </form>
           </div>
         </div>
+        @if(App\User::find(Auth::id())->setup == false)
+          <button type="button" name="button"><a href="/schedule/create">Next</a></button>
+        @endif
       </div>
 @endsection
 @include('common')
