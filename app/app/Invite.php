@@ -9,14 +9,16 @@ class Invite extends Model
   /**
   * Get the user associated with the attendance.
   */
-  public function user(){
+  public function user()
+  {
       return $this->belongsTo('App\User');
   }
 
   /**
   * Get the meeting associated with the attendance.
   */
-  public function request(){
+  public function request()
+  {
       return $this->belongsTo('App\Request');
   }
 }

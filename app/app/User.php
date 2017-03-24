@@ -31,30 +31,41 @@ class User extends Authenticatable
     /**
      * Get enrolled courses for user.
      */
-    public function courses() {
+    public function courses()
+    {
         return $this->belongsToMany('App\Course', 'enrollments');
     }
 
     /**
     * Get all enrollments for the user.
     */
-    public function enrollments() {
+    public function enrollments()
+    {
         return $this->hasMany('App\Enrollment');
     }
 
     /**
     * Get the schedule of the user.
     */
-    public function schedule(){
+    public function schedule()
+    {
         return $this->hasOne('App\Schedule');
     }
 
 
     /**
-    * Check if a user is enrolled in a give course.
+    * Get all meetings where user is an attendee.
     */
-    public function meetings(){
+    public function meetings()
+    {
         return $this->belongsToMany('App\Meeting', 'attendances');
+    }
+
+    /**
+    * Get all meeting requests where user is an attendee.
+    */
+    public function requests(){
+        return $this->belongsToMany('App\Request', 'invites');
     }
 
 }

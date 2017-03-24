@@ -12,7 +12,7 @@ class SocialAccountService
             ->whereProviderUserId($providerUser->getId())
             ->first();
 
-        if ($account) {
+        if ($account){
             return $account->user;
         } else {
 

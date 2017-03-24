@@ -23,7 +23,7 @@
        <div>
          <ul class="nav">
            <li class="active default">
-             <a href="#">
+             <a href="/home">
              Overview </a>
            </li>
            <li>
@@ -31,7 +31,7 @@
              Account Settings </a>
            </li>
            <li>
-             <a href="#" target="_blank">
+             <a href="/requests">
              Find a Buddy </a>
            </li>
            <li>
