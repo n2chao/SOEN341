@@ -82,7 +82,8 @@ class RequestController extends Controller
      * Show details for a given meeting request.
      * @param  $request Meeting request object
      */
-     public function show(\App\Request $request){
+     public function show(\App\Request $request)
+     {
         return $request;
     }
 
@@ -91,7 +92,8 @@ class RequestController extends Controller
      * This deletes the meeting request and all associated invites,
      * @param $request Meeting request object
      */
-     public function destroy(\App\Request $request){
+     public function destroy(\App\Request $request)
+     {
         //declineMeetingRequest defined in MeetingTraits
         $this->declineMeetingRequest($request);
         return redirect('home');
@@ -101,7 +103,8 @@ class RequestController extends Controller
     * Accept a meeting request.
     * @param $request Meeting request object
     */
-    public function accept(\App\Request $request){
+    public function accept(\App\Request $request)
+    {
         //acceptMeetingRequest defined in MeetingTraits
         $this->acceptMeetingRequest($request);
         return redirect('home');

@@ -23,7 +23,7 @@
        <div>
          <ul class="nav">
            <li class="active default">
-             <a href="#">
+             <a href="/home">
              Overview </a>
            </li>
            <li>
