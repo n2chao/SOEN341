@@ -33,13 +33,14 @@ class CloseExpiredMeetings extends Command
     /**
      * Close all expired meetings.
      *      Soft delete all meetings having occured in the past.
-     *
+     *      Soft delete all attendances associated with the meeting.
      */
     public function handle()
     {
+        date_default_timezone_set("America/New_York");
         $now = new \DateTime();
-        // '>' for FUTURE meetings
-        $meetings = \App\Meeting::where('end_time', '>', $now)->get();
+        // $this->info(var_dump($now));     output to console
+        $meetings = \App\Meeting::where('end_time', '<', $now)->get();
         foreach($meetings as $meeting){
             //SOFT DELETE the meeting and associated attendances
             foreach($meeting->attendances as $attendance){

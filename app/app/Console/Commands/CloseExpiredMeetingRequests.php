@@ -38,6 +38,8 @@ class CloseExpiredMeetingRequests extends Command
     public function handle()
     {
         $now = new \DateTime();
+        date_default_timezone_set("America/New_York");
+        // $this->info(var_dump($now));     output to console
         //get collection of all expired requests
         $openRequests = \App\Request::where('end_time', '<', $now)->get();
         foreach($openRequests as $request){
