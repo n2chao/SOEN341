@@ -2,17 +2,14 @@
 
 namespace App\Http\Traits;
 
-use DB;
-use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-
 trait matchTraits
 {
-    
     public function match($userSchedule, $instrSchedule)
     {
+
         $matchTime = array();
 
         if(($userSchedule == null) && ($instrSchedule == null)){
@@ -36,7 +33,6 @@ trait matchTraits
                 }
             } 
         }
-        
         return $matchTime;
     }
 }

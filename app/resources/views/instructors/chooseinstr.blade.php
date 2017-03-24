@@ -11,9 +11,7 @@
 
 						<!-- <form id="instructor-names" method="POST" action="/instructorMeeting"> -->
 						<form id="instructor-names" method="GET" action="/choosetime">
-
-							{{csrf_field()}}
-
+							
 							<div class="radio">
 
 								<h4>Teachers</h4>

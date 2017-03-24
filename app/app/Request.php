@@ -36,17 +36,17 @@ class Request extends Model
     * Return the sender of the meeting request.
     * @return User
     */
-    public function sender()
-    {
-        return $this->invites->where('sender', true);
+    public function sender(){
+        $id = $this->invites->where('sender', true)->first()->user_id;
+        return \App\User::find($id);
     }
 
     /**
      * Return the receiver of the meeting request.
      * @return User
      */
-    public function receiver()
-    {
-        return $this->invites->where('sender', false);
+    public function receiver(){
+        $id = $this->invites->where('sender', false)->first()->user_id;
+        return \App\User::find($id);
     }
 }

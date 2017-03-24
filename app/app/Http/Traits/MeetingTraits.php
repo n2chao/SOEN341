@@ -18,8 +18,8 @@ trait MeetingTraits
         $request->end_time = $data->end_time;
         $request->save();
         //attach authenticated user and other student to the request
-        $request->users()->attach($user);
-        $request->users()->attach($data->student);
+        $request->users()->attach($user, ['sender' => true]);
+        $request->users()->attach($data->student, ['sender' => false]);
    }
 
     /**
@@ -32,11 +32,16 @@ trait MeetingTraits
     {
         $user = Auth::user();
         //if user is the receiver of the meeting request
-        if($request->receiver->is($user)){
+        if($request->receiver()->is($user)){
             //create the new meeting
             $data=clone($request);
             $data->instructorMeeting = false;
-            $data->student = $request->sender;
+            $data->student = $request->sender();
+            $this->createMeeting($data);
+            foreach($request->invites as $invite){
+                $invite->delete();
+            }
+            $request->delete();
         }
     }
 
@@ -49,13 +54,12 @@ trait MeetingTraits
     {
         $user = Auth::user();
         //if sender or receiver of meeting request
-        if($request->receiver->is($user) || $request->sender->is($user)){
+        if($request->users->contains($user)){
             foreach($request->invites as $invite){
                 $invite->delete();
             }
             $request->delete();
         }
-
     }
 
     /**
