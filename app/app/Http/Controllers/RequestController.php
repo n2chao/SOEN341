@@ -27,12 +27,15 @@ class RequestController extends Controller
      * @param $request the POST request
      */
      public function store(Request $request){
+         $this->validate(request(), [
+             'time' => 'required'
+             ]);
         $data = clone($request);
         //array is serialized in client
         //serialization allows an array to be passed as value
         //ALTERNATIVE
         //Any better way to associate selected time with corresponding student->id?
-        $student_time_array = unserialize($data->studentid_starttime_serialized_array);
+        $student_time_array = unserialize($data->time);
         $meetingTime = $this->timeToWeek($data->currentWeek, $student_time_array[0]);
         //set start and end time for meeting request
         $start = new \DateTime();
@@ -53,6 +56,9 @@ class RequestController extends Controller
     * @param  $request the GET request
     */
     public function create(Request $request){
+        $this->validate(request(), [
+            'course' => 'required'
+            ]);
         $user = Auth::user();                           //get authenticated user
         $course = \App\Course::find($request->course);  //get selected course
         $students = $course->users->where('title', 'student')->except($user->id);  //get all classmates
@@ -60,15 +66,13 @@ class RequestController extends Controller
         $week = $this->week();
         foreach($students as $student){
             //get available matches for authenticated user and student
-            $availMatch = $this->match($user->schedule, $student->schedule);
-            //HERE MUST BE WEEK[0] ... temporary change to avoid bug
-            $truncatedMatch = $this->truncate($availMatch, $week[1]);
-            //is count() sufficient to check if at least one match?
+            $availMatch = $this->match($user->schedule->freetime, $student->schedule->freetime);
+            $truncatedMatch = $this->truncate($availMatch, $week[0]);
             if(count($truncatedMatch) > 0){                         //if at least one match
                 $matches[(string)$student->id] = $truncatedMatch;   //add to matches
             }
             else{
-                $students->forget($student->id);                    //remove student from collection
+                $students = $students->except($student->id);                    //remove student from collection
             }
         }
         return view('students/choosestudenttime', compact('students', 'matches', 'week', 'course'));
@@ -78,7 +82,8 @@ class RequestController extends Controller
      * Show details for a given meeting request.
      * @param  $request Meeting request object
      */
-     public function show(\App\Request $request){
+     public function show(\App\Request $request)
+     {
         return $request;
     }
 
@@ -87,7 +92,8 @@ class RequestController extends Controller
      * This deletes the meeting request and all associated invites,
      * @param $request Meeting request object
      */
-     public function destroy(\App\Request $request){
+     public function destroy(\App\Request $request)
+     {
         //declineMeetingRequest defined in MeetingTraits
         $this->declineMeetingRequest($request);
         return redirect('home');
@@ -97,7 +103,8 @@ class RequestController extends Controller
     * Accept a meeting request.
     * @param $request Meeting request object
     */
-    public function accept(\App\Request $request){
+    public function accept(\App\Request $request)
+    {
         //acceptMeetingRequest defined in MeetingTraits
         $this->acceptMeetingRequest($request);
         return redirect('home');

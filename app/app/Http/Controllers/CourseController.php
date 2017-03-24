@@ -10,7 +10,8 @@ class CourseController extends Controller
     /*
     * Responds to GET /allCourses
     */
-    public function index(){
+    public function index()
+    {
         return \App\Course::all();     
     }
     
@@ -24,7 +25,8 @@ class CourseController extends Controller
     /*
     * Responds to GET /courses/{course}
     */
-    public function show(Course $course){
+    public function show(Course $course)
+    {
         return $course;
     }
     
