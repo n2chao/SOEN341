@@ -86,6 +86,9 @@ trait MeetingTraits
     }
 
     /**
+    * note: Meeting and Attendances have soft deleting enabled.
+    *       delete() is a soft delete
+    *       forceDelete() is a hard delete
     * Leave the meeting.
     * Because max size of meeting is 2 people,
     * the meeting and all attendances are canceled
@@ -97,9 +100,9 @@ trait MeetingTraits
         //if user is attending meeting, delete meeting and attendances
         if($meeting->users->contains($user)){
             foreach($meeting->attendances as $attendance){
-                $attendance->delete();
+                $attendance->forceDelete();
             }
-            $meeting->delete();
+            $meeting->forceDelete();
         }
     }
 }

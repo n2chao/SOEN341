@@ -13,7 +13,8 @@ class Kernel extends ConsoleKernel
      * @var array
      */
     protected $commands = [
-        //
+        \App\Console\Commands\CloseExpiredMeetings::class,
+        \App\Console\Commands\CloseExpiredMeetingRequests::class,
     ];
 
     /**
@@ -24,8 +25,8 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')
-        //          ->hourly();
+        // $schedule->command('meetings:closeExpired')
+        //          ->everyMinute();
     }
 
     /**

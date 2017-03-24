@@ -18,6 +18,8 @@ class CreateAttendancesTable extends Migration
             $table->integer('meeting_id');
             $table->integer('user_id');
             $table->timestamps();
+            //enable soft deleting
+            $table->softDeletes();
         });
     }
 
