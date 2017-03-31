@@ -18,29 +18,51 @@
 
               <div class="panel panel-default">
                   <div class="panel-heading">Scheduled Meetings</div>
+                  @if(!$meetings->isEmpty())
+                    <div class="panel-group", style='margin: 15px;'>
+                    @foreach ($meetings as $meeting)
+                        <div class="panel panel-default">
+                          @foreach ($meeting->users->except(Auth::id()) as $attendee)
+                          <div class="panel-heading">meeting {{$attendee->title}}</div>
+                          @endforeach
+                          <div class="panel-body">    
+                            <div class="row" >
+                              <div class="col-sm-6">
+                            
+                                <!-- <p><Label>Scheduled meetings</Label></p> -->
+                                
+                                <!-- HTMl can't make DELETE request, so 'method spoofing' is used-->
+                                <!-- Display calendar of week with 7 days and timeslots-->
+                                    
+                                    <h5>Meeting With:
+                                    <!--TEST : Calling eloquent relationships from the view is bad practice -->
+                                    @foreach ($meeting->users->except(Auth::id()) as $attendee)
+                                        <span class="label label-default">{{$attendee->name}}</span>
+                                    @endforeach
+                                    </h5>
 
-                    <div class="panel-body">
-                    @if(!$meetings->isEmpty())
-                        <p><Label>Scheduled meetings</Label></p>
-                        @foreach ($meetings as $meeting)
-                        <!-- HTMl can't make DELETE request, so 'method spoofing' is used-->
-                        <!-- Display calendar of week with 7 days and timeslots-->
-                            <p>id = {{$meeting->id}}</p>
-                            <p>start_time = {{$meeting->start_time}}</p>
-                            <p><Label>Attendee(s)</Label></p>
-                            <!--TEST : Calling eloquent relationships from the view is bad practice -->
-                            @foreach ($meeting->users->except(Auth::id()) as $attendee)
-                                <p>{{$attendee->name}}</p>
-                            @endforeach
-                            {{ Form::open(['method' => 'DELETE', 'route' => ['meetings.destroy', $meeting->id]]) }}
-                            {{ Form::submit('Leave meeting', ['class' => 'btn btn-danger']) }}
-                            {{ Form::close() }}
-                            <p>--------------------------------------</p>
+                                    <h5>Meeting Time:
+                                    <span class="label label-default">{{date("l, F j, Y g:i a", strtotime($meeting->start_time))}}</span>
+                                    </h5>
+                              </div>
+                              <div class="col-sm-3"></div>
+                              <div class="col-sm-3">
+                                    {{ Form::open(['method' => 'DELETE', 'route' => ['meetings.destroy', $meeting->id]]) }}
+                                    {{ Form::submit('Leave meeting', ['class' => 'btn btn-danger', 'style'=>'margin-top: 20px;']) }}
+                                    {{ Form::close() }}
+                              </div> 
+                            </div>
+                          </div>
+                        </div>
                         @endforeach
-                    @else
-                        <p><Label>No scheduled meetings</Label></p>
-                    @endif
                     </div>
+                    
+                            @else
+                            
+                                <p><Label>No scheduled meetings</Label></p>
+                            @endif
+                          
+              
               </div>
 
               <div class="panel panel-default">
