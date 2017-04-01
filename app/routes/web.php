@@ -65,7 +65,7 @@ Route::group(['middleware' => ['auth']], function () {
   Route::get('/home', 'HomeController@index');
 
   Route::get('/chooseinstr', 'InstructorController@index');
-  
+
 
   //instructor meetings
   Route::get('instructors/chooseinstr', 'InstructorController@index');
@@ -92,7 +92,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/home', 'HomeController@index');
 
     Route::get('/chooseinstr', 'InstructorController@index');
-    
+
 
     //instructor meetings
     Route::get('instructors/chooseinstr', 'InstructorController@index');
@@ -120,8 +120,10 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('requests/{request}/accept', 'RequestController@accept')->name('requests.accept');;
 });
 
-
 Route::get('/course', function(){
     return view('course');
  });
 
+ Route::get('rating', function(){
+     return view('rating');
+  });
