@@ -50,6 +50,7 @@ class WizardController extends Controller
 
         $user = Auth::user();
         $user->title = $request->title;
+        $user->setup = true;
         $user->save();
         return redirect('home');
     }

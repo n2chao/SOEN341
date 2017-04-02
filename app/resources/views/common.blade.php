@@ -5,7 +5,7 @@
    <div class="col-md-3">
 
       <!-- SIDEBAR -->
-     <div>
+     <div id="dash-sidebar">
        <!-- SIDEBAR USERPIC -->
        <div>
          <!-- Placeholder incase we wish to implement pictures, I can remove this if requested-->
