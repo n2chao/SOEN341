@@ -8,6 +8,7 @@ use App\Schedule;
 
 class ScheduleController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
