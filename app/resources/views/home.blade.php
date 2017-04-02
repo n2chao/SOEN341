@@ -18,6 +18,7 @@
 
               <div class="panel panel-default">
                   <div class="panel-heading">Scheduled Meetings</div>
+                  <div class="panel-body">
                   @if(!$meetings->isEmpty())
                     <div class="panel-group", style='margin: 15px;'>
                     @foreach ($meetings as $meeting)
@@ -28,14 +29,8 @@
                           <div class="panel-body">    
                             <div class="row" >
                               <div class="col-sm-6">
-                            
-                                <!-- <p><Label>Scheduled meetings</Label></p> -->
-                                
-                                <!-- HTMl can't make DELETE request, so 'method spoofing' is used-->
-                                <!-- Display calendar of week with 7 days and timeslots-->
-                                    
+
                                     <h5>Meeting With:
-                                    <!--TEST : Calling eloquent relationships from the view is bad practice -->
                                     @foreach ($meeting->users->except(Auth::id()) as $attendee)
                                         <span class="label label-default">{{$attendee->name}}</span>
                                     @endforeach
@@ -44,6 +39,7 @@
                                     <h5>Meeting Time:
                                     <span class="label label-default">{{date("l, F j, Y g:i a", strtotime($meeting->start_time))}}</span>
                                     </h5>
+
                               </div>
                               <div class="col-sm-3"></div>
                               <div class="col-sm-3">
@@ -56,46 +52,64 @@
                         </div>
                         @endforeach
                     </div>
-                    
-                            @else
-                            
-                                <p><Label>No scheduled meetings</Label></p>
-                            @endif
-                          
-              
+                  @else
+                    <div class="panel-group", style='margin: 15px;'>
+                      <div class="panel panel-default">
+                        <div class="panel-heading">No scheduled meetings</div>
+                      </div>
+                    </div>
+                  @endif
+                  </div>
               </div>
 
+          <!--OPEN MEETING REQUEST PANNEL-->
               <div class="panel panel-default">
+              <!--open request Heading-->
                   <div class="panel-heading">Open Meeting Requests</div>
-
+                    <!--open request Body-->
                         <div class="panel-body">
-                        @if(!$requests->isEmpty())
-                            @foreach ($requests as $request)
-                            <!-- HTMl can't make DELETE request, so 'method spoofing' is used-->
-                            <!-- Display calendar of week with 7 days and timeslots-->
-                                <p>id = {{$request->id}}</p>
-                                <p>course_id = {{$request->course_id}}</p>
-                                <p>start_time = {{$request->start_time}}</p>
-                                <p><Label>Attendee(s)</Label></p>
-                                <!--TEST : Calling eloquent relationships from the view is bad practice -->
-                                @foreach ($request->users->except(Auth::id()) as $attendee)
-                                    <p>{{$attendee->name}}</p>
+                            @if(!$requests->isEmpty())
+                            <!--INNER PANNELS: INDIVIDUAL REQUESTS-->
+                            <div class="panel-group", style='margin: 15px;'>
+                                @foreach ($requests as $request)
+                                <div class="panel panel-default">
+
+                                <!--INNER PANNEL HEADING -->
+                                    @foreach ($request->receiver()->except(Auth::id()) as $reciever)
+                                      <div class="panel-heading">meeting {{$reiever->is}}</div>
+                                    @endforeach
+
+                                <!--INNER PANNEL BODY -->    
+                                    <div class="panel-body">    
+                                        <div class="row" >
+                                            <div class="col-sm-6">
+                          
+                                                <h5>Meeting Time:
+                                                <span class="label label-default">{{date("l, F j, Y g:i a", strtotime($meeting->start_time))}}</span>
+                                                </h5>
+                                            </div>
+                                            <div class="col-sm-3"></div>
+                                            <div class="col-sm-3">
+                                                {{ Form::open(['method' => 'DELETE', 'route' => ['requests.destroy', $request->id]]) }}
+                                                {{ Form::submit('Close Meeting Request', ['class' => 'btn btn-danger']) }}
+                                                {{ Form::close() }}
+                                                @if($request->receiver()->is(Auth::user()))
+                                                    {{ Form::open(['method' => 'GET', 'route' => ['requests.accept', $request->id]]) }}
+                                                    {{ Form::submit('Accept Meeting Request', ['class' => 'btn btn-default']) }}
+                                                    {{ Form::close() }}
+                                                @endif
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>    
                                 @endforeach
-                                {{ Form::open(['method' => 'DELETE', 'route' => ['requests.destroy', $request->id]]) }}
-                                {{ Form::submit('Close Meeting Request', ['class' => 'btn btn-danger']) }}
-                                {{ Form::close() }}
-                                @if($request->receiver()->is(Auth::user()))
-                                    <p></p>
-                                    {{ Form::open(['method' => 'GET', 'route' => ['requests.accept', $request->id]]) }}
-                                    {{ Form::submit('Accept Meeting Request', ['class' => 'btn btn-default']) }}
-                                    {{ Form::close() }}
-                                @endif
-                                <p>--------------------------------------</p>
-                            @endforeach
-                        @else
-                            <p><Label>No meeting request</Label></p>
-                        @endif
-                  </div>
+                            @else
+                                        <p><Label>No meeting request</Label></p>
+                                    </div> 
+                                </div>
+                            </div>   
+                            @endif
+                        </div>
               </div>
 
               <div class="panel panel-default">
