@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('extra-content')
-<div class="col-md-9">
+<!-- WIZARD TITLE -->
               <div class="panel panel-default">
                   <div class="panel-heading">Wizard</div>
 
@@ -40,7 +40,8 @@
 
                   </div>
               </div>
-        </div>
+<!-- END WIZARD TITLE -->
+
         <script type="text/javascript" src="{{ asset('js/jquery-3.2.0.min.js') }}"></script>
         <script type="text/javascript" src="{{ asset('js/wizard.js') }}"></script>
 @endsection

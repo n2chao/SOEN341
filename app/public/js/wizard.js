@@ -1,1 +1,1 @@
-$("#dash-sidebar").hide();
+$(".dash").hide();

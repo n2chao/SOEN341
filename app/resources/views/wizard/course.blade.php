@@ -1,7 +1,5 @@
 @extends('layouts.app')
 @section('extra-content')
-    <script type="text/javascript" src="/js/course.js"></script>
-      <div class="col-md-9">
         <div id="course-panel" class="panel panel-default">
           <div class="panel-heading">Current Classes</div>
           <div class="panel-body">
@@ -69,6 +67,6 @@
             </form>
           </div>
         </div>
-      </div>
+        <script type="text/javascript" src="/js/course.js"></script>
 @endsection
 @include('common')

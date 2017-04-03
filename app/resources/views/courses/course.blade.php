@@ -1,7 +1,5 @@
 @extends('layouts.app')
 @section('extra-content')
-    <script type="text/javascript" src="/js/course.js"></script>
-      <div class="col-md-9">
         <div id="course-panel" class="panel panel-default">
           <div class="panel-heading">Current Classes</div>
           <div class="panel-body">
@@ -30,11 +28,11 @@
         <div id="course-panel" class="panel panel-default">
           <div class="panel-heading">Add New Courses</div>
           <div class="panel-body">
-            <p>Number of classes:
-              <input type="button" value="+" onClick="addRow('dataTable')" class="btn btn-success btn-sm "/>
-              <input type="button" value="-" onClick="deleteRow('dataTable')" class="btn btn-danger btn-sm "/>
-            </p>
             <form class="form-horizontal course_selection" action="/course" method="POST">
+              <p>Number of classes:
+                <input type="button" value="+" onClick="addRow('dataTable')" class="btn btn-success btn-sm" name="plus"/>
+                <input type="button" value="-" onClick="deleteRow('dataTable')" class="btn btn-danger btn-sm "/>
+              </p>
               {{csrf_field()}}
               <fieldset class="row2">
                 <table id="dataTable" class="form" border="0px">
@@ -65,9 +63,6 @@
             </form>
           </div>
         </div>
-        @if(App\User::find(Auth::id())->setup == false)
-          <button type="button" name="button"><a href="/schedule/create">Next</a></button>
-        @endif
-      </div>
+        <script type="text/javascript" src="/js/course.js"></script>
 @endsection
 @include('common')
