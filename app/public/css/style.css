@@ -2,13 +2,26 @@
 #bg-fade-carousel{
 	border-color: black;
 	line-height: 10%;
-
+	top: -22px;
+	background: linear-gradient(
+									 rgba(20,20,20, .7),
+									 rgba(20,20,20, .7)),
+									 url(../img/homepage-bg_mini.jpg);
+	height: 45em;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
 }
 .item .slide {
 	font-family: Helvetica, sans-serif;
 	font-variant: small-caps;
 	text-align: center;
+	color: white;
+}
 
+.carousel-inner{
+	top: 40%;
 }
 
 .item-p{
@@ -16,6 +29,7 @@
 	text-align: center;
 	font-size: 1.5em;
 	line-height: 1.4;
+	color: white;
 }
 
 /* register and Login styles*/
@@ -29,5 +43,6 @@
 /*app page template - footer styles*/
 footer{
 	text-align: center;
-	padding: 10px 0;
+	padding-top: 30px;
+padding-bottom: 30px;
 }
