@@ -8,19 +8,16 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Traits\matchTraits;
 use App\Http\Traits\weekTraits;
-use App\Http\Traits\truncateTraits;
 use App\Http\Traits\stringToDatesTraits;
-use App\Http\Traits\bookedTimeTraits;
-
-
 
 class matchTimeController extends Controller
 {
-	use matchTraits;
-	use weekTraits;
-    use truncateTraits;
+	//since weekTraits is used in matchTraits, and matchTraits
+	//is used in controller, collision for method 'week' must be resolved
+	use weekTraits, matchTraits {
+        weekTraits::week insteadof matchTraits;
+    }
     use stringToDatesTraits;
-    use bookedTimeTraits;
 
     public function create()
     {
@@ -29,36 +26,10 @@ class matchTimeController extends Controller
 
             ]);
         date_default_timezone_set("America/New_York");
-        $userSchedule = Auth::user()->schedule->freetime;  //get authenticated user
-        $userMeetings = Auth::user()->meetings->pluck('start_time');
-
+        $user = Auth::user();
         $instructor = User::find(request('instructor'));
-        $instrSchedule = $instructor->schedule->freetime;
-        $instrMeetings = $instructor->meetings->pluck('start_time');
-                
         $week = $this->week();
-       
-        $availMatch = $this->match($userSchedule, $instrSchedule);
-        
-
-        $userBooked = $this->booked($week, $userMeetings);
-        $instrBooked = $this->booked($week, $instrMeetings);
-        
-
-        $allBooked = $this->match($instrBooked, $userBooked);
-        
-
-
-        $allBooked = implode($allBooked);
-        $availMatch = implode($availMatch);
-
-        $trueWeekAvail = $this->match($allBooked, $availMatch);
-
-        $finalMatch = $this->truncate($trueWeekAvail, $week[0]);
-
-        
+		$finalMatch = $this->match($user, $instructor);
         return view('instructors/choosetime', compact('finalMatch', 'week', 'instructor'));
-        
-       
     }
 }

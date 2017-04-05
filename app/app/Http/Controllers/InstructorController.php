@@ -5,8 +5,6 @@ namespace App\Http\Controllers;
 use DB;
 use App\User;
 use Illuminate\Http\Request;
-
-//getting current user authentication.
 use Illuminate\Support\Facades\Auth;
 
 class InstructorController extends Controller
@@ -18,14 +16,15 @@ class InstructorController extends Controller
     */
     public function index()
     {
-        
-        $teachers = User::where('title', '=', 'teacher')->pluck('id', 'name');
-
-        $tas = User::where('title', '=', 'ta')->pluck('id', 'name');
-
+        $courses = Auth::user()->courses;
+        $teachers = collect();  //create empty collection
+        foreach($courses as $course){
+            $teachers = $teachers->merge($course->users->where('title', '=', 'teacher')->pluck('id', 'name'));
+        }
+        $tas = collect();       //create empty collection
+        foreach($courses as $course){
+            $tas = $tas->merge($course->users->where('title', '=', 'ta')->pluck('id', 'name'));
+        }
         return view('instructors/chooseinstr', compact('teachers', 'tas'));
-        
-    	
     }
-
 }

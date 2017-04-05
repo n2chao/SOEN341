@@ -20,6 +20,9 @@ class CreateMeetingsTable extends Migration
             $table->datetime('start_time');
             $table->datetime('end_time');
             $table->timestamps();
+            //enable soft deleting
+            $table->softDeletes();
+
         });
     }
 
