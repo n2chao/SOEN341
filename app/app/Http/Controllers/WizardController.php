@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use \App\Http\Traits\ScheduleTraits;
+use \App\Http\Traits\EnrollTraits;
 use Illuminate\Http\Request;
 use Auth;
 use App\User;
 use App\Schedule;
-use \App\Http\Traits\ScheduleTraits;
-use \App\Http\Traits\EnrollTraits;
 
 class WizardController extends Controller
 {
@@ -52,6 +52,53 @@ class WizardController extends Controller
         $user->title = $request->title;
         $user->setup = true;
         $user->save();
+        return redirect('wizard/course');
+    }
+
+    /**
+     * Show the form for creating a course.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create_course()
+    {
+      return view( 'wizard.course');
+    }
+
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store_course(Request $request)
+    {
+
+        return redirect('wizard/schedule');
+    }
+
+    /**
+     * Show the form for creating a course.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create_schedule()
+    {
+      return view( 'wizard.schedule');
+    }
+
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store_schedule(Request $request)
+    {
+        schedule_store($request);
+
         return redirect('home');
     }
 

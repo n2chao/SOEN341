@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Traits\ScheduleTraits;
 use Illuminate\Http\Request;
 use Auth;
 use App\Schedule;
@@ -9,6 +10,7 @@ use App\Schedule;
 class ScheduleController extends Controller
 {
 
+  use ScheduleTraits;
     /**
      * Display a listing of the resource.
      *
@@ -45,14 +47,7 @@ class ScheduleController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-          'freetime' => 'bail|required'
-        ]);
-
-        $schedule = new Schedule();
-        $schedule->user_id = Auth::id();
-        $schedule->freetime = $this->to_freetime($request);
-        $schedule->save();
+        schedule_store($request);
         return redirect('schedule');
     }
 
@@ -108,26 +103,4 @@ class ScheduleController extends Controller
         //
     }
 
-    public function to_freetime(Request $request)
-    {
-      $freetime = "";
-      for ($day=0; $day < 7; $day++) {
-        for ($hour=0; $hour < 24; $hour++) {
-          $matched = false;
-          $value = (string)$day.(string)$hour;
-          for ($slot=0; $slot < count($request->freetime); $slot++) {
-            if( strcmp( $value, $request->freetime[$slot] ) == 0 ) {
-              $matched = true;
-              break;
-            }
-          }
-          if($matched) {
-            $freetime .= "1";
-          } else {
-            $freetime .= "0";
-          }
-        }
-      }
-      return $freetime;
-    }
 }
