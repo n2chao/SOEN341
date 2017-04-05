@@ -26,6 +26,12 @@ Route::get('/allcourses', 'CourseController@index');
 //groups all routes requiring authentication
 Route::group(['middleware' => 'auth'], function () {
 
+    Route::get('/setup', 'SetupController@index');
+    Route::get('/setup/title', 'SetupController@Title');
+    Route::post('/setup/title', 'SetupController@setTitle');
+    Route::get('/setup/course', 'SetupController@course');
+    Route::post('/setup/course', 'SetupController@setCourse');
+
     //GET view for enrolling in new courses
     Route::get('/courses', 'EnrollmentController@create');
 
@@ -44,28 +50,42 @@ Auth::routes();
 //groups all routes requiring authentication
 Route::group(['middleware' => ['auth']], function () {
 
-  //GET all available courses
-  Route::get('allcourses', 'CourseController@index');
+  //Wizard Routes
+  Route::get('/wizard','WizardController@index');
+  Route::get('/wizard/title','WizardController@create_title');
+  Route::post('/wizard/title','WizardController@store_title');
 
-  //Courses
-  Route::get('courses/course', 'EnrollmentController@index');
-  Route::get('courses/course/{code}', 'EnrollmentController@dropCourse');
-  Route::get('/course', 'EnrollmentController@create');     //GET view for enrolling in new courses
-  Route::post('/course', 'EnrollmentController@store');     //POST enroll courses
-  //end Courses
+  Route::get('/wizard/course','WizardController@create_course');
+  Route::post('/wizard/course','WizardController@store_course');
 
-  //Schedules
-  Route::get('/schedule','ScheduleController@index');
-  Route::get('/schedule/create','ScheduleController@create');
-  Route::post('/schedule/create','ScheduleController@store');
-  Route::get('/schedule/edit','ScheduleController@edit');
-  Route::post('/schedule/edit','ScheduleController@update');
-  //End Schedule
+  Route::get('/wizard/schedule','WizardController@create_schedule');
+  Route::post('/wizard/schedule','WizardController@store_schedule');
+  //End Wizard Routes
 
-  Route::get('/home', 'HomeController@index');
+  //Groups all routes requiring to go to wizard if setup is not completed
+  Route::group(['middleware' => ['wizard']], function () {
+    //GET all available courses
+    Route::get('allcourses', 'CourseController@index');
+
+    //Courses
+    Route::get('courses/course', 'EnrollmentController@index');
+    Route::get('courses/course/{code}', 'EnrollmentController@dropCourse');
+    Route::get('/course', 'EnrollmentController@create');     //GET view for enrolling in new courses
+    Route::post('/course', 'EnrollmentController@store');     //POST enroll courses
+    //end Courses
+
+    //Schedules
+    Route::get('/schedule','ScheduleController@index');
+    Route::get('/schedule/create','ScheduleController@create');
+    Route::post('/schedule/create','ScheduleController@store');
+    Route::get('/schedule/edit','ScheduleController@edit');
+    Route::post('/schedule/edit','ScheduleController@update');
+    //End Schedule
+
+    Route::get('/home', 'HomeController@index');
 
   Route::get('/chooseinstr', 'InstructorController@index');
-  
+
 
   //instructor meetings
   Route::get('instructors/chooseinstr', 'InstructorController@index');
@@ -92,7 +112,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/home', 'HomeController@index');
 
     Route::get('/chooseinstr', 'InstructorController@index');
-    
+
 
     //instructor meetings
     Route::get('instructors/chooseinstr', 'InstructorController@index');
@@ -125,3 +145,4 @@ Route::get('/course', function(){
     return view('course');
  });
 
+});

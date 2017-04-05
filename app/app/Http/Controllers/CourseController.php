@@ -6,22 +6,22 @@ use Illuminate\Http\Request;
 
 class CourseController extends Controller
 {
-    
+
     /*
     * Responds to GET /allCourses
     */
     public function index()
     {
-        return \App\Course::all();     
+        return \App\Course::all();
     }
-    
+
     /*
     * Responds to GET /courses
     */
 //    public function show(Course $course){
 //        return $course;
 //    }
-    
+
     /*
     * Responds to GET /courses/{course}
     */
@@ -29,8 +29,8 @@ class CourseController extends Controller
     {
         return $course;
     }
-    
+
 //    public function enrolled() {
-//        
+//
 //    }
 }

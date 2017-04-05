@@ -2,7 +2,7 @@
 
 @section('extra-content')
 <script type="text/javascript" src="/js/dashboard.js"></script>
-<div class="col-md-9">
+<!-- HOME CONTENT -->
               <div class="panel panel-default">
                   <div class="panel-heading">Dashboard</div>
 
@@ -107,6 +107,6 @@
                       </div>
                   </div>
               </div>
-        </div>
+<!-- END HOME CONTENT -->
 @endsection
 @include('common')

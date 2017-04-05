@@ -2,22 +2,23 @@
 
 <div class="container">
   <div class="row">
-   <div class="col-md-3">
+    <div class="col-md-3">
 
-      <!-- SIDEBAR -->
+    <!-- DASH SIDEBAR -->
+    <div id="dash-sidebar" class="dash">
+
+     <!-- SIDEBAR USERPIC -->
      <div>
-       <!-- SIDEBAR USERPIC -->
-       <div>
-         <!-- Placeholder incase we wish to implement pictures, I can remove this if requested-->
-         <img src="https://placehold.it/100x100" class="img-responsive" alt="">
-       </div>
-       <!-- END SIDEBAR USERPIC -->
+       <!-- Placeholder incase we wish to implement pictures, I can remove this if requested-->
+       <img src="https://placehold.it/100x100" class="img-responsive" alt="">
+     </div>
+     <!-- END SIDEBAR USERPIC -->
 
-       <!-- SIDEBAR USER TITLE -->
-       <div>
-           <h3>{{ Auth::user()->name }}</h3>
-       </div>
-       <!-- END SIDEBAR USER TITLE -->
+     <!-- SIDEBAR USER TITLE -->
+     <div>
+         <h3>{{ Auth::user()->name }}</h3>
+     </div>
+     <!-- END SIDEBAR USER TITLE -->
 
        <!-- SIDEBAR MENU -->
        <div>
@@ -50,8 +51,26 @@
        </div>
        <!-- END MENU -->
      </div>
+     <!-- END MENU -->
+    </div>
+
+    <!-- Main Right Column -->
+    <div class="col-md-9">
+
+      <!-- GLOBAL ANNOUNCEMENT -->
+     @component('global-announcement')
+     @endcomponent
+     <!-- END GLOBAL ANNOUNCEMENT -->
+
+
+     <!-- Main Right Content -->
+     @yield('extra-content')
+     <!-- Main Right Content -->
    </div>
-  @yield('extra-content')
-</div>
+   <!-- End Main content -->
+
+   </div>
+
+  </div>
 </div>
 @endsection
