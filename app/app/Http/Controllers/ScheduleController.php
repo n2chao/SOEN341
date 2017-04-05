@@ -11,6 +11,7 @@ class ScheduleController extends Controller
 {
 
   use ScheduleTraits;
+
     /**
      * Display a listing of the resource.
      *
@@ -47,7 +48,7 @@ class ScheduleController extends Controller
      */
     public function store(Request $request)
     {
-        schedule_store($request);
+        $this->schedule_store($request);
         return redirect('schedule');
     }
 

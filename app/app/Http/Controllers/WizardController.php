@@ -97,7 +97,7 @@ class WizardController extends Controller
      */
     public function store_schedule(Request $request)
     {
-        schedule_store($request);
+        $this->schedule_store($request);
 
         return redirect('home');
     }
