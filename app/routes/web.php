@@ -21,7 +21,8 @@ Route::get('/home', 'HomeController@index');
 
 //GET all available courses
 Route::get('/allcourses', 'CourseController@index');
-
+//search courses
+Route::get('/search', 'CourseController@search');
 
 //groups all routes requiring authentication
 Route::group(['middleware' => 'auth'], function () {
@@ -44,9 +45,6 @@ Auth::routes();
 //groups all routes requiring authentication
 Route::group(['middleware' => ['auth']], function () {
 
-  //GET all available courses
-  Route::get('allcourses', 'CourseController@index');
-
   //Courses
   Route::get('courses/course', 'EnrollmentController@index');
   Route::get('courses/course/{code}', 'EnrollmentController@dropCourse');
@@ -65,7 +63,7 @@ Route::group(['middleware' => ['auth']], function () {
   Route::get('/home', 'HomeController@index');
 
   Route::get('/chooseinstr', 'InstructorController@index');
-  
+
 
   //instructor meetings
   Route::get('instructors/chooseinstr', 'InstructorController@index');
@@ -92,7 +90,7 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('/home', 'HomeController@index');
 
     Route::get('/chooseinstr', 'InstructorController@index');
-    
+
 
     //instructor meetings
     Route::get('instructors/chooseinstr', 'InstructorController@index');
@@ -124,4 +122,3 @@ Route::group(['middleware' => ['auth']], function () {
 Route::get('/course', function(){
     return view('course');
  });
-

@@ -1,7 +1,20 @@
 @extends('layouts.app')
 @section('extra-content')
+    <!-- Selectize.js CSS -->
+    <link href="{{ url('/js/selectize/css/selectize.bootstrap3.css') }}" rel="stylesheet">
+    <!-- jquery delivered via content delivery network - testing -->
+    <script
+      src="https://code.jquery.com/jquery-1.10.2.min.js"
+      integrity="sha256-C6CB9UYIS9UJeqinPHWTHVqh/E1uhG5Twh+Y5qFQmYg="
+      crossorigin="anonymous"></script>
+    <!-- Selectize.js for smart search -->
+    <script type="text/javascript" src='{{ url("/js/selectize/js/standalone/selectize.min.js") }}'></script>
     <script type="text/javascript" src="/js/course.js"></script>
       <div class="col-md-9">
+          <!-- test SELECT box -->
+          <meta name="csrf_token" content="{{ csrf_token() }}" />
+          <select id="searchbox" name="q" placeholder="Search..." class="form-control"></select>
+
         <div id="course-panel" class="panel panel-default">
           <div class="panel-heading">Current Classes</div>
           <div class="panel-body">

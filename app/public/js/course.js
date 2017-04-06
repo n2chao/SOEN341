@@ -13,6 +13,38 @@
 however, the deleteRow() I changed it so that users won't have to check the corresponded boxes whenever the user removes the courses.
 Which makes it more user-friendly now.*/
 
+//start selectize.js
+//inspired by https://maxoffsky.com/code-blog/laravel-shop-tutorial-3-implementing-smart-search/
+jQuery(document).ready(function($){		//wrap jquery to prevent bug
+	$(document).ready(function(){
+	    $('#searchbox').selectize({
+			valueField: 'code',			//value when item is selected
+			labelField: 'code',			//not used if custom render function is defined
+			searchField: ['code'],		//what to analyze when filtering?
+			maxOptions: 10,
+			create: false,
+	        load: function(query, callback) {
+	            if (!query.length) return callback();
+	            $.ajax({
+	                url: '/search',		//see web.php
+	                type: 'GET',
+	                dataType: 'json',
+	                data: {
+	                    q: query
+	                },
+	                error: function(response) {
+	                    callback();
+	                },
+	                success: function(response) {
+	                    callback(response.data);
+	                }
+	            });
+	        },
+	    });
+	});
+});
+//end selectize.js
+
 function addRow(tableID) {
 
 	var table = document.getElementById(tableID);
