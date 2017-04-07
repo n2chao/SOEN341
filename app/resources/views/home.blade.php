@@ -72,7 +72,7 @@
                                 <div class="panel panel-default">
 
                                 <!--INNER PANNEL BODY -->    
-                                    <div class="panel-body" style="background-color: hsla(0, 100%, 30%, 0.1);">    
+                                    <div class="panel-body" style="background-color: hsla(240, 100%, 30%, 0.1);">    
                                         <div class="row">
                                             <div class="col-sm-6">
                                                 
