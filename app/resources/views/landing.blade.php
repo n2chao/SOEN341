@@ -2,7 +2,6 @@
 
 @section('content')
 
-
 	<div id="bg-fade-carousel" class="carousel slide carousel-fade" data-ride="carousel">
 		<div class="carousel-inner">
 			<div class="item active">
@@ -15,7 +14,7 @@
 			</div>
 			<div class="item">
 				<h1 class="slide">Just click and meet !</h1></br>
-				<p class="item-p">A list of available buddies for each course at you fingertips !<br>Also schedule a meeting with your Professor or TA !</p>
+				<p class="item-p">A list of available buddies for each course at your fingertips !<br>Also schedule a meeting with your Professor or TA !</p>
 
 			</div>
 		</div>
