@@ -6,13 +6,7 @@
 
       <!-- SIDEBAR -->
      <div>
-       <!-- SIDEBAR USERPIC -->
-       <div>
-         <!-- Placeholder incase we wish to implement pictures, I can remove this if requested-->
-         <img src="https://placehold.it/100x100" class="img-responsive" alt="">
-       </div>
-       <!-- END SIDEBAR USERPIC -->
-
+      
        <!-- SIDEBAR USER TITLE -->
        <div>
            <h3>{{ Auth::user()->name }}</h3>

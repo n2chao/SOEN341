@@ -34,6 +34,9 @@ trait truncateTraits
 				case 'Saturday':
 					$num=6;
 					break;
+				case 'Sunday';
+					$num=1;
+					break;
 				default:
 					$num=0;
 					break;

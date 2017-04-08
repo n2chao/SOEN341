@@ -64,9 +64,7 @@ Route::group(['middleware' => ['auth']], function () {
 
   Route::get('/home', 'HomeController@index');
 
-  Route::get('/chooseinstr', 'InstructorController@index');
   
-
   //instructor meetings
   Route::get('instructors/chooseinstr', 'InstructorController@index');
   Route::get('/choosetime', 'matchTimeController@create');
@@ -90,14 +88,6 @@ Route::group(['middleware' => ['auth']], function () {
     //End Schedule
 
     Route::get('/home', 'HomeController@index');
-
-    Route::get('/chooseinstr', 'InstructorController@index');
-    
-
-    //instructor meetings
-    Route::get('instructors/chooseinstr', 'InstructorController@index');
-    Route::get('instructors/choosetime', 'InstructorController@show');
-
     //GET all meetings (student or instructor)
     Route::get('meetings','MeetingController@index');
     //POST new meeting (instructor only)
