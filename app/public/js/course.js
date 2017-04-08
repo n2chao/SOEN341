@@ -27,6 +27,10 @@ jQuery(document).ready(function($){		//wrap jquery to prevent bug
 				//set course description once selected
 				document.getElementById(id+"_description").innerHTML=this.options[value].name;
 			},
+			onItemRemove : function(value){
+				//remove course description once course removed
+				document.getElementById(id+"_description").innerHTML="";
+			},
 			load: function(query, callback) {
 				if (!query.length) return callback();
 				$.ajax({
@@ -46,6 +50,8 @@ jQuery(document).ready(function($){		//wrap jquery to prevent bug
 			},
 		});
 	}
+	//selectize first input when document ready
+	$(document).ready(selectizeRow("course_name_0"));
 
 	addRow = function(tableID){
 		var table = document.getElementById(tableID);
@@ -58,7 +64,8 @@ jQuery(document).ready(function($){		//wrap jquery to prevent bug
 			removeCell.innerHTML = '<p id="course_name_'+rowCount+'_description"></p>';
 			removeCell.align = "right";	//align css
 		}else{
-			alert("You can only add up to 7 courses.");
+			document.getElementById("ui_error_message").innerHTML = "You can only add up to 7 courses."
+			$("#ui_error").show();			//jquery show the error message
 		}
 		selectizeRow("course_name_"+rowCount);
 	}
@@ -67,12 +74,10 @@ jQuery(document).ready(function($){		//wrap jquery to prevent bug
 		var table = document.getElementById(tableID);
 		var rowCount = table.rows.length;
 		if(rowCount<=1){
-			alert("You must enter at least one course.")
+			document.getElementById("ui_error_message").innerHTML = "You must enter at least one course."
+			$("#ui_error").show();			//jquery show the error message
 		}else{
-			document.getElementById(tableID).deleteRow(rowCount-1);
-			rowCount--;
+			table.deleteRow(rowCount-1);
 		}
 	}
-	//selectize first input when document ready
-	$(document).ready(selectizeRow("course_name_0"));
 });

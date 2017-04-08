@@ -55,6 +55,10 @@
                     </td>
                   </tr>
                 </table>
+                <div id="ui_error" class="alert alert-warning alert-dismissable fade in" style="display:none;">
+                    <button type="button" class="close" onclick="$('.alert').hide()">&times;</button>
+                    <p id="ui_error_message">test message</p>
+              </div>
               <div class="form-group">
                 <div class="col-md-2">
                   <button type="submit" class="btn btn-primary ">
@@ -63,6 +67,18 @@
                 </div>
               </div>
             </form>
+            @if (count($errors))
+                <div class='form-group'>
+                    <div class='alert alert-danger alert-dismissable'>
+                        <button type="button" class="close" data-dismiss="alert">&times;</button>
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                </div>
+            @endif
           </div>
         </div>
       </div>
