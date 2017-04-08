@@ -23,7 +23,7 @@
                     <td class="course_row">
                       {{$userCourse}}
                     </td>
-                    <td>
+                    <td align="right">
                       <a href="{{action('EnrollmentController@dropCourse', $userCourse)}}">
                         <input type="button" value="Remove" class="btn btn-danger btn-sm "/>
                       </a>
@@ -32,33 +32,29 @@
                 @endforeach
               </table>
             @endif
-
           </div>
         </div>
 
         <div id="course-panel" class="panel panel-default">
-          <div class="panel-heading">Add New Courses</div>
+          <div class="panel-heading">Add New Courses
+              <div class="pull-right" align="center">
+                  <input type="button" value="+" onClick="addRow('dataTable')" class="btn btn-success btn-sm" name="plus"/>
+                  <input type="button" value="-" onClick="deleteRow('dataTable')" class="btn btn-danger btn-sm"/>
+              </div>
+          </div>
           <div class="panel-body">
-            <form class="form-horizontal course_selection" action="/course" method="POST">
-              <p>Number of classes:
-                <input type="button" value="+" onClick="addRow('dataTable')" class="btn btn-success btn-sm" name="plus"/>
-                <input type="button" value="-" onClick="deleteRow('dataTable')" class="btn btn-danger btn-sm "/>
-              </p>
+                <form class="form-horizontal course_selection" action="/course" method="POST">
               {{csrf_field()}}
-              <fieldset class="row2">
-                <table id="dataTable" class="table table-hover">
-                  <tbody>
+                <table id="dataTable" class="table">
                   <tr>
                     <td>
-                        <div class="col-md-6">
-                            <select id="course_name_0" type="text" placeholder="i.e SOEN341" class="form-control" name="add_course_ids[0]" value="{{ old('course_name') }}">
-                        </div>
-                        <input type="button" value="Remove" onClick="deleteRow('dataTable')" class="btn btn-primary btn-xs"  />
+                        <input id="course_name_0" type="text" style="width: 190px;" placeholder="i.e. SOEN341" name="add_course_ids[0]" value="{{ old('course_name') }}"/>
+                    </td>
+                    <td align="right">
+                        <p id="course_name_0_description"></p>
                     </td>
                   </tr>
-                  </tbody>
                 </table>
-              </fieldset>
               <div class="form-group">
                 <div class="col-md-2">
                   <button type="submit" class="btn btn-primary ">

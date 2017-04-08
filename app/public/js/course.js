@@ -17,12 +17,16 @@ Which makes it more user-friendly now.*/
 jQuery(document).ready(function($){		//wrap jquery to prevent bug
 	selectizeRow = function(id){
 		$('#' + id).selectize({
-
 			valueField: 'code',			//value when item is selected
 			labelField: 'code',			//not used if custom render function is defined
-			searchField: ['code'],		//what to analyze when filtering?
+			searchField: ['code'],		//what to analyze when filtering
+			maxItems: 1,
 			maxOptions: 10,
 			create: false,
+			onItemAdd: function(value, $item){
+				//set course description once selected
+				document.getElementById(id+"_description").innerHTML=this.options[value].name;
+			},
 			load: function(query, callback) {
 				if (!query.length) return callback();
 				$.ajax({
@@ -48,8 +52,11 @@ jQuery(document).ready(function($){		//wrap jquery to prevent bug
 		var rowCount = table.rows.length;
 		if(rowCount < 7){
 			var row = table.insertRow(rowCount);
-			var newcell = row.insertCell(0);
-			newcell.innerHTML = '<tr><td><div class="col-md-6"> <select id="course_name_'+rowCount+'" type="text" placeholder="i.e SOEN341" class="form-control" name="add_course_ids['+rowCount+']"> </div> <input type="button" value="Remove" onClick="deleteRow(\'dataTable\')" class="btn btn-primary btn-xs"  /></td></tr>'
+			var courseCell = row.insertCell(0);
+			var removeCell = row.insertCell(1);
+			courseCell.innerHTML = '<input id="course_name_'+rowCount+'" type="text" style="width: 190px;" placeholder="i.e. SOEN341" name="add_course_ids['+rowCount+']">';
+			removeCell.innerHTML = '<p id="course_name_'+rowCount+'_description"></p>';
+			removeCell.align = "right";	//align css
 		}else{
 			alert("You can only add up to 7 courses.");
 		}
