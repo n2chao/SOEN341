@@ -57,7 +57,7 @@
                 </table>
                 <div id="ui_error" class="alert alert-warning alert-dismissable fade in" style="display:none;">
                     <button type="button" class="close" onclick="$('.alert').hide()">&times;</button>
-                    <p id="ui_error_message">test message</p>
+                    <p id="ui_error_message"></p>
               </div>
               <div class="form-group">
                 <div class="col-md-2">
