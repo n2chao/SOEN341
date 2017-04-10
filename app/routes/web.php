@@ -46,14 +46,12 @@ Route::group(['middleware' => ['auth']], function () {
 
     Route::get('/home', 'HomeController@index');
 
-    //GET all available courses
-    Route::get('allcourses', 'CourseController@index');
-
     //Courses
     Route::get('courses/course', 'EnrollmentController@index');
     Route::get('courses/course/{code}', 'EnrollmentController@dropCourse');
     Route::get('/course', 'EnrollmentController@create');     //GET view for enrolling in new courses
     Route::post('/course', 'EnrollmentController@store');     //POST enroll courses
+    Route::get('/search', 'CourseController@search');
     //end Courses
 
     //Schedules

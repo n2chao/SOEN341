@@ -6,7 +6,7 @@
   <div class="form-group">
     <label for="role">Are you a...</label>
     <select class="form-control" name="title">
-      <option value="student">Student</option>
+      <option value="student" selected>Student</option>
       <option value="ta">Teacher Assistant</option>
       <option value="teacher">Teacher</option>
     </select>
