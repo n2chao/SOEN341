@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('extra-content')
-<div class="col-md-9">
+<!-- SCHEDULE -->
               <div class="panel panel-default">
                   <div class="panel-heading">Schedule</div>
 
@@ -72,6 +72,6 @@
                     </button>
                   </div>
               </div>
-        </div>
+<!-- END SCHEDULE -->
 @endsection
 @include('common')

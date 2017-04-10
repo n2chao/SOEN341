@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('extra-content')
-	<div class="col-md-9">
+<!-- INSTRUCTOR CHOOSE -->
         <div class="profile-content">
           	<div class="col-md-12">
 				<div class="panel panel-default">
@@ -54,6 +54,6 @@
 				</div>
 			</div>
 		</div>
-	</div>
+<!-- END INSTRUCTOR CHOOSE -->
 @endsection
 @include('common')

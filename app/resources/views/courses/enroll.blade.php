@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
-            
+
             <!-- Available courses-->
             <div class="panel panel-default">
                 <div class="panel-body">
@@ -30,7 +30,7 @@
                     @endif
                     </div>
             </div>
-            
+
             <!-- Add/Drop Courses FORM -->
             <div class="panel panel-default">
                 <div class="panel-body">
@@ -48,7 +48,7 @@
                     </form>
                 </div>
             </div>
-            
+
             <!-- Developer notes-->
             <div class="panel panel-default">
                 <div class="panel-body">
@@ -64,7 +64,7 @@
                     <p>Also is it just me or the footer doesn't stick to the bottom when scrolling down a long page?</p>
                     </div>
             </div>
-            
+
         </div>
     </div>
 </div>
