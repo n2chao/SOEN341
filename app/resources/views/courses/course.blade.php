@@ -7,6 +7,9 @@
 
 {{-- Enrolled courses --}}
 @component('courses.add')
+  @slot('form-path')
+         /course
+   @endslot
 @endComponent
 {{-- End Enrolled courses --}}
 

@@ -20,7 +20,7 @@ class Wizard
      */
     public function handle($request, Closure $next)
     {
-      if( Auth::user()->setup == false) {
+      if( Auth::user()->setup == false ) {
         return redirect('wizard');
       }
         return $next($request);

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use \App\Http\Traits\ScheduleTraits;
-use \App\Http\Traits\EnrollTraits;
+use Illuminate\Routing\Redirector;
 use Illuminate\Http\Request;
 use Auth;
 use App\User;
@@ -13,14 +13,16 @@ class WizardController extends Controller
 {
 
   use ScheduleTraits;
-  use EnrollTraits;
 
+  public function __construct(){
+    return 'hello';
+  }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
       return redirect( 'wizard/title' );
     }
@@ -30,7 +32,7 @@ class WizardController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create_title()
+    public function create_title(Request $request)
     {
       return view( 'wizard.title');
     }
@@ -50,7 +52,6 @@ class WizardController extends Controller
 
         $user = Auth::user();
         $user->title = $request->title;
-        $user->setup = true;
         $user->save();
         return redirect('wizard/course');
     }
@@ -98,8 +99,10 @@ class WizardController extends Controller
      */
     public function store_schedule(Request $request)
     {
+        $user = Auth::user();
+        $user->setup = true;
+        $user->save();
         $this->schedule_store($request);
-
         return redirect('home');
     }
 

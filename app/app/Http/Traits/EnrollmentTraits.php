@@ -44,21 +44,21 @@ trait EnrollmentTraits
               foreach($failed as $code){
                   $failed_courses = $failed_courses. '\n' . $code;
               }
-          }
+           }
           //end validation error
       }
   }
 
-  /**
-  * Helper function. Drop courses specified in $data.
-  * @param $data array of course_id
-  */
-  public function dropCourse($code){
-      $user = Auth::user();  //get authenticated user
-      //get course_id corresponding to course code ie soen341
-      $course_id = Course::where('code', $code)->first()->id;
-      $user->courses()->detach($course_id);  //detach course
-      return redirect('courses/course');
-  }
+  // /**
+  // * Helper function. Drop courses specified in $data.
+  // * @param $data array of course_id
+  // */
+  // public function dropCourse($code){
+  //     $user = Auth::user();  //get authenticated user
+  //     //get course_id corresponding to course code ie soen341
+  //     $course_id = Course::where('code', $code)->first()->id;
+  //     $user->courses()->detach($course_id);  //detach course
+  // }
+
 
 }
