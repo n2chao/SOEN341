@@ -14,6 +14,7 @@ trait weekTraits
 		$oldWeekStart = request('weekStart');
 		$oldWeekEnd = request('weekEnd');
 		$oldWeek = array($oldWeekStart, $oldWeekEnd);
+		
 
 		date_default_timezone_set("America/New_York");
 
@@ -59,10 +60,12 @@ trait weekTraits
 				$week = array(strtotime("+168 hours", $oldWeek[0]), strtotime("+168 hours", $oldWeek[1]));
 			}
 		}else if(request('prevWeek') == "prevWeek"){
-			if(strtotime("tomorrow") == $oldWeek[0]){
+			if((strtotime("tomorrow") == $oldWeek[0]) && ((date("l", strtotime("today")) != "Saturday"))){
 				$week = $oldWeek;
-			}else if(strtotime("tomorrow") > strtotime("-168 hours", $oldWeekStart)){
+			}else if((strtotime("tomorrow") > strtotime("-168 hours", $oldWeekStart)) && ((date("l", strtotime("today")) != "Saturday"))){
 				$week = array(strtotime("tomorrow"), strtotime("-168 hours", $oldWeek[1]));
+			}else if((strtotime("tomorrow") > strtotime("-168 hours", $oldWeekStart)) && ((date("l", strtotime("today")) == "Saturday"))){
+				$week = array(strtotime("today"), strtotime("today +11 hours"));
 			}else if(date("l", $oldWeek[0])=="Saturday"){
 				$week = $oldWeek;
 			}else{

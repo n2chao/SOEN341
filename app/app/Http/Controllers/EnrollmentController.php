@@ -15,9 +15,8 @@ class EnrollmentController extends Controller
 {
     //see dependency injection (import models by overriding constructor)
     protected $users;
-    protected $userCourses;
     //mass assignment protection
-    protected $fillable = ['add_course_id', 'drop_course_id'];
+    protected $fillable = ['add_course_ids'];
 
     /**
      * Override default constructor, inject the User dependency.
@@ -49,9 +48,20 @@ class EnrollmentController extends Controller
     */
     public function store(Request $request)
     {
-      // $user = Auth::user();  //get authenticated user
-      $this->addCourses($request['add_course_ids']);
-      return redirect()->back();
+        $this->validate(request(), [
+            'add_course_ids.*' => 'required'
+            ]);
+        $user = Auth::user();  //get authenticated user
+        //call addCourses and dropCourses helper methods
+        $this->addCourses(array_filter(request('add_course_ids')));
+        return redirect()->back();
+    }
+
+    public function messages()
+    {
+      return [
+          'add_course_ids.*.required' => 'A title is required',
+          ];
     }
 
     /**

@@ -90,6 +90,4 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('requests/{request}/accept', 'RequestController@accept')->name('requests.accept');;
   });
 
-
-
 });

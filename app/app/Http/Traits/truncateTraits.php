@@ -13,7 +13,7 @@ trait truncateTraits
 	{	$num;
 		$truncatedMatches;
 
-		if($week == strtotime("tomorrow")){
+		if((($week == strtotime("tomorrow")) || (date("l", $week)=="Saturday")) && ((strtotime("tomorrow")) != "Sunday")){
 			$today = date( "l", strtotime("today"));
 			switch ($today) {
 				case 'Monday':
@@ -33,6 +33,9 @@ trait truncateTraits
 					break;
 				case 'Saturday':
 					$num=6;
+					break;
+				case 'Sunday';
+					$num=1;
 					break;
 				default:
 					$num=0;

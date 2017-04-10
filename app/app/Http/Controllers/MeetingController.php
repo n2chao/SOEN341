@@ -18,6 +18,10 @@ class MeetingController extends Controller
     */
     public function store(Request $request)
     {
+        $this->validate(request(), [
+            'start_time' => 'required'
+
+            ]);
         date_default_timezone_set("America/New_York");
         $data = clone($request);
 
