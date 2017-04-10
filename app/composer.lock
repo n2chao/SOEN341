@@ -147,11 +147,7 @@
                 "markdown",
                 "parser"
             ],
-<<<<<<< HEAD
             "time": "2017-03-29 16:04:15"
-=======
-            "time": "2017-03-29T16:04:15+00:00"
->>>>>>> 019b3f16ddb33b98d14b6ed6649f90c5c3f73297
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -592,11 +588,7 @@
                 "framework",
                 "laravel"
             ],
-<<<<<<< HEAD
             "time": "2017-04-03 13:07:39"
-=======
-            "time": "2017-04-03T13:07:39+00:00"
->>>>>>> 019b3f16ddb33b98d14b6ed6649f90c5c3f73297
         },
         {
             "name": "laravel/socialite",
@@ -650,11 +642,7 @@
                 "laravel",
                 "oauth"
             ],
-<<<<<<< HEAD
             "time": "2017-03-27 19:43:19"
-=======
-            "time": "2017-03-27T19:43:19+00:00"
->>>>>>> 019b3f16ddb33b98d14b6ed6649f90c5c3f73297
         },
         {
             "name": "laravel/tinker",
@@ -849,11 +837,7 @@
                 "sftp",
                 "storage"
             ],
-<<<<<<< HEAD
             "time": "2017-03-22 15:43:14"
-=======
-            "time": "2017-03-22T15:43:14+00:00"
->>>>>>> 019b3f16ddb33b98d14b6ed6649f90c5c3f73297
         },
         {
             "name": "league/oauth1-client",
@@ -1442,11 +1426,7 @@
                 "identifier",
                 "uuid"
             ],
-<<<<<<< HEAD
             "time": "2017-03-26 20:37:53"
-=======
-            "time": "2017-03-26T20:37:53+00:00"
->>>>>>> 019b3f16ddb33b98d14b6ed6649f90c5c3f73297
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -2911,11 +2891,7 @@
                 "testing",
                 "xunit"
             ],
-<<<<<<< HEAD
             "time": "2017-04-02 07:44:40"
-=======
-            "time": "2017-04-02T07:44:40+00:00"
->>>>>>> 019b3f16ddb33b98d14b6ed6649f90c5c3f73297
         },
         {
             "name": "phpunit/php-file-iterator",
@@ -3183,11 +3159,7 @@
                 "testing",
                 "xunit"
             ],
-<<<<<<< HEAD
             "time": "2017-04-03 02:22:27"
-=======
-            "time": "2017-04-03T02:22:27+00:00"
->>>>>>> 019b3f16ddb33b98d14b6ed6649f90c5c3f73297
         },
         {
             "name": "phpunit/phpunit-mock-objects",
