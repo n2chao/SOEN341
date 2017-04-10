@@ -42,6 +42,9 @@ Route::group(['middleware' => ['auth']], function () {
 
   //search courses
   Route::get('/search', 'CourseController@search');
+  Route::get('/course', 'EnrollmentController@create');     //GET view for enrolling in new courses
+  Route::post('/course', 'EnrollmentController@store');     //POST enroll courses
+  Route::get('courses/course/{code}', 'EnrollmentController@dropCourse');
 
   //ADD AUTHENTICATED ROUTES UNDER
   //Groups all routes requiring to go to wizard if setup is not completed
@@ -51,9 +54,6 @@ Route::group(['middleware' => ['auth']], function () {
 
     //Courses
     Route::get('courses/course', 'EnrollmentController@index');
-    Route::get('courses/course/{code}', 'EnrollmentController@dropCourse');
-    Route::get('/course', 'EnrollmentController@create');     //GET view for enrolling in new courses
-    Route::post('/course', 'EnrollmentController@store');     //POST enroll courses
     //end Courses
 
     //Schedules
