@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Traits\EnrollmentTraits;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;    //required to use Auth
 use Illuminate\Validation\Rule;         //required for request validation

@@ -4,7 +4,7 @@
   @component('courses.enrolled')
   @endcomponent
   @component('courses.add')
-    
+
   @endcomponent
 
 <script type="text/javascript" src="/js/course.js"></script>
