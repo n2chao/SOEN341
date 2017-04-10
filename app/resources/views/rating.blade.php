@@ -1,102 +1,103 @@
-  @extends('layouts.app')
-  @section('extra-content')
+@extends('layouts.app')
+@section('extra-content')
+<script type="text/javascript" language="javascript">
 
-    <div class="col-md-9">
-    <div id="course-panel" class="panel panel-default">
-      <div class="panel-heading">Rate our web application!</div>
-        <div class="panel-body">
+	<!--
+	function start(i) {
+	  document.getElementById('starbox'+i).innerHTML="<div onmouseout='start("+i+");'><span id='s1"+i+"' onclick='starSelection(this.id);'onmouseout='outStar(this.id);'onmouseover='overStar(this.id);'>★</span><span id='s2"+i+"' onclick='starSelection(this.id);'onmouseout='outStar(this.id);'onmouseover='overStar(this.id);'>☆</span><span id='s3"+i+"' onclick='starSelection(this.id);'onmouseout='outStar(this.id);'onmouseover='overStar(this.id);'>☆</span><span id='s4"+i+"' onclick='starSelection(this.id);'onmouseout='outStar(this.id);'onmouseover='overStar(this.id);'>☆</span><span id='s5"+i+"' onclick='starSelection(this.id);'onmouseout='outStar(this.id);'onmouseover='overStar(this.id);'>☆</span></div>";
+	}
 
-        <p><strong>Hey buddy, please rate your experience that you had with our web application!</strong></p>
-  	<p> 1) I was able to find a study buddy :</p>
-  	<span class="rating">
-  			<input type="radio" class="rating-input"
-  				id="rating-input-1-5" name="rating-input-1">
-  			<label for="rating-input-1-5" class="rating-star"></label>
-  			<input type="radio" class="rating-input"
-  				id="rating-input-1-4" name="rating-input-1">
-  			<label for="rating-input-1-4" class="rating-star"></label>
-  			<input type="radio" class="rating-input"
-  				id="rating-input-1-3" name="rating-input-1">
-  			<label for="rating-input-1-3" class="rating-star"></label>
-  			<input type="radio" class="rating-input"
-  				id="rating-input-1-2" name="rating-input-1">
-  			<label for="rating-input-1-2" class="rating-star"></label>
-  			<input type="radio" class="rating-input"
-  				id="rating-input-1-1" name="rating-input-1">
-  			<label for="rating-input-1-1" class="rating-star"></label>
-  		</span>
-  		<br/>
-  	<p> 2) I was able to make an appointment with a teacher or a teacher assistant:</p>
-  	<span class="rating">
-  			<input type="radio" class="rating-input"
-  				id="rating-input-2-5" name="rating-input-2">
-  			<label for="rating-input-2-5" class="rating-star"></label>
-  			<input type="radio" class="rating-input"
-  				id="rating-input-2-4" name="rating-input-2">
-  			<label for="rating-input-2-4" class="rating-star"></label>
-  			<input type="radio" class="rating-input"
-  				id="rating-input-2-3" name="rating-input-2">
-  			<label for="rating-input-2-3" class="rating-star"></label>
-  			<input type="radio" class="rating-input"
-  				id="rating-input-2-2" name="rating-input-2">
-  			<label for="rating-input-2-2" class="rating-star"></label>
-  			<input type="radio" class="rating-input"
-  				id="rating-input-2-1" name="rating-input-2">
-  			<label for="rating-input-2-1" class="rating-star"></label>
-  		</span>
-  	<br>
-  	<p> 3) This web application is easy to surf on : </p>
-  	<span class="rating">
-  			<input type="radio" class="rating-input"
-  				id="rating-input-3-5" name="rating-input-3">
-  			<label for="rating-input-3-5" class="rating-star"></label>
-  			<input type="radio" class="rating-input"
-  				id="rating-input-3-4" name="rating-input-3">
-  			<label for="rating-input-3-4" class="rating-star"></label>
-  			<input type="radio" class="rating-input"
-  				id="rating-input-3-3" name="rating-input-3">
-  			<label for="rating-input-3-3" class="rating-star"></label>
-  			<input type="radio" class="rating-input"
-  				id="rating-input-3-2" name="rating-input-3">
-  			<label for="rating-input-3-2" class="rating-star"></label>
-  			<input type="radio" class="rating-input"
-  				id="rating-input-3-1" name="rating-input-3">
-  			<label for="rating-input-3-1" class="rating-star"></label>
-  		</span>
-  		<br/>
-  	<p> 4) Using this web application helped my learning process :</p>
-  		<span class="rating">
-  			<input type="radio" class="rating-input"
-  				id="rating-input-4-5" name="rating-input-4">
-  			<label for="rating-input-4-5" class="rating-star"></label>
-  			<input type="radio" class="rating-input"
-  				id="rating-input-4-4" name="rating-input-4">
-  			<label for="rating-input-4-4" class="rating-star"></label>
-  			<input type="radio" class="rating-input"
-  				id="rating-input-4-3" name="rating-input-4">
-  			<label for="rating-input-4-3" class="rating-star"></label>
-  			<input type="radio" class="rating-input"
-  				id="rating-input-4-2" name="rating-input-4">
-  			<label for="rating-input-4-2" class="rating-star"></label>
-  			<input type="radio" class="rating-input"
-  				id="rating-input-4-1" name="rating-input-4">
-  			<label for="rating-input-4-1" class="rating-star"></label>
-  		</span>
-  		<br/>
+	function overStar(starID){
+	  var starNo = starID.charAt(1);
+	  var starSe = starID.charAt(2);
+	  for(var i=1; i<=5; i++){
+		document.getElementById('s'+i+''+starSe).style.color="#ffcc00";
+		if(i<=starNo) document.getElementById('s'+i+''+starSe).innerHTML="★";
+		if(i>starNo) document.getElementById('s'+i+''+starSe).innerHTML="☆";
+	  }
+	}
 
-  		<form action="">
-  		<p>If you ever have any comments,suggestions or complaints, feel free to share them with us down below : </p>
-  		<textarea name="message" rows="10" cols="70"></textarea>
-  		<br>
-      <div class="form-group">
-          <button type="submit" class="btn btn-primary ">
-          Submit
-          </button>
-      </div>
-  		</form>
-    </div>
-    </div>
-  </div>
-  </div>
-      @endsection
-      @include('common')
+	function outStar(starID){
+	  var starNo = starID.charAt(1);
+	  var starSe = starID.charAt(2);
+	  var rating = document.MyReview.rating.value;
+	  for(var i=1; i<=5; i++){
+		col = "color"+i;
+		if(i<=rating){
+		  document.getElementById('s'+i+''+starSe).innerHTML="★";
+		  document.getElementById('s'+i+''+starSe).style.color=eval(col);
+		}
+		if(i>rating) document.getElementById('s'+i+''+starSe).innerHTML="☆";
+	  }
+	}
+
+	function starSelection(starID){
+	  var starNo = starID.charAt(1);
+	  var starSe = starID.charAt(2);
+	  var uitvoer = "";
+	  for (var i=0; i<starNo; i++) {
+		uitvoer=uitvoer+"<span>★</span>";
+	  }
+	  for (var i=starNo; i<5; i++) {
+		uitvoer=uitvoer+"<span>☆</span>";
+	  }	
+	  document.getElementById('starbox'+starSe).innerHTML=uitvoer;
+	  
+	  document.getElementById('php').innerHTML="<" + "?" + " include('vote.php?no=" + starNo + "&se=" + starSe + "'); " + "?" + ">";
+
+	}
+
+	$('.reset-rating').on('click', function() {
+	  starSelection();
+	});
+
+	-->
+</script>
+	<body onload="start(1); start(2); start(3);">
+		<div class="col-md-9">
+		<div id="rating-panel" class="panel panel-default">
+		  <div class="panel-heading">Rate our web application</div>
+			<div class="panel-body">	
+			
+			<div class="container">
+			<p><strong>Hey buddy, please share your overall experience, because we would like to hear from you!</strong></p>
+			<div class="row" style="margin-top:10px;">
+				<div class="col-md-8">
+			
+			<div class="left"><br/><button class="reset-rating" onClick="start(1);start(2);start(3);">Reset Stars</button></div>
+			<br/>
+			 <div class="left" align onmouseover="this.style.cursor='default';" style="color: #ffcc00; font-size: 25pt;" id="starbox1"; >
+			</div>
+			<br/>
+			
+			<textarea name="TextReview" cols="90" rows="5" placeholder="Write your review here!">
+			</textarea>
+			<br />
+		<div class="form-group">
+			  <button type="submit" class="btn btn-primary ">
+			  Leave Review
+			  </button>
+		</div>
+		  
+			<div id="php"></div>
+				</div>
+			</div>
+			
+		</div>
+		</div>
+		</div>
+	<br/>
+		
+		<div id="reviews-panel" class="panel panel-default">
+		  <div class="panel-heading">Reviews</div>
+			<div class="panel-body">
+			<div class="container">
+
+			<div id="php"></div>
+				</div>
+			</div>
+		</div>
+		</div>
+</body> 
+@endsection
+@include('common')
