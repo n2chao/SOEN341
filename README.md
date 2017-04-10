@@ -4,7 +4,7 @@
 
 Develop an e-learning program.
 
-##Project
+## Project
 
 Studying in groups can have many benefits such as the sharing and discussion of ideas. This web application allows students to easily find and meet peers to study for a specific course. After submitting their schedule, a student can pick the course he or she wants to study and a timeframe. This student is then matched with schoolmates that want study for the chosen course. Finally, the application shows the times during the week where the students can meet according to their schedule and put them in contact.
 
@@ -22,7 +22,7 @@ The project also lets professors and teaching assistants submitting their availa
 * Patrick Spensieri 
 * Amadou Fall
 
-##Technologies
+## Technologies
 * PHP
 * Laravel
  * Homestead
