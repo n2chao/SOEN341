@@ -11,63 +11,93 @@
 |
 */
 
-//Home page
 Route::get('/', function () {
     //return view('landing');
     return view('landing');
 });
-//End Home page
+
+//Route to info page
+Route::get('/information/info', function() {
+  return view('/information/info');
+});
+
+//Route to About Us page
+Route::get('/information/aboutus', function() {
+  return view('/information/aboutus');
+});
 
 Auth::routes();
+Route::get('/home', 'HomeController@index');
+
+//GET all available courses
+Route::get('/allcourses', 'CourseController@index');
+
+
+//groups all routes requiring authentication
+Route::group(['middleware' => 'auth'], function () {
+
+    //GET view for enrolling in new courses
+    Route::get('/courses', 'EnrollmentController@create');
+
+    //POST enroll courses
+    Route::post('/courses', 'EnrollmentController@store');
+});
+
 
 //Facebook routes
 Route::get('auth/facebook', 'FacebookController@facebookRedirect')->name('facebook.login');
 Route::get('auth/facebook/callback', 'FacebookController@facebookCallback');
-//End Facebook routes
+
+
+Auth::routes();
 
 //groups all routes requiring authentication
 Route::group(['middleware' => ['auth']], function () {
 
-  //Wizard Routes
-  Route::get('/wizard','WizardController@index');
-  Route::get('/wizard/title','WizardController@create_title');
-  Route::post('/wizard/title','WizardController@store_title');
+  //GET all available courses
+  Route::get('allcourses', 'CourseController@index');
 
-  Route::get('/wizard/course','WizardController@create_course');
-  Route::post('/wizard/course','EnrollmentController@store');
-
-  Route::get('/wizard/schedule','WizardController@create_schedule');
-  Route::post('/wizard/schedule','WizardController@store_schedule');
-  //End Wizard Routes
-
-  //search courses
-  Route::get('/search', 'CourseController@search');
+  //Courses
+  Route::get('courses/course', 'EnrollmentController@index');
+  Route::get('courses/course/{code}', 'EnrollmentController@dropCourse');
   Route::get('/course', 'EnrollmentController@create');     //GET view for enrolling in new courses
   Route::post('/course', 'EnrollmentController@store');     //POST enroll courses
-  Route::get('courses/course/{code}', 'EnrollmentController@dropCourse');
+  //end Courses
 
-  //ADD AUTHENTICATED ROUTES UNDER
-  //Groups all routes requiring to go to wizard if setup is not completed
-  Route::group(['middleware' => ['wizard']], function () {
+  //Schedules
+  Route::get('/schedule','ScheduleController@index');
+  Route::get('/schedule/create','ScheduleController@create');
+  Route::post('/schedule/create','ScheduleController@store');
+  Route::get('/schedule/edit','ScheduleController@edit');
+  Route::post('/schedule/edit','ScheduleController@update');
+  //End Schedule
 
-    Route::get('/home', 'HomeController@index');
+  Route::get('/home', 'HomeController@index');
+
+
+  //instructor meetings
+  Route::get('instructors/chooseinstr', 'InstructorController@index');
+  Route::get('/choosetime', 'matchTimeController@create');
+
+    //GET all available courses
+    Route::get('allcourses', 'CourseController@index');
 
     //Courses
     Route::get('courses/course', 'EnrollmentController@index');
+    Route::get('courses/course/{code}', 'EnrollmentController@dropCourse');
+    Route::get('/course', 'EnrollmentController@create');     //GET view for enrolling in new courses
+    Route::post('/course', 'EnrollmentController@store');     //POST enroll courses
     //end Courses
 
     //Schedules
-    Route::get('/schedule','ScheduleController@index');
-    Route::get('/schedule/create','ScheduleController@create');
-    Route::post('/schedule/create','ScheduleController@store');
-    Route::get('/schedule/edit','ScheduleController@edit');
-    Route::post('/schedule/edit','ScheduleController@update');
+    Route::get('/schedule', 'ScheduleController@index');
+    Route::get('/schedule/create', 'ScheduleController@create');
+    Route::post('/schedule/create', 'ScheduleController@store');
+    Route::get('/schedule/edit', 'ScheduleController@edit');
+    Route::post('/schedule/edit', 'ScheduleController@update');
     //End Schedule
 
-    //instructor meetings
-    Route::get('instructors/chooseinstr', 'InstructorController@index');
-    Route::get('instructors/choosetime', 'InstructorController@show');
-
+    Route::get('/home', 'HomeController@index');
     //GET all meetings (student or instructor)
     Route::get('meetings','MeetingController@index');
     //POST new meeting (instructor only)
@@ -88,6 +118,9 @@ Route::group(['middleware' => ['auth']], function () {
     Route::get('requests/{request}', 'RequestController@show');
     //GET to accept a meeting request
     Route::get('requests/{request}/accept', 'RequestController@accept')->name('requests.accept');;
-  });
-
 });
+
+
+Route::get('/course', function(){
+    return view('course');
+ });
