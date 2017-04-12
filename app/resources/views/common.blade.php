@@ -22,8 +22,8 @@
                Overview </a>
              </li>
              <li>
-               <a href="#">
-               Account Settings </a>
+               <a href="/rating">
+               Ratings </a>
              </li>
              <li>
                <a href="/requests">

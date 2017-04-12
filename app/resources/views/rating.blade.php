@@ -56,7 +56,7 @@
 	-->
 </script>
 	<body onload="start(1); start(2); start(3);">
-		<div class="col-md-9">
+		<div class="col-md-12">
 		<div id="rating-panel" class="panel panel-default">
 		  <div class="panel-heading">Rate our web application</div>
 			<div class="panel-body">	

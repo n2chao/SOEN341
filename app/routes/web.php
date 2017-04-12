@@ -18,6 +18,11 @@ Route::get('/', function () {
 });
 //End Home page
 
+Route::get('/rating', function () {
+    //return view('landing');
+    return view('rating');
+});
+
 Auth::routes();
 
 //Facebook routes
