@@ -10,7 +10,7 @@
 
 						<!-- <form id="instructor-names" method="POST" action="/instructorMeeting"> -->
 						<form id="instructor-names" method="GET" action="/choosetime">
-
+						<div class='row'>
 							<div class='col-md-6'>
 								<div class="radio">
 
@@ -30,7 +30,7 @@
 									@endforeach
 								</div>
 							</div>
-
+							</div>
 							<div class='row'>
 								<div class='col-md-3'>
 									<button class="btn btn-default" type="submit" value="selection" name="instructor-names-next">Next</button>
