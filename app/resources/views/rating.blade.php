@@ -2,7 +2,9 @@
 @section('extra-content')
 <script type="text/javascript" language="javascript">
 
-	<!--
+	<!-- Star Rating Code Reference: http://www.webdeveloper.com/forum/showthread.php?139403-JavaScript-Star-Rating-System-->
+	
+	
 	function start(i) {
 	  document.getElementById('starbox'+i).innerHTML="<div onmouseout='start("+i+");'><span id='s1"+i+"' onclick='starSelection(this.id);'onmouseout='outStar(this.id);'onmouseover='overStar(this.id);'>★</span><span id='s2"+i+"' onclick='starSelection(this.id);'onmouseout='outStar(this.id);'onmouseover='overStar(this.id);'>☆</span><span id='s3"+i+"' onclick='starSelection(this.id);'onmouseout='outStar(this.id);'onmouseover='overStar(this.id);'>☆</span><span id='s4"+i+"' onclick='starSelection(this.id);'onmouseout='outStar(this.id);'onmouseover='overStar(this.id);'>☆</span><span id='s5"+i+"' onclick='starSelection(this.id);'onmouseout='outStar(this.id);'onmouseover='overStar(this.id);'>☆</span></div>";
 	}
@@ -70,8 +72,7 @@
 			</div>
 			<br/>
 			
-			<textarea name="TextReview" cols="90" rows="5" placeholder="Write your review here!">
-			</textarea>
+			<textarea name="TextReview" start="left" cols="90" rows="5" placeholder="Write your review here!"></textarea>
 			<br />
 		<div class="form-group">
 			  <button type="submit" class="btn btn-primary ">
