@@ -1,23 +1,26 @@
 @extends('layouts.app')
 
 @section('extra-content')
-	<div class="col-md-9">
+<!-- INSTRUCTOR CHOOSE -->
+    <div class="row">
+      <div class="col-md-12">
         <div class="profile-content">
-          	<div class="col-md-12">
 				<div class="panel panel-default">
 					<div class="panel-heading">Choose an Instructor to Meet Wtih</div>
 					<div class="panel-body">
 
 						<!-- <form id="instructor-names" method="POST" action="/instructorMeeting"> -->
 						<form id="instructor-names" method="GET" action="/choosetime">
-
+						<div class='row'>
 							<div class='col-md-6'>
 								<div class="radio">
 
 									<h4>Teachers</h4>
-									@foreach ($teachers as $teacher_name => $teacher_id)
+									@forelse ($teachers as $teacher_name => $teacher_id)
 										<label><input id="teacher-name" name="instructor" value="{{$teacher_id}}" type="radio">{{ $teacher_name }}</label></br>
-									@endforeach
+                  @empty
+                      <p>No teacher is available</p>
+                  @endforelse
 
 								</div>
 							</div>
@@ -25,16 +28,20 @@
 							<div class='col-md-6'>
 								<div class='radio'>
 									<h4>Teaching Assistants</h4>
-									@foreach ($tas as $ta_name => $ta_id)
+									@forelse ($tas as $ta_name => $ta_id)
 										<label><input id="ta-name" name="instructor" value="{{$ta_id}}" type="radio">{{ $ta_name }}</label></br>
-									@endforeach
+                  @empty
+                    <p>No Teaching Assistant is available</p>
+                  @endforelse
 								</div>
 							</div>
-
+							</div>
 							<div class='row'>
 								<div class='col-md-3'>
-									<button class="btn btn-default" type="submit" value="selection" name="instructor-names-next">Next</button>
-								</div>
+                  @if(!$teachers->isempty()||!$tas->isempty())
+  									<button class="btn btn-default" type="submit" value="selection" name="instructor-names-next">Next</button>
+                  @endif
+                </div>
 							</div>
 
 							@if (count($errors))
@@ -54,6 +61,8 @@
 				</div>
 			</div>
 		</div>
-	</div>
+  </div>
+</div>
+<!-- END INSTRUCTOR CHOOSE -->
 @endsection
 @include('common')

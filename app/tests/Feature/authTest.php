@@ -16,7 +16,7 @@ class AuthTest extends BrowserKitTestCase
 /*
     /**
      * Test the case where a user registers successfully
-     * Confirms that the user is redirected to /home AND the user exists in the database
+     * Confirms that the user is redirected to /wizard/title AND the user exists in the database
      */
     public function testRegistrationSuccess(){
         $this->visit('register')
@@ -25,7 +25,7 @@ class AuthTest extends BrowserKitTestCase
             ->type('bilbo123', 'password')
             ->type('bilbo123', 'password_confirmation')
             ->press('Register')
-            ->seePageIs('http://localhost/home')
+            ->seePageIs('http://localhost/wizard/title')
             ->seeInDatabase('users', [
                 'email' => 'bilbo@baggins.com'
             ]);
@@ -47,7 +47,7 @@ class AuthTest extends BrowserKitTestCase
 
     /**
      * Test the case where a user logs in successfully
-     * Confirms that the user is redirected to /home
+     * Confirms that the user is redirected to /wizard/title
      */
     public function testLoginSuccess(){
         //create a user
@@ -60,7 +60,7 @@ class AuthTest extends BrowserKitTestCase
             ->type('bill@bill.com', 'email')
             ->type('secret', 'password')
             ->press('Login')
-            ->seePageIs('http://localhost/home');
+            ->seePageIs('http://localhost/wizard/title');
     }
 
     /**

@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
       //alternative once restriction on duplicate (course_id, user_id) gets created
 
     factory(App\Enrollment::class, 10)->create();
-    
+
 
 
 /*
