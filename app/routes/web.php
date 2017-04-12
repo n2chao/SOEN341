@@ -18,6 +18,15 @@ Route::get('/', function () {
 });
 //End Home page
 
+//Route to info page
+Route::get('/information/info', function() {
+  return view('/information/info');
+});
+
+//Route to About Us page
+Route::get('/information/aboutus', function() {
+  return view('/information/aboutus');
+});
 Route::get('/rating', function () {
     //return view('landing');
     return view('rating');
@@ -54,7 +63,6 @@ Route::group(['middleware' => ['auth']], function () {
   //ADD AUTHENTICATED ROUTES UNDER
   //Groups all routes requiring to go to wizard if setup is not completed
   Route::group(['middleware' => ['wizard']], function () {
-
     Route::get('/home', 'HomeController@index');
 
     //Courses
@@ -94,5 +102,4 @@ Route::group(['middleware' => ['auth']], function () {
     //GET to accept a meeting request
     Route::get('requests/{request}/accept', 'RequestController@accept')->name('requests.accept');;
   });
-
 });
