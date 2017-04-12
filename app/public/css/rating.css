@@ -1,0 +1,9 @@
+textarea{
+resize:vertical;
+}
+
+.left{
+	display: block;
+    float:left; 
+    width:33%;
+}
