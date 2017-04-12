@@ -6,7 +6,7 @@
 
       <!-- SIDEBAR -->
      <div>
-      
+
        <!-- SIDEBAR USER TITLE -->
        <div>
            <h3>{{ Auth::user()->name }}</h3>

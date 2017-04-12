@@ -16,6 +16,16 @@ Route::get('/', function () {
     return view('landing');
 });
 
+//Route to info page
+Route::get('/information/info', function() {
+  return view('/information/info');
+});
+
+//Route to About Us page
+Route::get('/information/aboutus', function() {
+  return view('/information/aboutus');
+});
+
 Auth::routes();
 Route::get('/home', 'HomeController@index');
 
@@ -64,7 +74,7 @@ Route::group(['middleware' => ['auth']], function () {
 
   Route::get('/home', 'HomeController@index');
 
-  
+
   //instructor meetings
   Route::get('instructors/chooseinstr', 'InstructorController@index');
   Route::get('/choosetime', 'matchTimeController@create');
@@ -114,4 +124,3 @@ Route::group(['middleware' => ['auth']], function () {
 Route::get('/course', function(){
     return view('course');
  });
-

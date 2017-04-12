@@ -21,7 +21,7 @@
 
 								</div>
 							</div>
-							
+
 							<div class='col-md-6'>
 								<div class='radio'>
 									<h4>Teaching Assistants</h4>
