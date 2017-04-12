@@ -66,7 +66,6 @@ Route::group(['middleware' => ['auth']], function () {
 
     //instructor meetings
     Route::get('instructors/chooseinstr', 'InstructorController@index');
-    Route::get('instructors/choosetime', 'InstructorController@show');
     Route::get('/choosetime', 'matchTimeController@create');
 
     //GET all meetings (student or instructor)
