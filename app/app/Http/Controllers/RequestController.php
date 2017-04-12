@@ -7,16 +7,17 @@ use Illuminate\Support\Facades\Auth;
 use \App\Http\Traits\MeetingTraits;
 use App\Http\Traits\matchTraits;
 use App\Http\Traits\weekTraits;
-use App\Http\Traits\truncateTraits;
 use App\Http\Traits\stringToDatesTraits;
 use App\Http\Traits\timeToWeekTraits;
 
 class RequestController extends Controller
 {
     use MeetingTraits;
-    use matchTraits;
-    use weekTraits;
-    use truncateTraits;
+    //since weekTraits is used in matchTraits, and matchTraits
+	//is used in controller, collision for method 'week' must be resolved
+    use weekTraits, matchTraits {
+        weekTraits::week insteadof matchTraits;
+    }
     use stringToDatesTraits;
     use timeToWeekTraits;
 
@@ -33,8 +34,6 @@ class RequestController extends Controller
         $data = clone($request);
         //array is serialized in client
         //serialization allows an array to be passed as value
-        //ALTERNATIVE
-        //Any better way to associate selected time with corresponding student->id?
         $student_time_array = unserialize($data->time);
         $meetingTime = $this->timeToWeek($data->currentWeek, $student_time_array[0]);
         //set start and end time for meeting request
@@ -66,8 +65,7 @@ class RequestController extends Controller
         $week = $this->week();
         foreach($students as $student){
             //get available matches for authenticated user and student
-            $availMatch = $this->match($user->schedule->freetime, $student->schedule->freetime);
-            $truncatedMatch = $this->truncate($availMatch, $week[0]);
+            $truncatedMatch = $this->match($user, $student);
             if(count($truncatedMatch) > 0){                         //if at least one match
                 $matches[(string)$student->id] = $truncatedMatch;   //add to matches
             }
