@@ -91,7 +91,7 @@ class ScheduleController extends Controller
       $schedule->freetime = $this->to_freetime($request);
       $schedule->save();
       return redirect('schedule');
-    }
+  }
 
     /**
      * Remove the specified resource from storage.
