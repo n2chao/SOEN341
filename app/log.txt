@@ -1,0 +1,2863 @@
+commit 602c7bd371859eaaff891f24b0a33c6d053e02ef
+Merge: c7a4055 8803832
+Author: Patrick Anthony Spensieri <patrick.spensieri@gmail.com>
+Date:   Wed Apr 12 16:12:19 2017 -0400
+
+    Merge pull request #185 from n2chao/a-aboutus
+    
+    A aboutus #174
+
+commit 8803832617d986f91f1f9bdeab2ceff164846908
+Merge: 9e82f5d c7a4055
+Author: Patrick Anthony Spensieri <patrick.spensieri@gmail.com>
+Date:   Wed Apr 12 16:10:00 2017 -0400
+
+    Merge branch 'master' into a-aboutus
+
+commit c7a405539d7620bf7b2bb5743193c609acb78690
+Merge: c22a472 99df0dc
+Author: Paul <paulrichard.28@gmail.com>
+Date:   Wed Apr 12 09:04:39 2017 -0400
+
+    Merge pull request #184 from n2chao/RatingReviewsSystem
+    
+    Rating reviews system
+
+commit 9e82f5d794db571ebb17a4f83358ffd491e5327d
+Author: AmadouF <papaamadofall@gmail.com>
+Date:   Wed Apr 12 01:28:40 2017 -0400
+
+    Update aboutus.blade.php
+
+ app/resources/views/information/aboutus.blade.php | 48 +++++++++++++++++++++++
+ 1 file changed, 48 insertions(+)
+
+commit 99df0dce318eb50b12da9b033e67997e885535b1
+Author: prich28 <paulrichard.28@gmail.com>
+Date:   Wed Apr 12 05:04:19 2017 +0000
+
+    Added the rating option to the main menu and created a route.
+
+ app/resources/views/common.blade.php | 4 ++--
+ app/resources/views/rating.blade.php | 2 +-
+ app/routes/web.php                   | 5 +++++
+ 3 files changed, 8 insertions(+), 3 deletions(-)
+
+commit 16e2e59461eeff7a2f5da2764f05549a0d388b91
+Merge: befb4d4 c823450
+Author: prich28 <paulrichard.28@gmail.com>
+Date:   Wed Apr 12 04:41:40 2017 +0000
+
+    Merge branch 'master' into RatingReviewsSystem
+
+commit befb4d420f509001b5e92ea529fe1b33cc474387
+Author: prich28 <paulrichard.28@gmail.com>
+Date:   Wed Apr 12 04:24:30 2017 +0000
+
+    removed compler.lock file. Updated web.php file to resolve conflicts with master. As per issue #32.
+
+ app/composer.lock  | 3850 ----------------------------------------------------
+ app/routes/web.php |   94 +-
+ 2 files changed, 29 insertions(+), 3915 deletions(-)
+
+commit 64cba14e3c250438af6964bba54c23f918746b4e
+Author: alimouawieh <Ali@alis-macbook-pro.local>
+Date:   Wed Apr 12 00:17:02 2017 -0400
+
+    created More info page #162
+    
+    More information page is created, and user can navigate from lading page
+
+ app/resources/views/common.blade.php               |  2 +-
+ app/resources/views/information/aboutus.blade.php  |  0
+ app/resources/views/information/info.blade.php     | 56 ++++++++++++++++++++++
+ .../views/instructors/chooseinstr.blade.php        |  4 +-
+ app/resources/views/layouts/app.blade.php          | 15 +++++-
+ app/routes/web.php                                 | 13 ++++-
+ 6 files changed, 84 insertions(+), 6 deletions(-)
+
+commit 27c25d3361bc84289e3069fe1005da4a2f35e486
+Author: KarineZhang <karine.zhang@hotmail.com>
+Date:   Tue Apr 11 23:41:47 2017 -0400
+
+    Add star rating code reference
+    
+    -I was not able to find a code to display the stars properly on my own,
+    I had to take this code, because most codes I have tried did not want to
+    display the stars due to some JQuery library problems, it only displayed
+    radio buttons.
+    -I also added a function to reset the rating stars, to allow users to
+    change the value of the stars, or else they could only choose once and
+    refresh the page and lose all the comments written priorly.
+    -There was a malfunctionning with the textarea, text cursor now starts
+    on left.
+
+ app/resources/views/rating.blade.php | 7 ++++---
+ 1 file changed, 4 insertions(+), 3 deletions(-)
+
+commit c22a472081817d9f81105eb00b7a4cfababc00b3
+Merge: c823450 e981257
+Author: Ho Man Chan <homan98@gmail.com>
+Date:   Tue Apr 11 23:14:15 2017 -0400
+
+    Merge pull request #181 from n2chao/general-layout-route-fix
+    
+    Patch #180 #179 #178 #177
+
+commit e981257f3646316b3bee184c734388de0ff2b87d
+Merge: cbf2e7d c823450
+Author: Paul <paulrichard.28@gmail.com>
+Date:   Tue Apr 11 23:02:57 2017 -0400
+
+    Merge branch 'master' into general-layout-route-fix
+
+commit c823450f7d071af7b15fe621463dfcd6cd8f94ba
+Merge: c2a642e 338b1fc
+Author: Patrick Anthony Spensieri <patrick.spensieri@gmail.com>
+Date:   Tue Apr 11 23:01:36 2017 -0400
+
+    Merge pull request #176 from n2chao/paul-working-branch
+    
+     Unit Tests added for stringToDates function
+
+commit 338b1fc7ae15190cf23e17fd80f997e5c7f1e7cf
+Author: prich28 <paulrichard.28@gmail.com>
+Date:   Wed Apr 12 02:33:15 2017 +0000
+
+    Fixed bug in issue #182.
+
+ app/resources/views/instructors/chooseinstr.blade.php | 4 ++--
+ app/routes/web.php                                    | 2 +-
+ 2 files changed, 3 insertions(+), 3 deletions(-)
+
+commit cbf2e7de7e9f8edb40d4f74be04d0fdb178d265c
+Author: Ho Man Chan <homan98@gmail.com>
+Date:   Tue Apr 11 00:08:45 2017 -0400
+
+    Fix student choosecourse routes
+    Remove the option to go to next in choosing instructor and courses to study or meet
+    Fix grid layout in instructor and students view
+
+ .../views/instructors/chooseinstr.blade.php        | 27 ++++++++++++++--------
+ .../views/instructors/choosetime.blade.php         | 22 ++++++++++--------
+ .../views/students/choosecourse.blade.php          | 18 ++++++++++-----
+ .../views/students/choosestudenttime.blade.php     |  3 ++-
+ app/routes/web.php                                 |  1 +
+ 5 files changed, 45 insertions(+), 26 deletions(-)
+
+commit cc8f899f1b1a796e5b81edbd93fdb44cdcc876f6
+Merge: e125362 c2a642e
+Author: prich28 <paulrichard.28@gmail.com>
+Date:   Tue Apr 11 02:20:05 2017 +0000
+
+    Merge branch 'master' into paul-working-branch
+
+commit e1253627a844c34d728729352bfe32322351166a
+Author: prich28 <paulrichard.28@gmail.com>
+Date:   Tue Apr 11 02:19:16 2017 +0000
+
+    deleted composer.lock
+
+ app/composer.lock | 3850 -----------------------------------------------------
+ 1 file changed, 3850 deletions(-)
+
+commit 7f12e68233310f205fbba598021a1803c4f7c8af
+Author: prich28 <paulrichard.28@gmail.com>
+Date:   Tue Apr 11 01:56:58 2017 +0000
+
+    added unit tests for testing the stringToDates function as per issue #175. They are functioning properly.
+
+ app/composer.lock                    | 106 +++++++++++++++++------------------
+ app/tests/Unit/stringToDatesTest.php |  65 +++++++++++++++++++++
+ 2 files changed, 118 insertions(+), 53 deletions(-)
+
+commit c2a642e135255242ae88e13652a221bb07a6f0a4
+Merge: 650f344 4cd1baf
+Author: Ho Man Chan <homan98@gmail.com>
+Date:   Mon Apr 10 16:30:40 2017 -0400
+
+    Merge pull request #169 from n2chao/sub-master
+    
+    Initial user setup after login
+
+commit 4cd1baf8aaa12c9cc0ba2b5fd0251619d457a167
+Author: Ho Man Chan <homan98@gmail.com>
+Date:   Mon Apr 10 16:00:51 2017 -0400
+
+    fix wizard course redirect bug
+
+ app/routes/web.php | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
+
+commit 650f344437661e1696a74b97376917dd3d4865ca
+Author: Nathan Chao <n2chao@users.noreply.github.com>
+Date:   Mon Apr 10 15:49:30 2017 -0400
+
+    Update README.md
+
+ README.md | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+commit 036c41b263d8a335c44a8a2a5c5f5635f1c024cc
+Author: Ho Man Chan <homan98@gmail.com>
+Date:   Mon Apr 10 15:38:54 2017 -0400
+
+    Fix search web route
+
+ app/routes/web.php | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+commit dfc8c3fa0288ef34b53234f824d17e22e8c12674
+Author: Ho Man Chan <homan98@gmail.com>
+Date:   Mon Apr 10 15:23:48 2017 -0400
+
+    Resolve smart search web bug
+
+ app/composer.json                          | 1 +
+ app/database/factories/ModelFactory.php    | 1 +
+ app/resources/views/wizard/title.blade.php | 2 +-
+ app/routes/web.php                         | 4 +---
+ 4 files changed, 4 insertions(+), 4 deletions(-)
+
+commit 641bbb50ce7429ea759d0abccc148fc3be2b183d
+Author: Ho Man Chan <homan98@gmail.com>
+Date:   Mon Apr 10 11:50:45 2017 -0400
+
+    improve global announcement ui
+
+ app/resources/views/global-announcement.blade.php | 42 ++++++++++++++---------
+ 1 file changed, 25 insertions(+), 17 deletions(-)
+
+commit 57333c6cd62685c64bd0fa097955b203653b53b9
+Author: Ho Man Chan <homan98@gmail.com>
+Date:   Mon Apr 10 11:31:07 2017 -0400
+
+    deleted composer.lock
+
+ app/composer.lock | 3850 -----------------------------------------------------
+ 1 file changed, 3850 deletions(-)
+
+commit 3af54ff4150503addbb83d8cf4bc5b429eba5165
+Author: Ho Man Chan <homan98@gmail.com>
+Date:   Mon Apr 10 11:10:52 2017 -0400
+
+    fix composer lock syntax error
+
+ app/composer.lock | 223 +++++++++++++++++++++++++++---------------------------
+ 1 file changed, 111 insertions(+), 112 deletions(-)
+
+commit 6c13b1eea6355a0212abcbf9005f2a89626536d8
+Author: Ho Man Chan <homan98@gmail.com>
+Date:   Mon Apr 10 11:01:04 2017 -0400
+
+    repair composer syntax error
+
+ app/composer.lock | 28 ----------------------------
+ 1 file changed, 28 deletions(-)
+
+commit b8ceae9e5cb256eb900926959aeae47140b4909f
+Merge: 1488fb3 019b3f1
+Author: Ho Man Chan <homan98@gmail.com>
+Date:   Mon Apr 10 10:47:52 2017 -0400
+
+    resolve conflict with master
+
+commit 019b3f16ddb33b98d14b6ed6649f90c5c3f73297
+Merge: ddfd2c5 32ad2ae
+Author: Patrick Anthony Spensieri <patrick.spensieri@gmail.com>
+Date:   Mon Apr 10 09:46:09 2017 -0400
+
+    Merge pull request #168 from n2chao/paul-working-branch
+    
+    Unit Test Fixes and Bug Fixes
+
+commit ddfd2c5920ea50395bb78612f057309132b1b2e9
+Merge: 7884444 165b281
+Author: Patrick Anthony Spensieri <patrick.spensieri@gmail.com>
+Date:   Mon Apr 10 09:45:52 2017 -0400
+
+    Merge pull request #167 from n2chao/autocompleteCourse
+    
+    Autocomplete course
+
+commit 9bcb408ad343beae6bc604c0abd147d2b57ff06c
+Author: KarineZhang <karine.zhang@hotmail.com>
+Date:   Mon Apr 10 01:53:30 2017 -0400
+
+    Add Front-End for Rating & Reviews
+    
+    -Users shall be able to evaluate the web application via rating star
+    system & shall also be able to write a review of his/her experience with
+    our web application.
+    -By being able to see their comments, we can evaluate users'
+    satisfaction and get some feedback from them in order to improve our web
+    application in the future.
+
+ app/composer.lock                    |  44 ++++----
+ app/public/css/rating.css            |  39 ++-----
+ app/resources/views/rating.blade.php | 199 ++++++++++++++++++-----------------
+ 3 files changed, 130 insertions(+), 152 deletions(-)
+
+commit 1488fb37f3cbc6169e0342897535b987742cead6
+Author: Ho Man Chan <homan98@gmail.com>
+Date:   Sun Apr 9 23:02:45 2017 -0400
+
+    fix auth test fail cause by redirect of wizard. All new registration should be redirected to wizard/title at first instead of /home.
+
+ app/app/Http/Controllers/EnrollmentController.php |  1 -
+ app/app/Http/Traits/EnrollmentTraits.php          | 64 -----------------------
+ app/resources/views/courses/course.blade.php      |  3 --
+ app/resources/views/wizard/course.blade.php       |  2 +-
+ app/tests/BrowserKitTestCase.php                  |  2 +-
+ app/tests/Feature/authTest.php                    |  8 +--
+ 6 files changed, 6 insertions(+), 74 deletions(-)
+
+commit da9cd2ace6ba23fc6ca9ab022b38f879b7df2594
+Author: Ho Man Chan <homan98@gmail.com>
+Date:   Sun Apr 9 22:41:15 2017 -0400
+
+    Refractor web routes
+    added redirect back for add and delete courses for flexibility in EnrollmentController
+    removed unused EnrollTrait class
+    removed unused EnrollmentTrait class
+    removed wizard and course slot('form-path')
+
+ app/.DS_Store                                     | Bin 8196 -> 8196 bytes
+ app/app/Http/Controllers/EnrollmentController.php |  60 +++++++++++++++---
+ app/app/Http/Controllers/WizardController.php     |  15 +++--
+ app/app/Http/Middleware/Wizard.php                |   2 +-
+ app/app/Http/Traits/EnrollTraits.php              |  18 ------
+ app/app/Http/Traits/EnrollmentTraits.php          |  24 ++++----
+ app/resources/views/courses/course.blade.php      |   3 +
+ app/resources/views/wizard/course.blade.php       |   1 +
+ app/routes/web.php                                |  71 +++-------------------
+ 9 files changed, 88 insertions(+), 106 deletions(-)
+
+commit 165b28148f8ec4d5b88b8479b35470b86e50bb3e
+Merge: 3cbf773 7884444
+Author: Patrick Anthony Spensieri <patrick.spensieri@gmail.com>
+Date:   Sun Apr 9 00:21:17 2017 -0400
+
+    Merge branch 'master' into autocompleteCourse
+
+commit 32ad2ae302ed23a1327264efc5ad871dca19f0d7
+Author: prich28 <paulrichard.28@gmail.com>
+Date:   Sun Apr 9 04:15:01 2017 +0000
+
+    Fixed unit tests as per issue #166. Fixed BUG #165 issues with previous week selection. Fixed BUG #164 issue with truncate when current day is Saturday.
+
+ app/app/Http/Traits/truncateTraits.php |   2 +-
+ app/app/Http/Traits/weekTraits.php     |   7 +-
+ app/tests/Unit/weekTest.php            | 120 +++++++++++++++++++--------------
+ 3 files changed, 75 insertions(+), 54 deletions(-)
+
+commit 3cbf773899d5470e2dd746e5a61353e42d7be2f7
+Author: patrickspensieri <patrick.spensieri@gmail.com>
+Date:   Sun Apr 9 00:11:26 2017 -0400
+
+    #160 test CI build
+
+ app/resources/views/courses/course.blade.php | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 788444432ca66d3eb7f8449de5efd1ff07799877
+Merge: aeca13d ed7ff7d
+Author: Patrick Anthony Spensieri <patrick.spensieri@gmail.com>
+Date:   Sat Apr 8 19:24:47 2017 -0400
+
+    Merge pull request #161 from n2chao/paul-working-branch
+    
+    Paul working branch UI updates, Bug Fixes
+
+commit b29770fb075230b5127cbfacefb3471137eedc8e
+Author: patrickspensieri <patrick.spensieri@gmail.com>
+Date:   Sat Apr 8 17:39:58 2017 -0400
+
+    #160: Change alert() to flash message, add validation to all fields
+
+ app/app/Http/Controllers/EnrollmentController.php | 23 +++++++++++++----------
+ app/public/js/course.js                           | 17 +++++++++++------
+ app/resources/views/courses/course.blade.php      | 16 ++++++++++++++++
+ 3 files changed, 40 insertions(+), 16 deletions(-)
+
+commit e82aa377825b6176f0522ddf80436122088ab9b1
+Author: patrickspensieri <patrick.spensieri@gmail.com>
+Date:   Sat Apr 8 15:33:03 2017 -0400
+
+    #160 complete UI change, shows course title as description
+
+ app/public/js/course.js                      | 15 ++++++++++----
+ app/resources/views/courses/course.blade.php | 30 ++++++++++++----------------
+ 2 files changed, 24 insertions(+), 21 deletions(-)
+
+commit ed7ff7d16837d5cfee0d47d9aac24abd418caf35
+Author: prich28 <paulrichard.28@gmail.com>
+Date:   Fri Apr 7 16:28:01 2017 +0000
+
+    changed colour of meeting request indication to a blue instead of red as per review by @patrickspensieri
+
+ app/resources/views/home.blade.php | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit b3cd765fe464a0fbf47132effb8338e155562671
+Author: patrickspensieri <patrick.spensieri@gmail.com>
+Date:   Fri Apr 7 01:57:25 2017 -0400
+
+    #160 small UI edit, clean out comments
+
+ app/public/js/course.js                      | 84 +---------------------------
+ app/resources/views/courses/course.blade.php | 13 +----
+ 2 files changed, 3 insertions(+), 94 deletions(-)
+
+commit aeca13dce100a0d05c11aefcc1eb6de5d49f2044
+Merge: 663a215 c2b3d3e
+Author: Paul <paulrichard.28@gmail.com>
+Date:   Thu Apr 6 20:21:05 2017 -0400
+
+    Merge pull request #159 from n2chao/beautify-homepage
+    
+    #158 Beautify homepage
+
+commit 97b12865eb09d137b6aee49d263cf23f99f5065c
+Author: patrickspensieri <patrick.spensieri@gmail.com>
+Date:   Thu Apr 6 19:54:09 2017 -0400
+
+    #160 restructure course.js, selectize all newly created course input fields
+
+ app/public/js/course.js                      | 148 +++++++++++++++++++--------
+ app/resources/views/courses/course.blade.php |  10 +-
+ 2 files changed, 111 insertions(+), 47 deletions(-)
+
+commit b4a2565405193aae318323d549a4550b35f880ad
+Author: patrickspensieri <patrick.spensieri@gmail.com>
+Date:   Thu Apr 6 15:28:41 2017 -0400
+
+    #160 send and display results from search query
+
+ app/app/Http/Controllers/CourseController.php | 35 ++++++++++++---------------
+ app/public/js/course.js                       | 32 ++++++++++++++++++++++++
+ app/resources/views/courses/course.blade.php  | 13 ++++++++++
+ app/routes/web.php                            | 11 +++------
+ 4 files changed, 65 insertions(+), 26 deletions(-)
+
+commit 5fab071b1fb1803a70ce02c62923648f4a32c85e
+Author: patrickspensieri <patrick.spensieri@gmail.com>
+Date:   Thu Apr 6 15:25:56 2017 -0400
+
+    #160 upload Selectize.js (7kb)
+
+ .../js/selectize/css/selectize.bootstrap2.css      |  494 +++
+ .../js/selectize/css/selectize.bootstrap3.css      |  408 +++
+ app/public/js/selectize/css/selectize.css          |  324 ++
+ app/public/js/selectize/css/selectize.default.css  |  394 ++
+ app/public/js/selectize/css/selectize.legacy.css   |  371 ++
+ app/public/js/selectize/js/selectize.js            | 3193 ++++++++++++++++
+ app/public/js/selectize/js/selectize.min.js        |    3 +
+ app/public/js/selectize/js/standalone/selectize.js | 3829 ++++++++++++++++++++
+ .../js/selectize/js/standalone/selectize.min.js    |    3 +
+ .../js/selectize/less/plugins/drag_drop.less       |   16 +
+ .../js/selectize/less/plugins/dropdown_header.less |   20 +
+ .../selectize/less/plugins/optgroup_columns.less   |   17 +
+ .../js/selectize/less/plugins/remove_button.less   |   43 +
+ .../js/selectize/less/selectize.bootstrap2.less    |  161 +
+ .../js/selectize/less/selectize.bootstrap3.less    |  150 +
+ .../js/selectize/less/selectize.default.less       |   84 +
+ app/public/js/selectize/less/selectize.legacy.less |   75 +
+ app/public/js/selectize/less/selectize.less        |  296 ++
+ 18 files changed, 9881 insertions(+)
+
+commit b68eca875de1943e710bd0e116361d066426607f
+Merge: 56b352a 508828c
+Author: Ho Man Chan <homan98@gmail.com>
+Date:   Wed Apr 5 19:24:38 2017 -0400
+
+    resolve conflict from user-setup
+
+commit 56b352a7a83dee1fa4e72bec1c060f5b61ffea36
+Merge: 5a0ee40 663a215
+Author: Ho Man Chan <homan98@gmail.com>
+Date:   Wed Apr 5 18:35:31 2017 -0400
+
+    Merge branch 'master' of https://github.com/n2chao/SOEN341
+
+commit 508828c2bf3e8bbecedfa4801cb0725a59a3b543
+Author: Ho Man Chan <homan98@gmail.com>
+Date:   Wed Apr 5 17:29:53 2017 -0400
+
+    removed unit test CourseTest
+
+ app/tests/Unit/CourseTest.php | 30 ------------------------------
+ 1 file changed, 30 deletions(-)
+
+commit 30c9675eb0720866b51bef69f8a07a8dee3518da
+Author: Ho Man Chan <homan98@gmail.com>
+Date:   Wed Apr 5 07:40:10 2017 -0400
+
+    fix function call error
+
+ app/app/Http/Controllers/ScheduleController.php | 3 ++-
+ app/app/Http/Controllers/WizardController.php   | 2 +-
+ 2 files changed, 3 insertions(+), 2 deletions(-)
+
+commit 67f827d006f289c43e5c559429608aff8e4f7a5b
+Author: Ho Man Chan <homan98@gmail.com>
+Date:   Wed Apr 5 07:35:47 2017 -0400
+
+    added wizard with 3 step: title, courses, schedule
+    added components for courses for reusability
+
+ app/app/Http/Controllers/EnrollmentController.php |  68 ++----------
+ app/app/Http/Controllers/ScheduleController.php   |  33 +-----
+ app/app/Http/Controllers/WizardController.php     |  51 ++++++++-
+ app/app/Http/Traits/EnrollmentTraits.php          |  64 +++++++++++
+ app/public/js/jquery.steps.js                     |   2 +-
+ app/public/js/jquery.steps.min.js                 |   2 +-
+ app/public/js/wizard.js                           |  10 +-
+ app/resources/views/courses/course.blade.php      |  71 ++----------
+ app/resources/views/courses/enrolled.blade.php    |  11 ++
+ app/resources/views/layouts/wizard.blade.php      |  37 +++++++
+ app/resources/views/wizard/course.blade.php       |  79 ++------------
+ app/resources/views/wizard/layout.blade.php       |  43 ++++++++
+ app/resources/views/wizard/schedule.blade.php     | 127 +++++++++-------------
+ app/resources/views/wizard/title.blade.php        |  66 ++++-------
+ app/routes/web.php                                | 106 +++++++++---------
+ 15 files changed, 373 insertions(+), 397 deletions(-)
+
+commit 663a215279d074f5fd379ca03090580a95fda431
+Merge: 867a8dd 0f84e93
+Author: Paul <paulrichard.28@gmail.com>
+Date:   Tue Apr 4 18:36:26 2017 -0400
+
+    Merge pull request #150 from n2chao/teacherFilter
+    
+    Teacher filter
+
+commit c2b3d3edaf51898aed4f2126f82b944a56867312
+Author: Johnny Interiano <benjonant@msn.com>
+Date:   Tue Apr 4 03:42:41 2017 -0400
+
+    #158 added image on landing page and small css & html  changes
+
+ app/composer.lock                         | 74 +++++++++++++++----------------
+ app/public/css/style.css                  | 19 +++++++-
+ app/resources/views/landing.blade.php     |  3 +-
+ app/resources/views/layouts/app.blade.php |  7 ++-
+ 4 files changed, 61 insertions(+), 42 deletions(-)
+
+commit 25b1aebce106768319d3e791acf32e2a5841950c
+Author: Johnny Interiano <benjonant@msn.com>
+Date:   Tue Apr 4 03:41:10 2017 -0400
+
+    #158 added image on landing page and small css & html  changes
+
+ app/public/img/homepage-bg_mini.jpg | Bin 0 -> 707708 bytes
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 867a8dd38c543426708199197f54893e61c13bd4
+Merge: c295831 55f8eeb
+Author: Paul <paulrichard.28@gmail.com>
+Date:   Sun Apr 2 23:01:51 2017 -0400
+
+    Merge pull request #153 from n2chao/studentBookedTime
+    
+    #149 refactor code for matching users
+
+commit dc8c29a7393e4fa339f31179a3bad3c2e9a59fb9
+Author: prich28 <paulrichard.28@gmail.com>
+Date:   Mon Apr 3 02:48:44 2017 +0000
+
+    Updated the displaly of instructors. The TAs and Teachers now appear side by side. The div containers have been rearanged. This is in relation to issue #157. The image area above the user name on the dashboard has been removed as there is no way to upload a picture. This was completed as part of updating the dashboard layout, issue #151 .
+
+ app/resources/views/common.blade.php               |  8 +----
+ .../views/instructors/chooseinstr.blade.php        | 37 ++++++++++++++--------
+ 2 files changed, 24 insertions(+), 21 deletions(-)
+
+commit b06326b423321e8676666dbb12729397393e7144
+Author: Ho Man Chan <homan98@gmail.com>
+Date:   Sun Apr 2 21:41:39 2017 -0400
+
+    added global announcements in dashboard
+    added warnings when user is not enrolled a course
+    added warnings when user did not create schedule
+
+ app/app/Http/Controllers/EnrollmentController.php  |  48 +++++---
+ app/public/js/wizard.js                            |   2 +-
+ app/resources/views/common.blade.php               | 101 +++++++++-------
+ app/resources/views/courses/course.blade.php       |  15 +--
+ app/resources/views/courses/enroll.blade.php       |   8 +-
+ app/resources/views/global-announcement.blade.php  |  20 ++++
+ app/resources/views/home.blade.php                 |   4 +-
+ .../views/instructors/chooseinstr.blade.php        |   4 +-
+ .../views/instructors/choosetime.blade.php         |   4 +-
+ app/resources/views/schedule/create.blade.php      | 124 ++++++++++----------
+ app/resources/views/schedule/edit.blade.php        |   4 +-
+ app/resources/views/schedule/index.blade.php       |   4 +-
+ app/resources/views/wizard/course.blade.php        |   4 +-
+ app/resources/views/wizard/index.blade.php         |   4 +-
+ app/resources/views/wizard/schedule.blade.php      | 129 +++++++++++----------
+ app/resources/views/wizard/title.blade.php         |   5 +-
+ 16 files changed, 260 insertions(+), 220 deletions(-)
+
+commit 97abd83e25fff6c55b854743d32927891479352a
+Author: prich28 <paulrichard.28@gmail.com>
+Date:   Sun Apr 2 23:39:13 2017 +0000
+
+    Scheduled meetings and Meetings requests UI update on dashboard as per Issue #151 . Fixed bug #154 . Available instructor times, cleaned up UI, made weekly layout view in form of a table as per Issue #155 . Fixed bug #156 .
+
+ app/app/Http/Controllers/MeetingController.php     |   4 +
+ app/app/Http/Traits/truncateTraits.php             |   3 +
+ app/resources/views/home.blade.php                 |  85 ++++------
+ .../views/instructors/choosetime.blade.php         | 186 +++++++++++++++++----
+ app/routes/web.php                                 |  10 --
+ 5 files changed, 192 insertions(+), 96 deletions(-)
+
+commit f79465d3627443acb635d6f1890bb854da70bb13
+Author: Ho Man Chan <homan98@gmail.com>
+Date:   Sat Apr 1 22:13:38 2017 -0400
+
+    removed sidebar when in wizard
+    added fillable for user model: title, setup
+
+ app/app/Http/Controllers/WizardController.php | 1 +
+ app/app/Http/Middleware/Wizard.php            | 2 +-
+ app/app/User.php                              | 2 +-
+ app/public/js/wizard.js                       | 1 +
+ app/resources/views/common.blade.php          | 2 +-
+ app/resources/views/wizard/title.blade.php    | 2 ++
+ 6 files changed, 7 insertions(+), 3 deletions(-)
+
+commit f0dd9f96fed908d2a130c7c0ae3f65459233ecea
+Author: Ho Man Chan <homan98@gmail.com>
+Date:   Sat Apr 1 21:50:07 2017 -0400
+
+    Modified wizard title button text
+    Added wizard controllers and views
+
+ app/app/Http/Controllers/ScheduleController.php |    1 +
+ app/app/Http/Controllers/WizardController.php   |   57 +
+ app/app/Http/Kernel.php                         |    3 +-
+ app/app/Http/Middleware/Installation.php        |   40 -
+ app/app/Http/Middleware/Wizard.php              |   28 +
+ app/app/Http/Traits/EnrollTraits.php            |   18 +
+ app/app/Http/Traits/ScheduleTraits.php          |   47 +
+ app/public/css/jquery.steps.css                 |  382 +++++
+ app/public/js/jquery-3.2.0.min.js               |    4 +
+ app/public/js/jquery.steps.js                   | 2042 +++++++++++++++++++++++
+ app/public/js/jquery.steps.min.js               |    6 +
+ app/public/js/wizard.js                         |    0
+ app/resources/views/courses/add.blade.php       |   38 +
+ app/resources/views/courses/enrolled.blade.php  |   25 +
+ app/resources/views/wizard/course.blade.php     |   74 +
+ app/resources/views/wizard/index.blade.php      |   49 +
+ app/resources/views/wizard/schedule.blade.php   |   79 +
+ app/resources/views/wizard/title.blade.php      |   45 +
+ app/routes/web.php                              |  116 +-
+ 19 files changed, 2950 insertions(+), 104 deletions(-)
+
+commit 4c89f7080edb0e702b0c9b0ca6c826619ae24733
+Author: prich28 <paulrichard.28@gmail.com>
+Date:   Sun Apr 2 01:28:30 2017 +0000
+
+    minor changes made to the requests section. Page is now formatted, and only the logic needs to be corrected.
+
+ app/composer.lock                  | 44 ++++++++---------
+ app/resources/views/home.blade.php | 96 ++++++++++++++++++++++----------------
+ 2 files changed, 77 insertions(+), 63 deletions(-)
+
+commit 6bec5dd0dac90a1f1c15b55514f66a4e9a495993
+Author: KarineZhang <karine.zhang@hotmail.com>
+Date:   Sat Apr 1 19:19:58 2017 -0400
+
+    Testing Commit
+
+ app/public/css/rating.css            |  32 +++++++++++
+ app/resources/views/rating.blade.php | 102 +++++++++++++++++++++++++++++++++++
+ app/routes/web.php                   |   8 +--
+ 3 files changed, 139 insertions(+), 3 deletions(-)
+
+commit 55f8eeb3d2285abbda0e09a10c963ec5ca00c650
+Author: patrickspensieri <patrick.spensieri@gmail.com>
+Date:   Fri Mar 31 16:19:59 2017 -0400
+
+    #149 refactor code for matching users
+
+ app/app/Http/Controllers/RequestController.php   | 14 ++++----
+ app/app/Http/Controllers/matchTimeController.php | 43 ++++--------------------
+ app/app/Http/Traits/matchTraits.php              | 42 +++++++++++++++++------
+ 3 files changed, 45 insertions(+), 54 deletions(-)
+
+commit aebb1fcc8dbf367834497821d141a10b9c8cdc37
+Author: prich28 <paulrichard.28@gmail.com>
+Date:   Fri Mar 31 17:26:44 2017 +0000
+
+    initial updates to home page where user meetings are displayed as per issue #151. Meetings are segmented.
+
+ app/resources/views/home.blade.php | 62 ++++++++++++++++++++++++++------------
+ 1 file changed, 42 insertions(+), 20 deletions(-)
+
+commit 0f84e93a77c25349131a14801f2f30c91d7e5147
+Author: patrickspensieri <patrick.spensieri@gmail.com>
+Date:   Thu Mar 30 20:43:02 2017 -0400
+
+    #146 #147 remove echo output, fix small error
+
+ app/app/Http/Controllers/InstructorController.php | 6 +-----
+ 1 file changed, 1 insertion(+), 5 deletions(-)
+
+commit 3738fe651d24eec7adc5725fcee95a7d6653b1a6
+Author: patrickspensieri <patrick.spensieri@gmail.com>
+Date:   Fri Mar 24 18:28:25 2017 -0400
+
+    #146 #147 only show teachers/tas relevant to user's courses
+
+ app/app/Http/Controllers/InstructorController.php | 19 +++++++++++--------
+ 1 file changed, 11 insertions(+), 8 deletions(-)
+
+commit c295831fb702760033ef9c5133281ad5219b0b9d
+Merge: 86c52a1 bc86b7a
+Author: Nathan Chao <n2chao@users.noreply.github.com>
+Date:   Fri Mar 24 11:41:10 2017 -0400
+
+    Merge pull request #148 from n2chao/expiredMeetings
+    
+    Expired meetings
+
+commit 86c52a17e0e4ad141fbcce75ae47ed09050e3f66
+Merge: 388d12c 1cb0bd0
+Author: Patrick Anthony Spensieri <patrick.spensieri@gmail.com>
+Date:   Fri Mar 24 09:58:02 2017 -0400
+
+    Merge pull request #143 from n2chao/course-enrollment
+    
+    Add testing for Registration, Login and Add Courses
+
+commit 5a0ee40d87ca32123ea5f122b1a68b8a65065ce4
+Merge: 84165c3 388d12c
+Author: Ho Man Chan <homan98@gmail.com>
+Date:   Fri Mar 24 08:17:56 2017 -0400
+
+    Merge branch 'master' of https://github.com/n2chao/SOEN341
+
+commit 39fbf2511c6c246d32776707f14f078707bf49f1
+Author: Ho Man Chan <homan98@gmail.com>
+Date:   Fri Mar 24 07:57:10 2017 -0400
+
+    added setup page
+    added user seed
+    added setup middleware to force user to init details
+
+ app/app/Http/Middleware/Installation.php           | 22 +++++---
+ app/composer.lock                                  | 62 +++++++++++-----------
+ .../2014_10_12_000000_create_users_table.php       |  1 +
+ app/database/seeds/DatabaseSeeder.php              |  3 +-
+ app/database/seeds/userSeed.php                    | 18 -------
+ app/resources/views/common.blade.php               |  4 +-
+ app/resources/views/courses/course.blade.php       |  3 ++
+ app/resources/views/schedule/create.blade.php      |  1 +
+ app/routes/web.php                                 |  6 +++
+ 9 files changed, 61 insertions(+), 59 deletions(-)
+
+commit bc86b7acf94dac1117cbc1818b2389edb5b2adb9
+Merge: bb753b7 388d12c
+Author: Patrick Anthony Spensieri <patrick.spensieri@gmail.com>
+Date:   Fri Mar 24 00:56:39 2017 -0400
+
+    Merge branch 'master' into expiredMeetings
+
+commit bb753b760c6eb8948524b9565230d6426ab2a399
+Author: patrickspensieri <patrick.spensieri@gmail.com>
+Date:   Fri Mar 24 00:20:23 2017 -0400
+
+    changed case of git filename closeExpiredMeetings.php
+
+ .../Commands/{closeExpiredMeetings.php => CloseExpiredMeetings.php}       | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit a032284269dd6a012af8c560708d056226fde689
+Author: patrickspensieri <patrick.spensieri@gmail.com>
+Date:   Thu Mar 23 23:38:39 2017 -0400
+
+    attempt to fix failing Travis builds
+
+ app/composer.lock | 207 +++++++++++++++++++++++++++---------------------------
+ 1 file changed, 105 insertions(+), 102 deletions(-)
+
+commit 448790bc69e196758f99a002cb88f123bad7b8da
+Author: patrickspensieri <patrick.spensieri@gmail.com>
+Date:   Thu Mar 23 23:29:42 2017 -0400
+
+    #136 #137 fix issue, set default timezone
+
+ app/app/Console/Commands/CloseExpiredMeetingRequests.php | 2 ++
+ app/app/Console/Commands/closeExpiredMeetings.php        | 7 ++++---
+ app/app/Console/Kernel.php                               | 4 ++--
+ 3 files changed, 8 insertions(+), 5 deletions(-)
+
+commit 388d12c669a1be93058b2639200f81ea209d2b2b
+Merge: bc1a486 9a805ff
+Author: Patrick Anthony Spensieri <patrick.spensieri@gmail.com>
+Date:   Thu Mar 23 22:03:34 2017 -0400
+
+    Merge pull request #132 from n2chao/studentMatch
+    
+    Student match
+
+commit 9a805ff6ef6b72051fed05ad96d5d5c6fde18aa9
+Merge: 45b8726 bc1a486
+Author: Patrick Anthony Spensieri <patrick.spensieri@gmail.com>
+Date:   Thu Mar 23 21:59:55 2017 -0400
+
+    Merge branch 'master' into studentMatch
+
+commit 1cb0bd0c8be92f94e12c6979e8be15127f0d0579
+Merge: e696ac5 5e4752f
+Author: Nathan Chao <n2chao@gmail.com>
+Date:   Thu Mar 23 19:07:01 2017 -0400
+
+    Merge branch 'course-enrollment' of https://github.com/n2chao/SOEN341 into course-enrollment
+
+commit e696ac55b4942eddd170a58be9bf5d450409b4f8
+Author: Nathan Chao <n2chao@gmail.com>
+Date:   Thu Mar 23 19:06:03 2017 -0400
+
+    Comment out the add course test for the moment. The test works locally but not on Travis.
+
+ app/tests/Feature/EnrollmentTest.php | 5 ++---
+ 1 file changed, 2 insertions(+), 3 deletions(-)
+
+commit 5e4752f8ba585f795a40827abd1a147bf505779b
+Merge: 641cc9f bc1a486
+Author: Nathan Chao <n2chao@users.noreply.github.com>
+Date:   Thu Mar 23 18:25:35 2017 -0400
+
+    Merge branch 'master' into course-enrollment
+
+commit 641cc9f7345f9f5968c74323414071f63667e410
+Author: Nathan Chao <n2chao@gmail.com>
+Date:   Thu Mar 23 18:22:39 2017 -0400
+
+    Try another test with Travis for adding course that works locally
+
+ app/tests/Feature/EnrollmentTest.php | 10 +++++++---
+ 1 file changed, 7 insertions(+), 3 deletions(-)
+
+commit bc1a486034be2ebf875ec8b297f353413cec424a
+Merge: 4bbf805 cc887f6
+Author: Nathan Chao <n2chao@users.noreply.github.com>
+Date:   Thu Mar 23 17:43:35 2017 -0400
+
+    Merge pull request #142 from n2chao/sidebar
+    
+    #115 Sidebar properly links to each page seemlessly on the website.
+
+commit 4bbf80566a94b7efdf963fbf8b41dd6b089cdbf7
+Merge: ea9f6c6 deea8ea
+Author: Nathan Chao <n2chao@users.noreply.github.com>
+Date:   Thu Mar 23 17:41:55 2017 -0400
+
+    Merge pull request #141 from n2chao/seeding
+    
+    #82 Seeding needs to be adjusted to suit the convention of the rest of the code
+
+commit ea9f6c67894360306c4732e9f880036ee65ef329
+Merge: d1bac12 69dccac
+Author: Nathan Chao <n2chao@users.noreply.github.com>
+Date:   Thu Mar 23 17:38:46 2017 -0400
+
+    Merge pull request #139 from n2chao/paul-working-branch
+    
+    Added unit tests, Incorporated bookedTimes, Added validation check
+
+commit 45b8726a4e14b1010d388341ab0e423b19990590
+Author: patrickspensieri <patrick.spensieri@gmail.com>
+Date:   Thu Mar 23 16:25:05 2017 -0400
+
+    Fix side menu routing to Find a Buddy
+
+ app/resources/views/common.blade.php | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit cf7e70b0d938473b4d35d6dca058eef758b66103
+Author: patrickspensieri <patrick.spensieri@gmail.com>
+Date:   Thu Mar 23 15:28:23 2017 -0400
+
+    #136 Create methods to traverse trashed relationships
+
+ app/app/Attendance.php                            | 17 ++++++++++++++++-
+ app/app/Console/Commands/closeExpiredMeetings.php |  5 +++--
+ app/app/Meeting.php                               |  7 +++++++
+ 3 files changed, 26 insertions(+), 3 deletions(-)
+
+commit e4bff1979a8548b7839ff40363e75265bcb18e04
+Author: Nathan Chao <n2chao@gmail.com>
+Date:   Thu Mar 23 15:04:25 2017 -0400
+
+    Type course input multiple times to make sure since it does not seems to type in the field on Travis.
+
+ app/tests/Feature/EnrollmentTest.php | 2 ++
+ 1 file changed, 2 insertions(+)
+
+commit 5007f51a12516492c53e0fada43f64ad3976a0cf
+Author: patrickspensieri <patrick.spensieri@gmail.com>
+Date:   Thu Mar 23 13:59:08 2017 -0400
+
+    #86 #87 validate form inputs
+
+ app/app/Http/Controllers/RequestController.php           |  8 +++++++-
+ app/resources/views/students/choosecourse.blade.php      | 11 +++++++++++
+ app/resources/views/students/choosestudenttime.blade.php | 13 ++++++++++++-
+ 3 files changed, 30 insertions(+), 2 deletions(-)
+
+commit c1ee55c01f5bf8e34329bbce576c8487ca247a0c
+Author: patrickspensieri <patrick.spensieri@gmail.com>
+Date:   Thu Mar 23 13:29:52 2017 -0400
+
+    #86 #87 fix bug - student not properly removed from collection when no match found
+
+ app/app/Http/Controllers/RequestController.php         |  3 +--
+ .../views/students/choosestudenttime.blade.php         | 18 +++++++++++-------
+ 2 files changed, 12 insertions(+), 9 deletions(-)
+
+commit a611f73861aec189b3ccba9636b0cbf8d756678b
+Author: Nathan Chao <n2chao@gmail.com>
+Date:   Thu Mar 23 11:06:15 2017 -0400
+
+    Change the course added in the test in order to see if it will work with Travis.
+
+ app/tests/Feature/EnrollmentTest.php | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+commit 0b320ada3329eb922b6bc99e2555808f46a1f855
+Author: Nathan Chao <n2chao@gmail.com>
+Date:   Thu Mar 23 03:36:08 2017 -0400
+
+    Create a test for adding a class. Tasl #129.
+
+ app/resources/views/courses/course.blade.php |  8 +++----
+ app/tests/BrowserKitTestCase.php             |  2 +-
+ app/tests/Feature/EnrollmentTest.php         | 36 ++++++++++++++++++++++++++++
+ app/tests/Feature/authTest.php               | 16 ++++++-------
+ app/tests/Unit/CourseTest.php                | 30 -----------------------
+ 5 files changed, 49 insertions(+), 43 deletions(-)
+
+commit cc887f66d0fea8acbde50eda3aa75cd5c8bb8c22
+Author: Johnny Interiano <benjonant@msn.com>
+Date:   Thu Mar 23 00:19:56 2017 -0400
+
+    #115 Find a Buddy now links to its appropriate view, courseDisplay- it is not yet on master however will return page not found
+
+ app/resources/views/common.blade.php | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 0ee3b4d94dbdba8bfa9d34ede2d95cb7c613cd5b
+Author: Johnny Interiano <benjonant@msn.com>
+Date:   Thu Mar 23 00:03:20 2017 -0400
+
+    #115 Overview now links to /home/ as it should
+
+ app/resources/views/common.blade.php | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+commit 0a73cca6587e3155abc821f852ed17250e33aa76
+Merge: 9381656 d1bac12
+Author: Johnny Interiano <benjonant@msn.com>
+Date:   Wed Mar 22 23:41:50 2017 -0400
+
+    Merge branch 'master' of https://github.com/n2chao/SOEN341
+
+commit deea8eade2319dce3b9e1c4b4262608bac2f51b9
+Author: Johnny Interiano <benjonant@msn.com>
+Date:   Wed Mar 22 23:32:40 2017 -0400
+
+    #82 course_id needs the row # of the course (in course table)  as opposed to course code, change executed
+
+ app/database/factories/ModelFactory.php | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
+
+commit a857ee1d590efae6879756481e91b81a9e9d129c
+Merge: e0ab3ba d1bac12
+Author: Johnny Interiano <benjonant@msn.com>
+Date:   Wed Mar 22 23:05:46 2017 -0400
+
+    Merge branch 'master' of https://github.com/n2chao/SOEN341 into seeding
+
+commit 4977a9355cd1a05935c6382e79edc1d6d2069dc2
+Merge: f446d00 827240b
+Author: patrickspensieri <patrick.spensieri@gmail.com>
+Date:   Wed Mar 22 15:57:50 2017 -0400
+
+    Git merge because remote branch is behind its remote counterpart?
+
+commit f446d001d526e96b08c1e51cc8544112575c2810
+Author: patrickspensieri <patrick.spensieri@gmail.com>
+Date:   Wed Mar 22 15:55:12 2017 -0400
+
+    #86 #87 fix bug
+
+ app/app/Http/Controllers/RequestController.php | 5 ++---
+ 1 file changed, 2 insertions(+), 3 deletions(-)
+
+commit 13a9cd01a9265f8a0eaf6e616c1062bd92d1b584
+Author: patrickspensieri <patrick.spensieri@gmail.com>
+Date:   Wed Mar 22 15:01:39 2017 -0400
+
+    #136 if meeting is cancelled, use forceDelete()
+
+ app/app/Http/Traits/MeetingTraits.php | 7 +++++--
+ 1 file changed, 5 insertions(+), 2 deletions(-)
+
+commit abf4584e9860ced9331bb421cf32f1279d2232fd
+Author: patrickspensieri <patrick.spensieri@gmail.com>
+Date:   Wed Mar 22 14:54:25 2017 -0400
+
+    #136 remove expired column, use soft deleting, progress work
+
+ .../Commands/CloseExpiredMeetingRequests.php       | 51 ++++++++++++++++++++++
+ app/app/Console/Commands/closeExpiredMeetings.php  | 19 +++++---
+ app/app/Console/Kernel.php                         |  3 +-
+ app/app/Meeting.php                                |  8 ++++
+ .../2017_02_24_024347_create_meetings_table.php    |  4 +-
+ .../2017_02_27_160832_create_attendances_table.php |  2 +
+ 6 files changed, 78 insertions(+), 9 deletions(-)
+
+commit 43e62f69b0448683b777405e6dd240d0a06cb11a
+Author: Nathan Chao <n2chao@gmail.com>
+Date:   Wed Mar 22 13:19:10 2017 -0400
+
+    Create tests for registration and login. Task #128
+
+ app/composer.json                |   7 +-
+ app/composer.lock                | 312 ++++++++++++++++++++++++++-------------
+ app/tests/BrowserKitTestCase.php |  30 ++++
+ app/tests/Feature/authTest.php   |  84 +++++++++++
+ app/tests/TestCase.php           |   1 +
+ 5 files changed, 330 insertions(+), 104 deletions(-)
+
+commit 69dccacbf9b14bec854410aadad43f2d32747472
+Author: prich28 <paulrichard.28@gmail.com>
+Date:   Wed Mar 22 16:09:29 2017 +0000
+
+    removed an old route that was causing a bug on the page.
+
+ app/routes/web.php | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit a5111d16c194ae2aae0c4318e648dd6ea79183bd
+Merge: 2d9dc6d c58b5d9
+Author: prich28 <paulrichard.28@gmail.com>
+Date:   Wed Mar 22 15:47:09 2017 +0000
+
+    merching changes from master into local branch in order to push newer changes to paul-working-branch. Merge branch 'paul-working-branch' of https://github.com/n2chao/SOEN341 into paul-working-branch
+
+commit 2d9dc6da0e7a00d18e1a14cd3fa0de14b3308e7b
+Author: prich28 <paulrichard.28@gmail.com>
+Date:   Wed Mar 22 15:43:19 2017 +0000
+
+    Made minor adjustments to adhere to Custom Coding Style Standard.
+
+ app/app/Attendance.php                            |  6 ++--
+ app/app/Course.php                                |  6 ++--
+ app/app/Enrollment.php                            |  6 ++--
+ app/app/Http/Controllers/CourseController.php     |  6 ++--
+ app/app/Http/Controllers/EnrollmentController.php |  9 +++--
+ app/app/Http/Controllers/MeetingController.php    |  9 +++--
+ app/app/Http/Controllers/RequestController.php    | 12 ++++---
+ app/app/Http/Controllers/matchTimeController.php  |  3 +-
+ app/app/Http/Traits/MeetingTraits.php             | 15 ++++----
+ app/app/Http/Traits/bookedTimeTraits.php          |  5 +--
+ app/app/Http/Traits/matchTraits.php               | 28 +++++----------
+ app/app/Http/Traits/stringToDatesTraits.php       |  6 ++--
+ app/app/Http/Traits/timeToWeekTraits.php          |  4 +--
+ app/app/Http/Traits/truncateTraits.php            |  3 +-
+ app/app/Http/Traits/weekTraits.php                | 43 ++++++-----------------
+ app/app/Invite.php                                |  6 ++--
+ app/app/Meeting.php                               |  9 +++--
+ app/app/Request.php                               | 15 +++++---
+ app/app/Schedule.php                              |  3 +-
+ app/app/SocialAccountService.php                  |  2 +-
+ app/app/User.php                                  | 12 ++++---
+ 21 files changed, 102 insertions(+), 106 deletions(-)
+
+commit c58b5d978cf9fff2730ff9ed72c28bd96510e3a3
+Merge: 8f6fc77 d1bac12
+Author: Paul <paulrichard.28@gmail.com>
+Date:   Mon Mar 20 20:04:35 2017 -0400
+
+    Merge branch 'master' into paul-working-branch
+
+commit 8f6fc7703be4d423bd985e6226980ad38c23eca4
+Author: prich28 <paulrichard.28@gmail.com>
+Date:   Mon Mar 20 23:55:58 2017 +0000
+
+    This commit addresses Issues #138 and #131. Implemented bookedTimeTraits to identify booked meetings for a user in a given week. Those booked times are now taken into account when calculating available time between two users. The start date bug is fixed by stating time zone wherever the date() class is used.
+
+ app/app/Http/Controllers/InstructorController.php  | 11 ++---
+ app/app/Http/Controllers/MeetingController.php     |  3 ++
+ app/app/Http/Controllers/matchTimeController.php   | 30 +++++++++++--
+ app/app/Http/Traits/bookedTimeTraits.php           | 52 +++++++++++++++-------
+ app/app/Http/Traits/matchTraits.php                | 42 ++++++++++++-----
+ app/app/Http/Traits/timeToWeekTraits.php           |  5 +--
+ .../views/instructors/choosetime.blade.php         |  3 +-
+ 7 files changed, 103 insertions(+), 43 deletions(-)
+
+commit 249018e81ce5e27f0e6bbebb6b8f2bef1e0d9a0f
+Author: patrickspensieri <patrick.spensieri@gmail.com>
+Date:   Mon Mar 20 17:25:14 2017 -0400
+
+    #136 create command and add expired marker to meetings table
+
+ app/app/Console/Commands/closeExpiredMeetings.php  | 45 ++++++++++++++++++++++
+ .../2017_02_24_024347_create_meetings_table.php    |  1 +
+ 2 files changed, 46 insertions(+)
+
+commit 827240b65115d975aa1ddb368fb0153b1f913614
+Merge: ca3ed70 d1bac12
+Author: Patrick Anthony Spensieri <patrick.spensieri@gmail.com>
+Date:   Mon Mar 20 14:08:27 2017 -0400
+
+    Merge branch 'master' into studentMatch
+
+commit ca3ed70ad38da6ba2ed694892c0fc0af9563333b
+Author: patrickspensieri <patrick.spensieri@gmail.com>
+Date:   Mon Mar 20 13:45:10 2017 -0400
+
+    6 #87 #115 Link student meetings to common.blade.php
+
+ app/resources/views/common.blade.php | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit d1bac12a14c846545d335e826e52b272c14d3cb2
+Merge: ae1cff6 ebf28cf
+Author: Patrick Anthony Spensieri <patrick.spensieri@gmail.com>
+Date:   Mon Mar 20 12:40:10 2017 -0400
+
+    Merge pull request #127 from n2chao/course-enrollment
+    
+    Fix course enrollment
+
+commit ebf28cf75ecdaa7ef3093ce9534badae54a1942e
+Author: patrickspensieri <patrick.spensieri@gmail.com>
+Date:   Mon Mar 20 12:16:29 2017 -0400
+
+    #118 #127 #126 Edit Validator, get course_id from course code
+
+ app/app/Http/Controllers/EnrollmentController.php | 49 +++++++----------------
+ 1 file changed, 15 insertions(+), 34 deletions(-)
+
+commit ae1cff6bbf7b42df8e9cea680d85ee28bea3365d
+Merge: c2f400f 73bed3e
+Author: Paul <paulrichard.28@gmail.com>
+Date:   Sun Mar 19 22:07:02 2017 -0400
+
+    Merge pull request #109 from n2chao/seeding
+    
+    #82 running the seeding command succesfully seeds certain tables
+
+commit f7a513f5b23cf3c5fe56bb4e3885f41ce7483286
+Author: prich28 <paulrichard.28@gmail.com>
+Date:   Mon Mar 20 01:41:59 2017 +0000
+
+    This commit has added validation for pressing the button on the chooseinstr.php page. If no instructor has been chosen an message appears on the page instructing the user to make a selection. This validation update address issue #125. There are some minor changes to the instructorController, and it does not currently work in this commit, it is broken. This commit is to save all progress to the local working branch. There are some updates that need to be pulled in order for instructorController to function properly. This includes fixes to registering to a course as the instructor controller needs to gather the teacher for each course in order to display a selection of teachers to the student user.
+
+ app/app/Http/Controllers/InstructorController.php  |  14 +-
+ app/app/Http/Controllers/matchTimeController.php   |  12 +-
+ app/composer.lock                                  | 187 +++++++++++----------
+ .../views/instructors/chooseinstr.blade.php        |  18 +-
+ 4 files changed, 131 insertions(+), 100 deletions(-)
+
+commit 11a5eccd268d730c92e6c6054a2e6d32e42fb836
+Merge: 64c65e8 c2f400f
+Author: Nathan Chao <n2chao@users.noreply.github.com>
+Date:   Sun Mar 19 21:17:52 2017 -0400
+
+    Merge branch 'master' into course-enrollment
+
+commit 64c65e883485cb0ade7e998f297c602cc9ad4367
+Author: Nathan Chao <n2chao@gmail.com>
+Date:   Sun Mar 19 21:08:48 2017 -0400
+
+    fix course enrollments where some database relations were broken and where two users could not enroll in the same course
+
+ app/app/Http/Controllers/EnrollmentController.php  | 40 +++++++++++++++++++---
+ .../2017_02_07_194005_create_enrollments_table.php |  2 +-
+ app/routes/web.php                                 |  1 +
+ 3 files changed, 38 insertions(+), 5 deletions(-)
+
+commit 3d0d35318acfaa64b9bc099f60bd097f26d4e1bc
+Author: prich28 <paulrichard.28@gmail.com>
+Date:   Sun Mar 19 20:59:23 2017 +0000
+
+    Added all unit tests for testing outputs from the weekTrait.php function. All tests are currently working and all tests pass with this commit. This commit completes the task #124 as well as all of the subtasks listed in the issue. Dates on the page load are correct and the prvious and next week buttons produce the correct results. See task for more details.
+
+ app/routes/web.php          |  6 +--
+ app/tests/Unit/weekTest.php | 98 +++++++++++++++++++++++++++++++++++++++++++++
+ 2 files changed, 101 insertions(+), 3 deletions(-)
+
+commit fe5576160ef395876217bdc62db50d76ae7fcb7a
+Author: patrickspensieri <patrick.spensieri@gmail.com>
+Date:   Sun Mar 19 14:09:06 2017 -0400
+
+    #89 fix error for undefined meetings variable
+
+ app/resources/views/home.blade.php | 87 +++++++++++++++++++++-----------------
+ 1 file changed, 48 insertions(+), 39 deletions(-)
+
+commit 84165c337157260dd2560613d2418244011318a3
+Merge: c2f400f 5afe372
+Author: Ho Man Chan <homan98@gmail.com>
+Date:   Fri Mar 17 13:15:55 2017 -0400
+
+    Merge branch 'studentMatch' of https://github.com/n2chao/SOEN341
+
+commit 51eef02a4fb88f2f9493955c82ab65e5c24a8acb
+Author: Ho Man Chan <homan98@gmail.com>
+Date:   Mon Mar 13 22:43:20 2017 -0400
+
+    fix course enrollment #102
+
+ app/app/Http/Middleware/Installation.php |  2 +-
+ app/composer.lock                        | 52 ++++++++++++++++----------------
+ 2 files changed, 27 insertions(+), 27 deletions(-)
+
+commit e0ab3ba847356a56557ffa569693375e1eb0a3f2
+Merge: 73bed3e c2f400f
+Author: Johnny Interiano <benjonant@msn.com>
+Date:   Fri Mar 10 13:10:13 2017 -0500
+
+    Merge branch 'master' of https://github.com/n2chao/SOEN341 into seeding
+
+commit 368783961043893170a63fb4c6e4ef743357d996
+Author: Ho Man Chan <homan98@gmail.com>
+Date:   Fri Mar 10 12:31:40 2017 -0500
+
+    fix installation course redirect #102
+
+ app/app/Http/Middleware/Installation.php | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 797dfa562f952d21f6821f5b9611ecb76ce368da
+Author: Ho Man Chan <homan98@gmail.com>
+Date:   Fri Mar 10 12:26:55 2017 -0500
+
+    remove unused route #102
+
+ app/routes/web.php | 4 ----
+ 1 file changed, 4 deletions(-)
+
+commit 9efd03fa0d696b0a2fecf04cd5199323d71b0a27
+Author: Ho Man Chan <homan98@gmail.com>
+Date:   Fri Mar 10 12:21:35 2017 -0500
+
+    fix routes file
+
+ app/routes/web.php | 4 ----
+ 1 file changed, 4 deletions(-)
+
+commit 26b088820b2276210c8141c70231d7053ef79719
+Author: Ho Man Chan <homan98@gmail.com>
+Date:   Fri Mar 10 12:08:01 2017 -0500
+
+    add installation middle ware #102
+
+ app/app/Http/Middleware/Installation.php | 32 ++++++++++++++++++++++++++++++++
+ 1 file changed, 32 insertions(+)
+
+commit d7619e0ff5f05beee390a2285b7cc296e21f4de7
+Merge: f68ba73 c2f400f
+Author: Ho Man Chan <homan98@gmail.com>
+Date:   Fri Mar 10 12:05:39 2017 -0500
+
+    all users without courses or free time must go through the installation setup. #102
+
+commit 73bed3e197e01ad986e65bf4dd07ead4685aa57c
+Author: Johnny Interiano <benjonant@msn.com>
+Date:   Fri Mar 10 11:22:26 2017 -0500
+
+    #82, course_id column when seeded now displays the unique course codes
+
+ app/database/factories/ModelFactory.php |  3 ++-
+ app/database/seeds/DatabaseSeeder.php   | 26 ++++++++++++--------------
+ 2 files changed, 14 insertions(+), 15 deletions(-)
+
+commit 5afe3729752489158e47033eac2b8a0179263ede
+Author: patrickspensieri <patrick.spensieri@gmail.com>
+Date:   Fri Mar 10 11:18:51 2017 -0500
+
+    #86 #89 finalize mock ui, fix issue with Rerquest model
+
+ app/app/Http/Traits/MeetingTraits.php | 10 +++++++---
+ app/app/Request.php                   |  6 ++++--
+ app/resources/views/home.blade.php    |  6 ++++++
+ app/routes/web.php                    |  2 +-
+ 4 files changed, 18 insertions(+), 6 deletions(-)
+
+commit 0324acabd716752532fbd6da1b2aa7b2a42d1df0
+Author: patrickspensieri <patrick.spensieri@gmail.com>
+Date:   Fri Mar 10 10:41:22 2017 -0500
+
+    #86 #89 create mock ui for closing meeting requests, bug fixes
+
+ app/app/Http/Controllers/HomeController.php    |  5 +++--
+ app/app/Http/Controllers/RequestController.php |  2 +-
+ app/app/Http/Traits/MeetingTraits.php          |  4 ++--
+ app/app/User.php                               |  9 ++++++++-
+ app/resources/views/home.blade.php             | 27 ++++++++++++++++++++++----
+ app/routes/web.php                             |  2 ++
+ 6 files changed, 39 insertions(+), 10 deletions(-)
+
+commit f68ba73580c41003dc2a483bf97fd3fa2674653a
+Author: Ho Man Chan <homan98@gmail.com>
+Date:   Fri Mar 10 09:38:29 2017 -0500
+
+    Initial user setup #102
+
+ .DS_Store               | Bin 8196 -> 10244 bytes
+ app/.DS_Store           | Bin 8196 -> 8196 bytes
+ app/app/Http/Kernel.php |   1 +
+ app/composer.lock       | 426 +++++++++++++++++++++++++-----------------------
+ app/routes/web.php      |  26 +++
+ 5 files changed, 248 insertions(+), 205 deletions(-)
+
+commit 3ffa75ac70b7523ef35585b771fc365a5fb8d35e
+Author: patrickspensieri <patrick.spensieri@gmail.com>
+Date:   Fri Mar 10 03:24:33 2017 -0500
+
+    #86 #87 #88 #89 tie student matching together with meeting requests
+
+ app/app/Http/Controllers/RequestController.php          | 17 +++++++++++++----
+ app/app/Http/Traits/MeetingTraits.php                   |  4 ++--
+ app/app/Http/Traits/truncateTraits.php                  |  6 +++---
+ .../2017_03_07_194153_create_requests_table.php         |  1 -
+ .../views/students/choosestudenttime.blade.php          |  4 +++-
+ app/routes/web.php                                      |  2 +-
+ 6 files changed, 22 insertions(+), 12 deletions(-)
+
+commit 9a3d7597b244455bde554eba155c5a95f2d8ab7f
+Author: patrickspensieri <patrick.spensieri@gmail.com>
+Date:   Fri Mar 10 00:26:08 2017 -0500
+
+    #86 #87 match students together to test meeting requests
+
+ app/app/Http/Controllers/RequestController.php     | 34 ++++++++++++++-
+ app/app/Http/Controllers/StudentController.php     | 18 ++++++++
+ app/app/Http/Traits/matchTraits.php                | 16 ++++---
+ .../views/instructors/chooseinstr.blade.php        |  4 +-
+ .../views/students/choosecourse.blade.php          | 25 +++++++++++
+ .../views/students/choosestudenttime.blade.php     | 51 ++++++++++++++++++++++
+ app/routes/web.php                                 | 38 +++++++---------
+ 7 files changed, 151 insertions(+), 35 deletions(-)
+
+commit 9381656b87999161ea3f4b658dfcd06be436ddbd
+Merge: c2f400f 16df871
+Author: Johnny Interiano <benjonant@msn.com>
+Date:   Thu Mar 9 15:43:28 2017 -0500
+
+    Merge branch 'seeding' of https://github.com/n2chao/SOEN341
+
+commit c2f400f7633a80560d569e9c65d7c5064183f76d
+Merge: 89ae09f a6317fb
+Author: Patrick Anthony Spensieri <patrick.spensieri@gmail.com>
+Date:   Thu Mar 9 13:36:49 2017 -0500
+
+    Merge pull request #116 from n2chao/meetings
+    
+    Meetings into Master
+
+commit a6317fb4d656a2ead7acc7ac160e841697a16737
+Merge: 81cdfdc 89ae09f
+Author: Paul <paulrichard.28@gmail.com>
+Date:   Thu Mar 9 11:48:47 2017 -0500
+
+    Merge branch 'master' into meetings
+
+commit 81cdfdcdf319478b1ffd9acf2b676c6b0201656d
+Merge: a39c058 4421593
+Author: patrickspensieri <patrick.spensieri@gmail.com>
+Date:   Thu Mar 9 10:44:25 2017 -0500
+
+    Merge branch 'requests' into meetings
+
+commit 89ae09f865ef9750af81694394c0353e63a49aad
+Merge: 6a0d759 4ba147f
+Author: Nathan Chao <n2chao@users.noreply.github.com>
+Date:   Wed Mar 8 23:21:52 2017 -0500
+
+    Merge pull request #110 from n2chao/dash_matchedLayout
+    
+    #39 created a layout for matched students
+
+commit 6a0d7592a7c55eeba37e95a6e714f8ab278cd4f6
+Merge: 3cbbaf7 3111fd8
+Author: Patrick Anthony Spensieri <patrick.spensieri@gmail.com>
+Date:   Wed Mar 8 23:07:56 2017 -0500
+
+    Merge pull request #113 from n2chao/karine-patch2
+    
+    Add "Register As" drop-down menu in register page.
+
+commit 3111fd89ab03d67cd5e3d0ea3c7cfe43221de00e
+Author: prich28 <paulrichard.28@gmail.com>
+Date:   Thu Mar 9 04:01:23 2017 +0000
+
+    Added title references in HTML form inputs as per Issue #94
+
+ app/app/Http/Controllers/Auth/RegisterController.php | 4 ++++
+ app/resources/views/auth/register.blade.php          | 8 ++++----
+ 2 files changed, 8 insertions(+), 4 deletions(-)
+
+commit c5792ca358a2790388a60b0a6776291d259ce700
+Merge: d093841 3cbbaf7
+Author: Nathan Chao <n2chao@gmail.com>
+Date:   Wed Mar 8 22:56:41 2017 -0500
+
+    Fix routes conflicts
+
+commit 3cbbaf7dc84af80b180feda72354b30d68417584
+Merge: 3f026a9 a2e4eff
+Author: Nathan Chao <n2chao@users.noreply.github.com>
+Date:   Wed Mar 8 22:42:27 2017 -0500
+
+    Merge pull request #111 from n2chao/karine-course
+    
+    Tie the front-end and back-end for adding courses
+
+commit a2e4effd6457d3acdc57f5344c6888ee1196b75f
+Author: Nathan Chao <n2chao@gmail.com>
+Date:   Wed Mar 8 17:20:51 2017 -0500
+
+    Add a unit test to see if a user is in the database
+
+ app/database/seeds/userSeed.php | 18 ++++++++++++++++++
+ app/phpunit.xml                 |  2 ++
+ app/tests/Unit/CourseTest.php   | 30 ++++++++++++++++++++++++++++++
+ 3 files changed, 50 insertions(+)
+
+commit 4421593ecb8b93352e01e1dac495b43cc95477fc
+Author: patrickspensieri <patrick.spensieri@gmail.com>
+Date:   Wed Mar 8 17:04:32 2017 -0500
+
+    #89 created controller methods for handling get/post/delete requests
+
+ app/app/Http/Controllers/RequestController.php | 58 +++++++++++++++++++++++++-
+ app/app/Http/Traits/MeetingTraits.php          | 10 +++--
+ 2 files changed, 63 insertions(+), 5 deletions(-)
+
+commit 6ce01312182e5c6aab59cd886ff24a0c45acb2d2
+Author: Karine Zhang <Karine Zhang>
+Date:   Wed Mar 8 15:11:17 2017 -0500
+
+    Add Register As drop down menu in register page.
+
+ app/resources/views/auth/register.blade.php | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
+
+commit d093841574cbbd244193496ce626ea19aad4f480
+Merge: 9fed1f5 3f026a9
+Author: Nathan Chao <n2chao@gmail.com>
+Date:   Wed Mar 8 14:30:49 2017 -0500
+
+    fix web route conflicts
+
+commit a39c058dd2c26d3f54a9ee41625c3120c168bb07
+Author: prich28 <paulrichard.28@gmail.com>
+Date:   Wed Mar 8 17:56:14 2017 +0000
+
+    Fixed bugs #108 and #112. The displayed times longer display available days in the past. The Next and Previous week buttons are working correctly now.
+
+ app/app/Http/Controllers/matchTimeController.php   | 10 ++-
+ app/app/Http/Traits/matchTraits.php                | 23 ++-----
+ app/app/Http/Traits/stringToDatesTraits.php        | 31 +++++++++
+ app/app/Http/Traits/truncateTraits.php             | 73 ++++++++++++++++++++++
+ app/app/Http/Traits/weekTraits.php                 | 21 ++++---
+ .../views/instructors/choosetime.blade.php         |  2 +-
+ 6 files changed, 132 insertions(+), 28 deletions(-)
+
+commit 833d138acdb7142e2b2bf5f5a4c46d2e6dc68e31
+Author: patrickspensieri <patrick.spensieri@gmail.com>
+Date:   Wed Mar 8 12:17:43 2017 -0500
+
+    #89 Progress work, accepting and declining meeting requests
+
+ app/app/Http/Controllers/MeetingController.php | 11 ++++-----
+ app/app/Http/Traits/MeetingTraits.php          | 31 ++++++++++++++++++--------
+ 2 files changed, 28 insertions(+), 14 deletions(-)
+
+commit 5b1edc93b55e5a8647df92f2ad2d802ccd42cd0d
+Author: Nathan Chao <n2chao@gmail.com>
+Date:   Wed Mar 8 01:13:57 2017 -0500
+
+    add engineering courses list
+
+ app/storage/app/engineering_courses.csv | 278 ++++++++++++++++++++++++++++++++
+ 1 file changed, 278 insertions(+)
+
+commit a46b1918808a91dfdad2bed346c676ec6bcf10d8
+Author: patrickspensieri <patrick.spensieri@gmail.com>
+Date:   Wed Mar 8 00:53:50 2017 -0500
+
+    #34 #81 Progress work, handling meeting requests
+
+ app/app/Http/Controllers/MeetingController.php     | 10 ++--
+ app/app/Http/Traits/MeetingTraits.php              | 64 ++++++++++++++++------
+ app/app/Invite.php                                 | 14 ++++-
+ app/app/Request.php                                | 50 +++++++++++------
+ .../2017_03_07_201041_create_invites_table.php     | 10 ++--
+ 5 files changed, 103 insertions(+), 45 deletions(-)
+
+commit 1951e105b9799ecea070a40ff3930cde96f6c645
+Author: Nathan Chao <n2chao@gmail.com>
+Date:   Wed Mar 8 00:50:22 2017 -0500
+
+    add table style for current courses and fix path issues in the common blade
+
+ app/resources/views/common.blade.php         | 4 ++--
+ app/resources/views/courses/course.blade.php | 2 +-
+ 2 files changed, 3 insertions(+), 3 deletions(-)
+
+commit 98a0493e5d4120f08f043582c98b41b9757e9a10
+Author: Nathan Chao <n2chao@gmail.com>
+Date:   Wed Mar 8 00:12:33 2017 -0500
+
+    fix the course validator and add buttons to remove enrolled courses.
+
+ app/app/Http/Controllers/EnrollmentController.php | 86 +++++------------------
+ app/public/css/course.css                         | 19 +----
+ app/resources/views/common.blade.php              |  2 +-
+ app/resources/views/courses/course.blade.php      | 70 ++++++++++++++++++
+ app/routes/web.php                                | 21 ++----
+ 5 files changed, 99 insertions(+), 99 deletions(-)
+
+commit 4ba147fb20678fe1223c0b7abb02157db6d32b5e
+Author: Johnny Interiano <benjonant@msn.com>
+Date:   Wed Mar 8 00:01:16 2017 -0500
+
+    #43 created a layout for matched students, cannot use layout yet since no matching algorithm given
+
+ app/public/js/dashboard.js         | 16 ++++++++++++++++
+ app/resources/views/home.blade.php | 25 +++++++++++++++++++++++++
+ 2 files changed, 41 insertions(+)
+
+commit 16df87183b80af2098e55e49a3601f4ecf922e35
+Author: Johnny Interiano <benjonant@msn.com>
+Date:   Tue Mar 7 23:32:34 2017 -0500
+
+    #84, seeded users now have roles with the majority of users being students and the rest being teachers or TA's
+
+ app/database/factories/ModelFactory.php | 14 ++++++++++++++
+ 1 file changed, 14 insertions(+)
+
+commit 3d7e7771b6fb655b9d3bf0afe302030568cfb38a
+Author: Johnny Interiano <benjonant@msn.com>
+Date:   Tue Mar 7 21:33:44 2017 -0500
+
+    #82 running the seeding command succesfully seeds tables for: users, courses, schedule, and enrollment
+
+ app/database/factories/ModelFactory.php | 25 +++++++++++++++++++++++
+ app/database/seeds/DatabaseSeeder.php   | 36 ++++++++++++++++++++++++++++++++-
+ 2 files changed, 60 insertions(+), 1 deletion(-)
+
+commit 79371ee00ae37ddedbb1692747cb5acf5035ec61
+Author: patrickspensieri <patrick.spensieri@gmail.com>
+Date:   Tue Mar 7 15:24:23 2017 -0500
+
+    #34 #81 Create Request and Invite migrations, models, controllers
+
+ app/app/Http/Controllers/InviteController.php      | 10 ++++++
+ app/app/Http/Controllers/RequestController.php     | 10 ++++++
+ app/app/Invite.php                                 | 10 ++++++
+ app/app/Meeting.php                                |  6 ++--
+ app/app/Request.php                                | 31 +++++++++++++++++++
+ .../2017_03_07_194153_create_requests_table.php    | 36 ++++++++++++++++++++++
+ .../2017_03_07_201041_create_invites_table.php     | 34 ++++++++++++++++++++
+ 7 files changed, 134 insertions(+), 3 deletions(-)
+
+commit 3f026a90f38952dc12e987d2ba26bacd0e889354
+Merge: b0a08d9 721c8ce
+Author: Johnny Interiano <benjonant@msn.com>
+Date:   Tue Mar 7 14:23:14 2017 -0500
+
+    Merge pull request #106 from n2chao/removeDSStore
+    
+    #83 Remove .DS_Store files, add .DS_Store to .gitignore
+
+commit 4346f44357d014ae8fa9fdabd87698e5bca3c7b5
+Author: patrickspensieri <patrick.spensieri@gmail.com>
+Date:   Mon Mar 6 21:34:25 2017 -0500
+
+    #105 fix for instructor not being added to meeting
+
+ app/resources/views/instructors/choosetime.blade.php | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 500eba877a791e7575717c209a7338bfe8b17a10
+Author: prich28 <paulrichard.28@gmail.com>
+Date:   Tue Mar 7 01:53:56 2017 +0000
+
+    This commit allows a user to book a time with an instructor, and the Meeting start time and end time save to the meetings table as a datetime timestamp. This is completed as per the subtask in issue #104, completing this task. It also serves to further task #105. Still to be completed is blocking available time for the beginning of the week that has already passed so that meeting times cannot be selected in the past.
+
+ app/app/Http/Controllers/MeetingController.php     | 16 ++++++++++---
+ app/app/Http/Controllers/matchTimeController.php   |  2 +-
+ app/app/Http/Traits/MeetingTraits.php              |  4 ++--
+ app/app/Http/Traits/matchTraits.php                |  2 +-
+ app/app/Http/Traits/timeToWeekTraits.php           | 26 ++++++++++++++++++++++
+ app/composer.lock                                  | 10 ++++-----
+ .../views/instructors/choosetime.blade.php         |  4 +++-
+ 7 files changed, 51 insertions(+), 13 deletions(-)
+
+commit fe7bfda545278c0ef37f92bfceb62a045d361aa5
+Merge: 08c0377 01c3789
+Author: patrickspensieri <patrick.spensieri@gmail.com>
+Date:   Mon Mar 6 02:07:02 2017 -0500
+
+    #104 #105 #59 Merge instructorMeets into meetings branch, part 1
+
+commit 01c378995d4c4327acee234c555a94486c6dda51
+Author: prich28 <paulrichard.28@gmail.com>
+Date:   Mon Mar 6 04:14:24 2017 +0000
+
+    Added a Trait to find Meetings in the meetings table in order to eliminate such times from a users available time for creating a meeting. This is completed as a subtask of task Issue #104.
+
+ app/app/Http/Controllers/InstructorController.php  | 16 ------
+ app/app/Http/Controllers/matchTimeController.php   | 17 ++++---
+ app/app/Http/Traits/bookedTimeTraits.php           | 58 ++++++++++++++++++++++
+ app/app/Http/Traits/matchTraits.php                |  6 +--
+ app/app/Http/Traits/weekTraits.php                 |  6 +--
+ app/app/User.php                                   |  2 +
+ .../views/instructors/choosetime.blade.php         |  4 +-
+ .../views/instructors/confirminstr.blade.php       | 20 --------
+ app/routes/web.php                                 |  1 -
+ 9 files changed, 78 insertions(+), 52 deletions(-)
+
+commit 721c8cea07fa094960f76ee31a853177161d9766
+Author: patrickspensieri <patrick.spensieri@gmail.com>
+Date:   Sun Mar 5 20:38:07 2017 -0500
+
+    #83 Remove .DS_Store files, add .DS_Store to .gitignore
+
+ .DS_Store                          | Bin 8196 -> 0 bytes
+ app/.DS_Store                      | Bin 8196 -> 0 bytes
+ app/.gitignore                     |   1 +
+ app/app/.DS_Store                  | Bin 6148 -> 0 bytes
+ app/app/Http/.DS_Store             | Bin 6148 -> 0 bytes
+ app/app/Http/Controllers/.DS_Store | Bin 6148 -> 0 bytes
+ app/resources/.DS_Store            | Bin 6148 -> 0 bytes
+ 7 files changed, 1 insertion(+)
+
+commit 0361d6aa819e5aaac6ccf158051cebc9cd45c409
+Author: prich28 <paulrichard.28@gmail.com>
+Date:   Sun Mar 5 18:24:29 2017 +0000
+
+    This commit includes adding previous and next week button functions which change which refreshes the page and shows the correct weeks according to the selection. This completes part of the task #104.
+
+ app/app/Http/Controllers/InstructorController.php  | 44 +----------
+ app/app/Http/Controllers/matchTimeController.php   | 36 +++++++++
+ app/app/Http/Traits/matchTraits.php                | 45 +++++++++++
+ app/app/Http/Traits/weekTraits.php                 | 91 ++++++++++++++++++++++
+ .../views/instructors/chooseinstr.blade.php        |  3 +-
+ .../views/instructors/choosetime.blade.php         | 29 ++++++-
+ .../views/instructors/confirminstr.blade.php       | 20 +++++
+ app/resources/views/layouts/app.blade.php          |  2 +
+ app/routes/web.php                                 |  3 +-
+ 9 files changed, 229 insertions(+), 44 deletions(-)
+
+commit 93e090d46e118cf339d1237808f3c9bdb9b2a4b0
+Author: Nathan Chao <n2chao@gmail.com>
+Date:   Sat Mar 4 17:20:57 2017 -0500
+
+    Change layout, fix add courses validator and add a list of engineering courses
+
+ app/app/Http/Controllers/EnrollmentController.php  | 64 +++++++++++++++++-----
+ .../2017_02_07_193241_create_courses_table.php     | 10 ++++
+ .../2017_02_07_194005_create_enrollments_table.php |  2 +-
+ app/public/js/course.js                            | 10 +---
+ app/resources/views/auth/login.blade.php           | 11 ----
+ app/resources/views/course.blade.php               | 43 ---------------
+ app/resources/views/courses/enroll.blade.php       | 10 ++--
+ app/routes/web.php                                 | 21 ++++---
+ 8 files changed, 80 insertions(+), 91 deletions(-)
+
+commit 08c0377b552b8b67913f78197071830e2e03c4be
+Author: patrickspensieri <patrick.spensieri@gmail.com>
+Date:   Sat Mar 4 15:08:03 2017 -0500
+
+    #105 Add dependencies for using Form object in views
+
+ app/composer.json  |   3 +-
+ app/composer.lock  | 380 +++++++++++++++++++++++++++++++----------------------
+ app/config/app.php |   3 +
+ 3 files changed, 228 insertions(+), 158 deletions(-)
+
+commit 3ec4ce0528ad40916e26ff62c691c52b427fb3ec
+Author: patrickspensieri <patrick.spensieri@gmail.com>
+Date:   Sat Mar 4 15:05:12 2017 -0500
+
+    #105 Create migrations, models, controller methods (first draft)
+
+ app/app/Attendance.php                             | 22 ++++++++++
+ app/app/Http/Controllers/AttendanceController.php  | 10 +++++
+ app/app/Http/Controllers/EnrollmentController.php  | 26 +----------
+ app/app/Http/Controllers/HomeController.php        |  8 +++-
+ app/app/Http/Controllers/InstructorController.php  |  4 +-
+ app/app/Http/Controllers/MeetingController.php     | 46 +++++++++++++++++++
+ app/app/Http/Traits/MeetingTraits.php              | 51 ++++++++++++++++++++++
+ app/app/Meeting.php                                | 31 +++++++++++++
+ app/app/User.php                                   |  9 ++--
+ .../2017_02_24_024347_create_meetings_table.php    | 35 +++++++++++++++
+ .../2017_02_27_160832_create_attendances_table.php | 33 ++++++++++++++
+ app/resources/views/courses/enroll.blade.php       |  2 +-
+ app/resources/views/home.blade.php                 | 19 +++++++-
+ .../views/instructors/chooseinstr.blade.php        | 12 ++---
+ app/routes/web.php                                 | 10 +++++
+ 15 files changed, 278 insertions(+), 40 deletions(-)
+
+commit 8e71f0e8b9e958efaf7bb1a515eb9800102c2ae3
+Author: prich28 <paulrichard.28@gmail.com>
+Date:   Thu Feb 23 02:21:08 2017 +0000
+
+    This commit includes code that addresses issue #98 as it compares two bit strings from two different users to calculate the matched free time.
+
+ app/app/Http/Controllers/InstructorController.php  | 55 ++++++++++++++--------
+ app/app/Schedule.php                               |  2 +-
+ .../views/instructors/choosetime.blade.php         |  4 +-
+ 3 files changed, 39 insertions(+), 22 deletions(-)
+
+commit 44be407cc574729faf7b51df8e6d4c7413e840ff
+Author: prich28 <paulrichard.28@gmail.com>
+Date:   Fri Feb 17 20:25:03 2017 +0000
+
+    Addressed task #96. Added mock available time in schedule table to begin building matching algorithm.
+
+ app/app/Http/Controllers/InstructorController.php | 53 +++++++++++++++++++----
+ app/app/Instructor.php                            | 10 +++++
+ app/app/Schedule.php                              |  3 ++
+ app/app/User.php                                  |  6 +++
+ 4 files changed, 63 insertions(+), 9 deletions(-)
+
+commit b0a08d93e09b681112c0f5a5969968f4b68059fd
+Merge: 653850a 6c450fe
+Author: Patrick Anthony Spensieri <patrick.spensieri@gmail.com>
+Date:   Fri Feb 17 13:15:07 2017 -0500
+
+    Merge pull request #100 from n2chao/karine-course
+    
+    Fix missing web routes
+
+commit 6c450feb4394468ba19b9ccb515429df6df137fb
+Author: Nathan Chao <n2chao@gmail.com>
+Date:   Fri Feb 17 12:43:57 2017 -0500
+
+    Fix missing web routes
+
+ app/routes/web.php | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+commit 9fed1f5a8076e26d6e245c5013a18ff665e010cb
+Author: Nathan Chao <n2chao@gmail.com>
+Date:   Fri Feb 17 12:38:14 2017 -0500
+
+    Fix routing
+
+ app/routes/web.php | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+commit 653850a340d236826a4475e0734de41cc107b24f
+Merge: 47c12ab 144928a
+Author: Nathan Chao <n2chao@users.noreply.github.com>
+Date:   Fri Feb 17 01:06:16 2017 -0500
+
+    Merge pull request #80 from n2chao/karine-course
+    
+    Add course selection layout
+
+commit 144928a112e8d1c942bf75fab47ede956bab34bd
+Merge: 036452b 47c12ab
+Author: Nathan Chao <n2chao@users.noreply.github.com>
+Date:   Fri Feb 17 01:01:44 2017 -0500
+
+    Merge branch 'master' into karine-course
+
+commit 47c12ab99d3604a19fb182e3a7998138e0c63090
+Merge: 2f7c0b4 d6200ac
+Author: Patrick Anthony Spensieri <patrick.spensieri@gmail.com>
+Date:   Thu Feb 16 14:22:29 2017 -0500
+
+    Merge pull request #93 from n2chao/fix-button
+    
+    Fix duplicate Register with Facebook button
+
+commit d6200acdf041c410c25fdafb1099b99e4eb7dc29
+Author: Nathan Chao <n2chao@users.noreply.github.com>
+Date:   Thu Feb 16 10:08:06 2017 -0500
+
+    Fix duplicate Register with Facebook button
+
+ app/resources/views/auth/register.blade.php | 10 ----------
+ 1 file changed, 10 deletions(-)
+
+commit 2f7c0b481d9d5fabd9a45936ad108c34e917b214
+Merge: 94f339f 52d3762
+Author: Patrick Anthony Spensieri <patrick.spensieri@gmail.com>
+Date:   Thu Feb 16 09:47:51 2017 -0500
+
+    Merge pull request #91 from n2chao/set-schedule
+    
+    Initial Schedule Creator #49
+
+commit 52d376247fa416a657e9bf22a56afb1b98f21002
+Author: Ho Man Chan <homan98@gmail.com>
+Date:   Thu Feb 16 09:33:45 2017 -0500
+
+    fixed footer issue
+
+ app/public/css/style.css                  | 7 ++-----
+ app/resources/views/layouts/app.blade.php | 1 -
+ 2 files changed, 2 insertions(+), 6 deletions(-)
+
+commit 570aae198c8e78190f911192e50d2c1e3a54817d
+Author: Ho Man Chan <homan98@gmail.com>
+Date:   Thu Feb 16 09:19:45 2017 -0500
+
+    fixed schedule database creation
+
+ .../2017_02_16_021934_create_schedule_table.php         |  2 +-
+ app/public/css/style.css                                | 17 ++++++-----------
+ app/resources/views/common.blade.php                    |  2 +-
+ 3 files changed, 8 insertions(+), 13 deletions(-)
+
+commit 036452b1a568c5b1aea3621e5a69865cdcc178b8
+Merge: 7400080 71a409a
+Author: Karine Zhang <Karine Zhang>
+Date:   Thu Feb 16 01:11:33 2017 -0500
+
+    Resolve web routes conflicts
+
+commit 7400080f0445a76b6d2cb1db6529934920da5787
+Merge: 31ad022 94f339f
+Author: Karine Zhang <Karine Zhang>
+Date:   Thu Feb 16 01:01:20 2017 -0500
+
+    Resolve web routes conflicts
+
+commit 31ad0229b5119e5f98d1a6f68fabcb23e36991d2
+Author: Karine Zhang <Karine Zhang>
+Date:   Thu Feb 16 00:49:51 2017 -0500
+
+    Add side menu to the course layout and link it to Edit Course
+
+ app/resources/views/common.blade.php |  2 +-
+ app/resources/views/course.blade.php | 84 +++++++++++-------------------------
+ 2 files changed, 25 insertions(+), 61 deletions(-)
+
+commit 078543be139f01ec74492215bf046bb286f2293a
+Author: Ho Man Chan <homan98@gmail.com>
+Date:   Wed Feb 15 23:31:37 2017 -0500
+
+    redirect user back to schedule if schedule has been already made
+
+ .DS_Store                                       | Bin 6170 -> 8196 bytes
+ app/.DS_Store                                   | Bin 6148 -> 8196 bytes
+ app/app/Http/Controllers/ScheduleController.php |   4 ++++
+ app/resources/.DS_Store                         | Bin 6148 -> 6148 bytes
+ 4 files changed, 4 insertions(+)
+
+commit 5a52cd2f91e648a91a6f014ef031d3ce3e14dd89
+Author: Ho Man Chan <homan98@gmail.com>
+Date:   Wed Feb 15 23:21:06 2017 -0500
+
+    User is forced to set his/her free time schedule
+    User can select free time to add to their schedule
+    User can save/confirm changes to free time
+    User can remove a block of free time
+
+ app/app/Http/Controllers/ScheduleController.php    | 128 +++++++++++++++++++++
+ app/app/Schedule.php                               |  10 ++
+ .../2017_02_16_021934_create_schedule_table.php    |  33 ++++++
+ app/resources/views/schedule/create.blade.php      |  73 ++++++++++++
+ app/resources/views/schedule/edit.blade.php        |  77 +++++++++++++
+ app/resources/views/schedule/index.blade.php       |  77 +++++++++++++
+ 6 files changed, 398 insertions(+)
+
+commit d1d761c012f466d73c0b2c03fa6131c775c20265
+Author: Ho Man Chan <homan98@gmail.com>
+Date:   Wed Feb 15 23:17:09 2017 -0500
+
+    Schedule patch 1
+    
+    User is forced to set his/her free time schedule
+    User can select free time to add to their schedule
+    User can save/confirm changes to free time
+    User can remove a block of free time
+
+ app/resources/views/common.blade.php |  2 +-
+ app/routes/web.php                   | 53 ++++++++++++++++++------------------
+ 2 files changed, 27 insertions(+), 28 deletions(-)
+
+commit 71a409a5e90b411da34d44712295fe1744ed8077
+Merge: c1f99af 94f339f
+Author: Nathan Chao <n2chao@users.noreply.github.com>
+Date:   Wed Feb 15 21:01:22 2017 -0500
+
+    Merge branch 'master' into karine-course
+
+commit 94f339f662f602a21b922db5a78e8d18a86f6499
+Merge: acdae34 3b4e36a
+Author: Johnny Interiano <benjonant@msn.com>
+Date:   Wed Feb 15 19:15:02 2017 -0500
+
+    Merge pull request #70 from n2chao/instructorMeets
+    
+    Merge instructorMeets branch with Master Travis implemented before branch existed.
+
+commit acdae345a0c709aee6a88e40501d8bbee50e6b83
+Merge: 69b94fb 68e3866
+Author: Paul <paulrichard.28@gmail.com>
+Date:   Wed Feb 15 10:21:17 2017 -0500
+
+    Merge pull request #84 from n2chao/readme-sprint2
+    
+    Update readme for sprint 2. Well described and succinct.
+
+commit 68e38667d1c1991249ba3e5b6549d93139b78043
+Author: Nathan Chao <n2chao@users.noreply.github.com>
+Date:   Wed Feb 15 09:41:41 2017 -0500
+
+    Update readme for sprint 2
+    
+    Wrote a description of the project and added a list of technologies currently used.
+    
+    Let me know if we need to add anything else.
+
+ README.md | 23 ++++++++++++++++++++---
+ 1 file changed, 20 insertions(+), 3 deletions(-)
+
+commit 69b94fb76fc900e4e5835b1606fedbf271c7b215
+Merge: c1b40f1 7385da6
+Author: Patrick Anthony Spensieri <patrick.spensieri@gmail.com>
+Date:   Wed Feb 15 00:59:09 2017 -0500
+
+    Merge pull request #78 from n2chao/travis-ci
+    
+    Travis CI
+
+commit 3b4e36aa68d857cee830b94ce5c8d6fd4380abeb
+Merge: 3f1647a d46fbac
+Author: prich28 <paulrichard.28@gmail.com>
+Date:   Wed Feb 15 04:09:30 2017 +0000
+
+    fixing routing error
+
+commit d46fbac1794e09f70c0ba102414e082392d5fd96
+Merge: e49d50e c1b40f1
+Author: Paul <paulrichard.28@gmail.com>
+Date:   Tue Feb 14 23:04:07 2017 -0500
+
+    Merge branch 'master' into instructorMeets
+
+commit 3f1647aca571a15a3c89814937b668c3eff41762
+Author: prich28 <paulrichard.28@gmail.com>
+Date:   Wed Feb 15 04:01:52 2017 +0000
+
+    fixing routing error
+
+ app/resources/views/instructors/chooseinstr.blade.php | 2 +-
+ app/routes/web.php                                    | 4 ++--
+ 2 files changed, 3 insertions(+), 3 deletions(-)
+
+commit c1b40f14afcb009d301cb67761b227e1ce88bc84
+Merge: 7cd1fd1 b41e5e3
+Author: Patrick Anthony Spensieri <patrick.spensieri@gmail.com>
+Date:   Tue Feb 14 22:01:29 2017 -0500
+
+    Merge pull request #76 from n2chao/courses
+    
+    Courses
+
+commit c1f99afbb4681fefd67c1e9466e7d36ccae61ad2
+Merge: 62b77ff 7cd1fd1
+Author: Karine Zhang <Karine Zhang>
+Date:   Tue Feb 14 15:22:38 2017 -0500
+
+    Resolve web routes conflicts
+
+commit 62b77ff52d14556384607bc4f4619893c6e92113
+Author: Karine Zhang <Karine Zhang>
+Date:   Tue Feb 14 15:19:01 2017 -0500
+
+    Modify web routes
+
+ app/routes/web.php | 3 +++
+ 1 file changed, 3 insertions(+)
+
+commit b1271d2e0e5ec3d9ce10dab822cce0ed0ce2fde2
+Author: Karine Zhang <Karine Zhang>
+Date:   Tue Feb 14 15:15:41 2017 -0500
+
+    Add course selection layout
+
+ app/public/css/course.css            | 16 ++++++++
+ app/public/js/course.js              | 61 ++++++++++++++++++++++++++++
+ app/resources/views/course.blade.php | 79 ++++++++++++++++++++++++++++++++++++
+ 3 files changed, 156 insertions(+)
+
+commit b41e5e31a5402130389cdd8ee44d2aebf19b0b3c
+Merge: dfcadf9 7cd1fd1
+Author: Nathan Chao <n2chao@users.noreply.github.com>
+Date:   Tue Feb 14 12:56:31 2017 -0500
+
+    Merge branch 'master' into courses
+
+commit 7385da6618c2db161e1ca1891105ea750dc6e042
+Author: Nathan Chao <n2chao@gmail.com>
+Date:   Tue Feb 14 11:31:15 2017 -0500
+
+    Change order or before_script section
+
+ .travis.yml | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+commit 1907a6aae3abca2665a9169b7b6dfdd82d7157c5
+Author: Nathan Chao <n2chao@gmail.com>
+Date:   Tue Feb 14 11:29:00 2017 -0500
+
+    Change cd to cp, previously put cd by mistake
+
+ .travis.yml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit a8c08609ec1639d2d8020aa3ef9741b80d62bb4d
+Author: Nathan Chao <n2chao@gmail.com>
+Date:   Tue Feb 14 11:26:33 2017 -0500
+
+    Modify .travis.yml file to add .env file
+
+ .travis.yml | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+commit 42c6f91240ef675ece3e4589d00b4269e888f955
+Author: Nathan Chao <n2chao@gmail.com>
+Date:   Tue Feb 14 11:02:39 2017 -0500
+
+    Modify .travis.yml file
+
+ .travis.yml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 27186033b8f0b453f85ac3ee3f17e56bb655c24a
+Author: Nathan Chao <n2chao@gmail.com>
+Date:   Tue Feb 14 10:56:55 2017 -0500
+
+    Modify .travis.yml file
+
+ .travis.yml | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit bd1828a9954d759f62103de393d1a012fe2f85f2
+Author: Nathan Chao <n2chao@gmail.com>
+Date:   Tue Feb 14 10:47:16 2017 -0500
+
+    Modify before_script section of .travis.yml file
+
+ .travis.yml     |  1 +
+ app/.travis.yml | 13 -------------
+ 2 files changed, 1 insertion(+), 13 deletions(-)
+
+commit 05b56809f49596b2d490140d403c459e8ff0ada9
+Author: Nathan Chao <n2chao@gmail.com>
+Date:   Tue Feb 14 10:35:06 2017 -0500
+
+    Put .travis.yml in soen341 folder
+
+ .travis.yml | 13 +++++++++++++
+ 1 file changed, 13 insertions(+)
+
+commit eec20126ae6c2d862962d5371e19ad8a09a189b5
+Author: Nathan Chao <n2chao@gmail.com>
+Date:   Tue Feb 14 10:29:13 2017 -0500
+
+    Add .travis.yml file
+
+ app/.travis.yml | 13 +++++++++++++
+ 1 file changed, 13 insertions(+)
+
+commit dfcadf9b1b66ec225632219072dc8ed1a7c6dc1f
+Author: patrickspensieri <patrick.spensieri@gmail.com>
+Date:   Tue Feb 14 01:15:41 2017 -0500
+
+    #30 Completed web.php routes, EnrollmentController and the test UI
+
+ app/app/Http/Controllers/EnrollmentController.php | 33 +++++++-------
+ app/resources/views/courses/enroll.blade.php      | 54 ++++++++++++++++++++---
+ app/routes/web.php                                | 33 ++------------
+ 3 files changed, 70 insertions(+), 50 deletions(-)
+
+commit 2caedf1a9ce652f7d035db0a6bc7b2db265917ca
+Author: patrickspensieri <patrick.spensieri@gmail.com>
+Date:   Mon Feb 13 23:08:30 2017 -0500
+
+    #30 Bug fix in EnrollmentController.php
+
+ app/app/Http/Controllers/EnrollmentController.php | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+commit 3b3f5c2674ebc07ec1d3b35f46aeac42f5153f6e
+Author: patrickspensieri <patrick.spensieri@gmail.com>
+Date:   Mon Feb 13 22:52:08 2017 -0500
+
+    #30 Clean up EnrollmentController.php
+
+ app/app/Http/Controllers/EnrollmentController.php | 34 +++++++++++++++--------
+ app/resources/views/courses/enroll.blade.php      | 21 +++-----------
+ 2 files changed, 27 insertions(+), 28 deletions(-)
+
+commit 7cd1fd1505436f7b7624fe4060057827cc4a1632
+Merge: aa7d84f 8f41a5d
+Author: Patrick Anthony Spensieri <patrick.spensieri@gmail.com>
+Date:   Mon Feb 13 21:33:51 2017 -0500
+
+    Merge pull request #72 from n2chao/alimouawieh-patch-1-1
+    
+    Update README.md
+
+commit d81c6c277aab08fe069d65cd6816ea3c2973c6ba
+Author: patrickspensieri <patrick.spensieri@gmail.com>
+Date:   Mon Feb 13 21:31:33 2017 -0500
+
+    #30 Add and delete array of classes in a single POST
+
+ app/app/Http/Controllers/EnrollmentController.php |  88 +++++++++++++++++++---
+ app/app/Providers/AppServiceProvider.php          |   1 +
+ app/app/User.php                                  |   7 ++
+ app/resources/views/.DS_Store                     | Bin 6148 -> 0 bytes
+ app/resources/views/courses/enroll.blade.php      |  26 ++++++-
+ app/routes/web.php                                |  18 ++---
+ 6 files changed, 117 insertions(+), 23 deletions(-)
+
+commit 8f41a5d054b833a8ae58d0339208e3b61f6949a5
+Author: alimouawieh <alimouawieh@gmail.com>
+Date:   Mon Feb 13 15:05:06 2017 -0500
+
+    Update README.md
+
+ README.md | 5 ++++-
+ 1 file changed, 4 insertions(+), 1 deletion(-)
+
+commit e49d50edcf3b5ac10cf0fd59874525c902d41705
+Merge: a09b204 aa7d84f
+Author: Paul <paulrichard.28@gmail.com>
+Date:   Mon Feb 13 13:06:16 2017 -0500
+
+    Merge branch 'master' into instructorMeets
+
+commit a09b204894f05e877e639fe26228e6de4f0721f8
+Author: prich28 <paulrichard.28@gmail.com>
+Date:   Mon Feb 13 17:51:48 2017 +0000
+
+    Added the link between the dashboard side menu for the instructor page and the instructor page. Currently both pages are up and working. The back end is not fully complete but there are funtions in the Instructor controller that are set up and can be changed. Also, the user table migration has the column TITLE which describes the user as a ta, teacher or student, but this will be replaced with a rolls table. This is all per issues #57 and #58 .
+
+ app/resources/views/common.blade.php | 2 +-
+ app/routes/web.php                   | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+commit aa7d84f2a77392577512cc1cf059ba23f867a6f1
+Merge: ce30341 78a2bdb
+Author: Patrick Anthony Spensieri <patrick.spensieri@gmail.com>
+Date:   Mon Feb 13 12:14:41 2017 -0500
+
+    Merge pull request #68 from n2chao/socialite
+    
+    Add Socialite dependencies and Facebook login configurations. #45
+
+commit ce30341276b111e6a02eef17cf6c6ffc1f48e388
+Merge: 22c6f55 21d8a31
+Author: Patrick Anthony Spensieri <patrick.spensieri@gmail.com>
+Date:   Mon Feb 13 12:12:50 2017 -0500
+
+    Merge pull request #69 from n2chao/dashboard-template
+    
+    Dashboard template
+
+commit 21d8a3120753343560edc34993fa1cf1827f1302
+Author: Johnny Interiano <benjonant@msn.com>
+Date:   Mon Feb 13 11:59:25 2017 -0500
+
+    Got rid of an unnecessary class
+
+ app/resources/views/home.blade.php | 4 ----
+ 1 file changed, 4 deletions(-)
+
+commit a590411f680766bd9e4f078a73e56d16a9ec0ec8
+Author: prich28 <paulrichard.28@gmail.com>
+Date:   Mon Feb 13 04:58:50 2017 +0000
+
+    Updated the choosetime page organization/display.
+
+ app/resources/views/instructors/choosetime.blade.php | 8 +++++---
+ 1 file changed, 5 insertions(+), 3 deletions(-)
+
+commit 66f02f022fd80d9205bdf4f450236365d9260620
+Author: prich28 <paulrichard.28@gmail.com>
+Date:   Mon Feb 13 04:47:34 2017 +0000
+
+    Includes a page to display Instructor free time as per Issue #58. Currently displays the email address of the selected instructor as the procedure/algorithm for matching a time with a professor is not yet finalized.
+
+ app/app/.DS_Store                                  | Bin 0 -> 6148 bytes
+ app/app/Http/.DS_Store                             | Bin 0 -> 6148 bytes
+ app/app/Http/Controllers/.DS_Store                 | Bin 0 -> 6148 bytes
+ app/app/Http/Controllers/InstructorController.php  |   9 +++++++-
+ .../views/instructors/chooseinstr.blade.php        |  18 ++++++++++++----
+ .../views/instructors/choosetime.blade.php         |  24 +++++++++++++++++++++
+ app/routes/web.php                                 |   2 +-
+ 7 files changed, 47 insertions(+), 6 deletions(-)
+
+commit 1a21bb1fc2a6a6650d261ff4770e2cf9d67a3fe8
+Merge: e35ccb7 669c314
+Author: prich28 <paulrichard.28@gmail.com>
+Date:   Sun Feb 12 23:38:57 2017 +0000
+
+    Merge branch 'dashboard-template' into instructorMeets
+    
+    "merging the latest commits from branch dashboard-template to continue editing instructor page with the changes"
+
+commit 669c314bed89d87b3306c744d41144d633bb075a
+Author: Johnny Interiano <benjonant@msn.com>
+Date:   Sun Feb 12 17:56:44 2017 -0500
+
+    cleaned up classes and minor text fixes
+
+ app/resources/views/common.blade.php | 19 +++++++++++--------
+ 1 file changed, 11 insertions(+), 8 deletions(-)
+
+commit e63c5422c9deb7362713342606a60bee15c72bb7
+Author: patrickspensieri <patrick.spensieri@gmail.com>
+Date:   Sun Feb 12 15:53:24 2017 -0500
+
+    #30 User can add a course from UI, other progress work
+
+ app/app/Http/Controllers/EnrollmentController.php | 36 ++++++++---------------
+ app/app/Providers/AppServiceProvider.php          |  4 ++-
+ app/resources/views/courses/enroll.blade.php      | 24 +++++++++++++++
+ app/routes/web.php                                |  4 ++-
+ 4 files changed, 43 insertions(+), 25 deletions(-)
+
+commit 78a2bdb6da10b4cd753884dcd33cbbf04b0f1d6b
+Merge: 987fec5 bbdeed2
+Author: Nathan Chao <n2chao@gmail.com>
+Date:   Sun Feb 12 15:45:56 2017 -0500
+
+    Fix services.php conflict
+
+commit 987fec50417db9419afb94c7e99ded62841d467e
+Author: Nathan Chao <n2chao@gmail.com>
+Date:   Sun Feb 12 15:40:55 2017 -0500
+
+    Add files that were not commited previously
+
+ app/app/Http/Controllers/FacebookController.php    | 19 ++++++---
+ app/app/SocialAccountService.php                   | 47 +++++++++++++++++++---
+ app/config/services.php                            |  2 +-
+ .../2014_10_12_000000_create_users_table.php       |  1 +
+ app/resources/views/auth/register.blade.php        |  2 +-
+ app/routes/web.php                                 |  4 +-
+ 6 files changed, 59 insertions(+), 16 deletions(-)
+
+commit bbdeed2eb91fabc858582723a762e53f94e9d16e
+Author: Nathan Chao <n2chao@users.noreply.github.com>
+Date:   Sun Feb 12 14:56:42 2017 -0500
+
+    Update services.php
+    
+    Added quotes and replaced + by . since it was not working for Paul
+
+ app/config/services.php | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit e35ccb7102b48e1804ef862dd13c8785f5778b68
+Author: prich28 <paulrichard.28@gmail.com>
+Date:   Sun Feb 12 18:35:13 2017 +0000
+
+    added side-bar to chooseinstr page. added mock users with column title to grab teachers and tas to try listing them. Changes as per Issue #57
+
+ app/app/User.php                                   |  2 +
+ .../2014_10_12_000000_create_users_table.php       |  2 +-
+ app/resources/views/home.blade.php                 |  1 +
+ .../views/instructors/chooseinstr.blade.php        | 45 ++++++++++++----------
+ 4 files changed, 29 insertions(+), 21 deletions(-)
+
+commit ab4356581b2445f59a390afd98c005232ca313b5
+Merge: 1b13f27 1de5f1a
+Author: prich28 <paulrichard.28@gmail.com>
+Date:   Sun Feb 12 05:11:04 2017 +0000
+
+    Merge branch 'dashboard-template' of https://github.com/n2chao/SOEN341 into instructorMeets
+    
+    Merging with branch dashboard-template to pull in changes and correct issues with instructorMeets
+
+commit 1de5f1a96fe5025f6aa0f13136db574e20e6cf64
+Author: Johnny Interiano <benjonant@msn.com>
+Date:   Sat Feb 11 23:33:17 2017 -0500
+
+    added common to tracked files
+
+ app/resources/views/common.blade.php | 54 ++++++++++++++++++++++++++++++++++++
+ 1 file changed, 54 insertions(+)
+
+commit c5098d1fb8e7a757df85d90319f9bcfdca597585
+Author: Johnny Interiano <benjonant@msn.com>
+Date:   Sat Feb 11 23:32:10 2017 -0500
+
+    common was untracked, adding it to make the build work
+
+ .DS_Store                     | Bin 6148 -> 6170 bytes
+ app/resources/views/.DS_Store | Bin 6148 -> 0 bytes
+ 2 files changed, 0 insertions(+), 0 deletions(-)
+
+commit cce624cf54ec4c4ffe67302b752b16b28a3be0ab
+Author: Nathan Chao <n2chao@gmail.com>
+Date:   Sat Feb 11 23:19:10 2017 -0500
+
+    Use an env variable for the facebook redirect url.
+
+ app/config/services.php | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit f6731f90d0a438f2a0da869427235b3166edb3b5
+Author: Nathan Chao <n2chao@gmail.com>
+Date:   Sat Feb 11 19:05:54 2017 -0500
+
+    Add Socialite dependencies, configure the Facebook login and create a new table for facebook accounts.
+
+ app/app/SocialAccount.php                          | 15 ++++++++++
+ app/app/SocialAccountService.php                   |  7 +++++
+ .../2014_10_12_000000_create_users_table.php       |  1 -
+ ...7_02_10_193916_create_social_accounts_table.php | 33 ++++++++++++++++++++++
+ 4 files changed, 55 insertions(+), 1 deletion(-)
+
+commit 1b13f27ad7310db7befc21fe8bb37b04f5669bd9
+Merge: c93c7a0 596e6ca
+Author: prich28 <paulrichard.28@gmail.com>
+Date:   Sat Feb 11 20:01:43 2017 +0000
+
+    Merge branch 'dashboard-template' of https://github.com/n2chao/SOEN341 into instructorMeets
+    
+    "Merging dashboard template to instructorMeets in order to see if the choose- instructor page will need further editing"
+
+commit c93c7a0f64179f90e0fcf13b62603e1ccf19e1c6
+Author: prich28 <paulrichard.28@gmail.com>
+Date:   Sat Feb 11 19:41:59 2017 +0000
+
+    created basic layout for teacher selection, mock user table, names display. As per issue #57.
+
+ app/app/Http/Controllers/InstructorController.php  |  25 +++++++++++++++++++++
+ .../2014_10_12_000000_create_users_table.php       |   1 +
+ app/resources/.DS_Store                            | Bin 6148 -> 6148 bytes
+ .../views/instructors/chooseinstr.blade.php        |  25 +++++++++++++++++++++
+ .../views/instructors/choosetime.blade.php         |   0
+ app/routes/web.php                                 |   3 ++-
+ 6 files changed, 53 insertions(+), 1 deletion(-)
+
+commit 596e6ca3e4134d8333d4c92e78ede2641d971c3f
+Author: Johnny Interiano <benjonant@msn.com>
+Date:   Sat Feb 11 05:20:11 2017 -0500
+
+    fixed mismatched section names
+
+ app/resources/views/layouts/app.blade.php | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+commit cd5be64e319d4320d08cf770448fc9e356b1e37c
+Merge: ecfa3ff 22c6f55
+Author: Johnny Interiano <benjonant@msn.com>
+Date:   Sat Feb 11 04:56:41 2017 -0500
+
+    Merge branch 'master' of https://github.com/n2chao/SOEN341 into dashboard-template
+
+commit ecfa3ff1ee543428e6ada77730449fe8874255a3
+Author: Johnny Interiano <benjonant@msn.com>
+Date:   Sat Feb 11 04:49:05 2017 -0500
+
+    created a template that extends layout + is to be used to dashboard
+
+ app/resources/views/home.blade.php        | 46 +++++++++++++++++++++++--------
+ app/resources/views/landing.blade.php     |  5 ++--
+ app/resources/views/layouts/app.blade.php | 17 +++++++-----
+ app/routes/web.php                        |  1 +
+ 4 files changed, 48 insertions(+), 21 deletions(-)
+
+commit 1d570a2dd69302f661caa0032546601732f31d4f
+Author: patrickspensieri <patrick.spensieri@gmail.com>
+Date:   Fri Feb 10 12:24:26 2017 -0500
+
+    #30 Progress work for Course/Enrollment/User models and controllers
+
+ app/app/Course.php                                 | 22 ++++++++
+ app/app/Enrollment.php                             | 23 ++++++++
+ app/app/Http/Controllers/CourseController.php      | 34 ++++++++++++
+ app/app/Http/Controllers/EnrollmentController.php  | 61 ++++++++++++++++++++++
+ app/app/Http/Controllers/UserController.php        | 10 ++++
+ app/app/User.php                                   | 14 +++++
+ .../2017_02_07_193241_create_courses_table.php     | 33 ++++++++++++
+ .../2017_02_07_194005_create_enrollments_table.php | 33 ++++++++++++
+ app/routes/web.php                                 | 37 +++++++++++++
+ 9 files changed, 267 insertions(+)
+
+commit 7c1368c371f6058e891460d4d285f1f7febc26e4
+Merge: 1022bfd fc0318e
+Author: Nathan Chao <n2chao@users.noreply.github.com>
+Date:   Wed Feb 8 23:47:52 2017 -0500
+
+    Merge pull request #64 from n2chao/template
+    
+    Looks good. Exactly what was needed.
+
+commit fc0318e2326839948841c9004eca6a21178adcc8
+Author: prich28 <paulrichard.28@gmail.com>
+Date:   Wed Feb 8 20:19:09 2017 +0000
+
+    Added Register with Facebook button as per comment in issue #45
+
+ app/resources/views/auth/register.blade.php | 12 ++----------
+ 1 file changed, 2 insertions(+), 10 deletions(-)
+
+commit 1431a17369fd77b7526318e6e9e2e76803761449
+Author: prich28 <paulrichard.28@gmail.com>
+Date:   Wed Feb 8 20:01:28 2017 +0000
+
+    added Register with Facebook button on the registration page as per comment in issue #45
+
+ app/.DS_Store                               | Bin 0 -> 6148 bytes
+ app/resources/views/auth/register.blade.php |  10 ++++++++++
+ 2 files changed, 10 insertions(+)
+
+commit 1022bfdef2aa1f5944fcba862559a8a9c031aed2
+Author: Nathan Chao <n2chao@gmail.com>
+Date:   Tue Feb 7 01:40:27 2017 -0500
+
+    Add socialite dependencies and Facebook login configurations.
+
+ app/app/Http/Controllers/FacebookController.php |  30 +++
+ app/composer.json                               |   1 +
+ app/composer.lock                               | 340 +++++++++++++++++++++++-
+ app/config/app.php                              |   2 +
+ app/config/services.php                         |   6 +
+ app/resources/views/auth/login.blade.php        |   5 +-
+ app/routes/web.php                              |   3 +
+ 7 files changed, 385 insertions(+), 2 deletions(-)
+
+commit 22c6f55f85598b86c0956f90266dadc688c2cf92
+Merge: b46806f e053e51
+Author: Ho Man Chan <homan98@gmail.com>
+Date:   Mon Feb 6 22:36:09 2017 -0500
+
+    Merge pull request #44 from n2chao/template
+    
+    Template Pull Request: Updated as per pull request #42 comments
+
+commit e053e51c68f08d6ebb89b5bfcf35597f0e9b6d97
+Author: prich28 <paulrichard.28@gmail.com>
+Date:   Tue Feb 7 02:49:48 2017 +0000
+
+    For Epic #25. Corrections made, boostrap syntax, footer html5 compliance, updated redundant CSS, used Laravel config variables for Logo.
+
+ .DS_Store                                   | Bin 0 -> 6148 bytes
+ app/config/app.php                          |   2 +-
+ app/public/css/style.css                    |   4 ++--
+ app/resources/views/auth/login.blade.php    |  11 +++++------
+ app/resources/views/auth/register.blade.php |   2 +-
+ app/resources/views/landing.blade.php       |   6 +++---
+ app/resources/views/layouts/app.blade.php   |   7 +++----
+ 7 files changed, 15 insertions(+), 17 deletions(-)
+
+commit ca341bf6e0d54d1721d9a3a729beeee747d3c588
+Author: prich28 <paulrichard.28@gmail.com>
+Date:   Sat Feb 4 18:49:40 2017 +0000
+
+    completed tasks #41 registration page layout #40 login page layout #27 site description on carousel #26 basic menu bar #11 jumbotron now carousel.
+
+ app/public/css/style.css                    |  45 ++++++++++++++++++++++++----
+ app/resources/.DS_Store                     | Bin 0 -> 6148 bytes
+ app/resources/views/.DS_Store               | Bin 0 -> 6148 bytes
+ app/resources/views/auth/login.blade.php    |  16 ++++++++--
+ app/resources/views/auth/register.blade.php |   4 +--
+ app/resources/views/landing.blade.php       |  25 +++++++++++++---
+ app/resources/views/layouts/app.blade.php   |   6 ++++
+ 7 files changed, 82 insertions(+), 14 deletions(-)
+
+commit e9920a97ecf5af294913a68c867adfa64092dd31
+Author: prich28 <paulrichard.28@gmail.com>
+Date:   Thu Feb 2 17:23:20 2017 +0000
+
+    added landing page jumbotron view. added site name (logo) changed where it links to. changed main route to landing page.
+
+ app/public/css/style.css                  |  8 ++++++++
+ app/resources/views/landing.blade.php     |  9 +++++++++
+ app/resources/views/layouts/app.blade.php | 13 ++++++++++---
+ app/routes/web.php                        |  2 +-
+ 4 files changed, 28 insertions(+), 4 deletions(-)
+
+commit b46806f806441371216b5ffede74cef0790e4d74
+Merge: 68a373c a1061ad
+Author: Patrick Anthony Spensieri <patrick.spensieri@gmail.com>
+Date:   Tue Jan 31 13:57:15 2017 -0500
+
+    Merge pull request #21 from n2chao/nathan-update
+    
+    Update readme
+
+commit a1061ad361e8a8dc2499f3042bb5b4d1cddd75c4
+Author: Nathan Chao <n2chao@gmail.com>
+Date:   Tue Jan 31 12:36:43 2017 -0500
+
+    Update readme
+
+ README.md | 6 ++----
+ 1 file changed, 2 insertions(+), 4 deletions(-)
+
+commit 68a373cb27ef5ce3bbd15451192062017b89e7d7
+Merge: eb2afe9 02d8543
+Author: Nathan Chao <n2chao@users.noreply.github.com>
+Date:   Mon Jan 30 23:46:54 2017 -0500
+
+    Merge pull request #20 from n2chao/remove-socket-in-environment-example
+    
+    removed socket option in .env.example and config/database.PHP
+
+commit 02d85439e24e184b77c3b73c6cfe1ffaca10c060
+Author: Ho Man Chan <homan98@gmail.com>
+Date:   Mon Jan 30 23:30:48 2017 -0500
+
+    removed socket option in .env.example and config/database.PHP
+
+ app/.env.example        | 1 -
+ app/config/database.php | 1 -
+ 2 files changed, 2 deletions(-)
+
+commit eb2afe908a5b315b2048ab81333e5970681a6c49
+Merge: 5773138 c473425
+Author: Nathan Chao <n2chao@users.noreply.github.com>
+Date:   Fri Jan 27 15:35:55 2017 -0500
+
+    Merge pull request #17 from n2chao/Install-fresh-laravel-with-basic-login
+    
+    Install fresh laravel with basic login
+
+commit c473425cff54d8487f8d52a67ea3301995bd464d
+Author: Ho Man Chan <homan98@gmail.com>
+Date:   Fri Jan 27 14:56:53 2017 -0500
+
+    Database socket option in environment file
+    
+    Added environment variable DB_SOCK to configure with MAMP.
+    
+    *If you are using MAMP, your ‘.env’ file may need the following
+    variable in your ‘.env’ file.
+    
+    MAC:
+    DB_SOCK=/Applications/MAMP/tmp/mysql/mysql.sock
+
+ app/.env.example        | 1 +
+ app/config/database.php | 2 +-
+ 2 files changed, 2 insertions(+), 1 deletion(-)
+
+commit 6fb7bdf5bd15a34d79e3d4cde9367d66a104bfe9
+Author: Ho Man Chan <homan98@gmail.com>
+Date:   Fri Jan 27 14:35:11 2017 -0500
+
+    Basic login system
+    
+    Added user registration
+    Added user login
+    Added user logout
+    
+    *Forget password requires a smtp server to function. The smtp
+    credentials can be setup in the “.env” file.
+
+ app/app/Http/Controllers/HomeController.php        | 28 +++++++
+ app/config/database.php                            |  1 +
+ app/resources/views/auth/login.blade.php           | 68 +++++++++++++++++
+ app/resources/views/auth/passwords/email.blade.php | 46 ++++++++++++
+ app/resources/views/auth/passwords/reset.blade.php | 76 +++++++++++++++++++
+ app/resources/views/auth/register.blade.php        | 76 +++++++++++++++++++
+ app/resources/views/home.blade.php                 | 17 +++++
+ app/resources/views/layouts/app.blade.php          | 87 ++++++++++++++++++++++
+ app/routes/web.php                                 |  4 +
+ 9 files changed, 403 insertions(+)
+
+commit 9d0668ae937e0142e0a0c415c323f86c24f7ccec
+Merge: 8e8d920 5773138
+Author: Ho Man Chan <homan98@gmail.com>
+Date:   Fri Jan 27 14:02:12 2017 -0500
+
+    Merge branch 'master' into install-fresh-laravel
+
+commit 8e8d9207cf4548cb8bc9917806afaec2efb1e963
+Author: Ho Man Chan <homan98@gmail.com>
+Date:   Fri Jan 27 13:33:24 2017 -0500
+
+    Fresh installation of laravel
+    
+    Added a base Laravel project files
+
+ README.md                                          |    2 +-
+ app/.env.example                                   |   32 +
+ app/.gitattributes                                 |    3 +
+ app/.gitignore                                     |    9 +
+ app/app/Console/Kernel.php                         |   40 +
+ app/app/Exceptions/Handler.php                     |   65 +
+ .../Controllers/Auth/ForgotPasswordController.php  |   32 +
+ app/app/Http/Controllers/Auth/LoginController.php  |   39 +
+ .../Http/Controllers/Auth/RegisterController.php   |   71 +
+ .../Controllers/Auth/ResetPasswordController.php   |   39 +
+ app/app/Http/Controllers/Controller.php            |   13 +
+ app/app/Http/Kernel.php                            |   60 +
+ app/app/Http/Middleware/EncryptCookies.php         |   17 +
+ .../Http/Middleware/RedirectIfAuthenticated.php    |   26 +
+ app/app/Http/Middleware/TrimStrings.php            |   18 +
+ app/app/Http/Middleware/VerifyCsrfToken.php        |   17 +
+ app/app/Providers/AppServiceProvider.php           |   28 +
+ app/app/Providers/AuthServiceProvider.php          |   30 +
+ app/app/Providers/BroadcastServiceProvider.php     |   21 +
+ app/app/Providers/EventServiceProvider.php         |   32 +
+ app/app/Providers/RouteServiceProvider.php         |   73 +
+ app/app/User.php                                   |   29 +
+ app/artisan                                        |   51 +
+ app/bootstrap/app.php                              |   55 +
+ app/bootstrap/autoload.php                         |   34 +
+ app/bootstrap/cache/.gitignore                     |    2 +
+ app/composer.json                                  |   50 +
+ app/composer.lock                                  | 3340 ++++++++++++++++++++
+ app/config/app.php                                 |  231 ++
+ app/config/auth.php                                |  102 +
+ app/config/broadcasting.php                        |   58 +
+ app/config/cache.php                               |   91 +
+ app/config/database.php                            |  108 +
+ app/config/filesystems.php                         |   68 +
+ app/config/mail.php                                |  110 +
+ app/config/queue.php                               |   85 +
+ app/config/services.php                            |   38 +
+ app/config/session.php                             |  179 ++
+ app/config/view.php                                |   33 +
+ app/database/.gitignore                            |    1 +
+ app/database/factories/ModelFactory.php            |   24 +
+ .../2014_10_12_000000_create_users_table.php       |   35 +
+ ...4_10_12_100000_create_password_resets_table.php |   32 +
+ app/database/seeds/DatabaseSeeder.php              |   16 +
+ app/package.json                                   |   17 +
+ app/phpunit.xml                                    |   31 +
+ app/public/.htaccess                               |   20 +
+ app/public/css/app.css                             |    9 +
+ app/public/favicon.ico                             |    0
+ app/public/index.php                               |   58 +
+ app/public/js/app.js                               |   41 +
+ app/public/robots.txt                              |    2 +
+ app/public/web.config                              |   23 +
+ app/readme.md                                      |   40 +
+ app/resources/assets/js/app.js                     |   20 +
+ app/resources/assets/js/bootstrap.js               |   45 +
+ app/resources/assets/js/components/Example.vue     |   23 +
+ app/resources/assets/sass/_variables.scss          |   37 +
+ app/resources/assets/sass/app.scss                 |    9 +
+ app/resources/lang/en/auth.php                     |   19 +
+ app/resources/lang/en/pagination.php               |   19 +
+ app/resources/lang/en/passwords.php                |   22 +
+ app/resources/lang/en/validation.php               |  119 +
+ app/resources/views/welcome.blade.php              |   95 +
+ app/routes/api.php                                 |   18 +
+ app/routes/channels.php                            |   16 +
+ app/routes/console.php                             |   18 +
+ app/routes/web.php                                 |   16 +
+ app/server.php                                     |   21 +
+ app/storage/app/.gitignore                         |    3 +
+ app/storage/app/public/.gitignore                  |    2 +
+ app/storage/framework/.gitignore                   |    8 +
+ app/storage/framework/cache/.gitignore             |    2 +
+ app/storage/framework/sessions/.gitignore          |    2 +
+ app/storage/framework/views/.gitignore             |    2 +
+ app/storage/logs/.gitignore                        |    2 +
+ app/tests/CreatesApplication.php                   |   22 +
+ app/tests/Feature/ExampleTest.php                  |   23 +
+ app/tests/TestCase.php                             |   10 +
+ app/tests/Unit/ExampleTest.php                     |   20 +
+ app/webpack.mix.js                                 |   15 +
+ 81 files changed, 6287 insertions(+), 1 deletion(-)
+
+commit 5773138f6f8eacbbd1758fe053f3798c4298a67f
+Merge: cf2d3d4 1d5e2b5
+Author: Nathan Chao <n2chao@users.noreply.github.com>
+Date:   Fri Jan 27 11:27:05 2017 -0500
+
+    Merge pull request #15 from n2chao/AmadouF-patch-2
+    
+    Update README.md
+
+commit 1d5e2b52c2534621e26f77b8269132f7464915ee
+Author: AmadouF <papaamadofall@gmail.com>
+Date:   Fri Jan 27 11:20:57 2017 -0500
+
+    Update README.md
+
+ README.md | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit cf2d3d4bccbce1fb5eb1070db8ad0c1640f5009e
+Merge: 822ff19 ded0454
+Author: Nathan Chao <n2chao@users.noreply.github.com>
+Date:   Fri Jan 27 11:07:41 2017 -0500
+
+    Merge pull request #14 from n2chao/alimouawieh-patch-1
+    
+    Update README.md
+
+commit ded0454e7b8f9556f0320320a5c302e144af9dff
+Author: alimouawieh <alimouawieh@gmail.com>
+Date:   Fri Jan 27 11:03:31 2017 -0500
+
+    Update README.md
+
+ README.md | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 822ff19e01474c946a0540febbe6af3ec453fc1c
+Merge: 0544cb4 d1077e9
+Author: Nathan Chao <n2chao@users.noreply.github.com>
+Date:   Fri Jan 27 08:53:10 2017 -0500
+
+    Merge pull request #13 from n2chao/patrick-dev
+    
+    Added name to README (with pull request)
+
+commit d1077e92340e0a7238c4b596f15eaac9d033afad
+Author: patrickspensieri <patrick.spensieri@gmail.com>
+Date:   Fri Jan 27 02:58:02 2017 -0500
+
+    Added name to README (with pull request)
+
+ README.md | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+commit 0544cb412c9093d539eb06f8b62920935d9f64d8
+Author: patrickspensieri <patrick.spensieri@gmail.com>
+Date:   Fri Jan 27 02:24:40 2017 -0500
+
+    Add name to README
+
+ README.md | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit 691daf4e321c2f98b519b8432bb76cdb4f461fda
+Author: alimouawieh <alimouawieh@gmail.com>
+Date:   Thu Jan 26 15:03:16 2017 -0500
+
+    Update README.md
+
+ README.md | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit 8a990ce52f5d36ca722d77a7da8258689ce60093
+Merge: 6427aa9 526a029
+Author: Nathan Chao <n2chao@users.noreply.github.com>
+Date:   Wed Jan 25 09:03:52 2017 -0500
+
+    Merge pull request #6 from n2chao/johnny-patch-1
+    
+    Added name to README
+
+commit 526a029d55885f30eb89b199703d8bdb01cb94fc
+Author: Johnny Interiano <benjonant@msn.com>
+Date:   Wed Jan 25 09:02:17 2017 -0500
+
+    Added name to README
+
+ README.md | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+commit 6427aa91875c91d519328c6b62fcfa16f0672387
+Merge: c6e1e22 ec846a4
+Author: Nathan Chao <n2chao@users.noreply.github.com>
+Date:   Tue Jan 24 22:36:09 2017 -0500
+
+    Merge pull request #5 from n2chao/karine-patch-1
+    
+    Added Karine Zhang in README.md
+
+commit ec846a4bc0cdc6ed93002501948fb4205a8fe8d2
+Author: KarineZhang <karine.zhang@hotmail.com>
+Date:   Tue Jan 24 22:34:23 2017 -0500
+
+    Added Karine Zhang in README.md
+
+ README.md | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+commit c6e1e2225cb63c7d5e720e2c72231844572e194d
+Merge: 4365bf2 c637011
+Author: Ho Man Chan <homan98@gmail.com>
+Date:   Sun Jan 22 20:37:24 2017 -0500
+
+    Merge pull request #4 from n2chao/prich28-patch-1
+    
+    Update README.md
+
+commit c637011943d2d77e05e0283225785fc85368c563
+Merge: c43a667 4365bf2
+Author: Ho Man Chan <homan98@gmail.com>
+Date:   Sun Jan 22 20:37:10 2017 -0500
+
+    Merge branch 'master' into prich28-patch-1
+
+commit 4365bf2697a6a4ad6c48defd8d03c4be6cdf0cba
+Merge: a50d125 8921f18
+Author: Ho Man Chan <homan98@gmail.com>
+Date:   Sun Jan 22 20:35:39 2017 -0500
+
+    Merge pull request #3 from n2chao/name-insert
+    
+    added team member Ho Man Chan
+
+commit c43a667455e76dbd609bdcc63a7e4084aea60df0
+Author: Paul <paulrichard.28@gmail.com>
+Date:   Sun Jan 22 20:11:24 2017 -0500
+
+    Update README.md
+    
+    Added name to list.
+
+ README.md | 1 +
+ 1 file changed, 1 insertion(+)
+
+commit 8921f18a4002682bccfffad17a31b06f6c380678
+Author: Ho Man Chan <homan98@gmail.com>
+Date:   Sun Jan 22 20:04:30 2017 -0500
+
+    added team member Ho Man Chan
+
+ README.md | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+commit a50d125d0ef1ab6f89bdd5e99c919d5ee34d06a3
+Merge: d08a2f0 60dd11b
+Author: Johnny Interiano <benjonant@msn.com>
+Date:   Fri Jan 20 16:31:02 2017 -0500
+
+    Merge pull request #1 from n2chao/n2chao-patch-1
+    
+    Create readme
+
+commit 60dd11bdfebccb7face711d58f1747bb5a130c4b
+Author: Nathan Chao <n2chao@users.noreply.github.com>
+Date:   Fri Jan 20 16:19:14 2017 -0500
+
+    Create readme
+    
+    First pull request
+
+ README.md | 7 +++++++
+ 1 file changed, 7 insertions(+)
+
+commit d08a2f09c3ff59057fc19edb96d30a02470206f2
+Author: Nathan Chao <n2chao@gmail.com>
+Date:   Fri Jan 20 14:47:10 2017 -0500
+
+    :lollipop: Added .gitattributes
+
+ .gitattributes | 17 +++++++++++++++++
+ 1 file changed, 17 insertions(+)
