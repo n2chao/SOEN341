@@ -52,7 +52,6 @@ class meetingsTest extends TestCase
      * NOTE : Test is highly dependent on “db:seed” command, should be refactored.
      */
      public function testCreateMeetingFailure(){
-
          $arr = $this->testCreateMeetingHelper();
          $student = $arr[0];
          $teacher = $arr[1];
@@ -61,7 +60,29 @@ class meetingsTest extends TestCase
              "instructor" => $teacher->id,
              "instructor-names-next" => null
          ]);
-         //if start_time not present. meeting should not be created
+         //if start_time not present,  assert that meeting is not be created
+       $this->assertTrue(\App\Meeting::get()->count() == 0);
+       $this->assertTrue(\App\Attendance::get()->count() == 0);
+     }
+
+     /**
+     * Test command meetings:closeExpired
+     * NOTE : Test is highly dependent on “db:seed” command, should be refactored.
+     */
+     public function testCloseExpiredMeetingsCommand(){
+       $arr = $this->testCreateMeetingHelper();
+       $student = $arr[0];
+       $teacher = $arr[1];
+       //create a meeting with an expired date
+       $response = $this->call('POST', '/instructorMeeting', [
+           '_token' => csrf_token(),
+           "currentWeek" => "1492315200",
+           "instructor" => $teacher->id,
+           "start_time" => "Sunday 12 AM",
+           "instructor-names-next" => null
+       ]);
+       $this->artisan("meetings:closeExpired");
+       //assert that meeting and corresponding attendances have been closed
        $this->assertTrue(\App\Meeting::get()->count() == 0);
        $this->assertTrue(\App\Attendance::get()->count() == 0);
      }
