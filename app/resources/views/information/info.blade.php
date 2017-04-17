@@ -11,9 +11,19 @@
 
 							<div>
 									<front size ="9">
+<body BGCOLOR="RED">
+										<center>
+										<img src="https://previews.123rf.com/images/ferli/ferli1211/ferli121100195/16244924-Group-of-asian-students-studying-together-at-home-Stock-Photo-college.jpg" height="450" width="600">
+									<center>
+										<hr>
 
-
+										<h3> <b>Study Buddy!! </b> </h3>
+	
+<h4> Study Buddy is an E-learning website which will allow you to connect to people either taking<br>
+	 same courses like you or teaching them</h4>
+										<br>
 										<h3> <b>Student </b> </h3>
+
 
 
 										</font>
@@ -33,20 +43,25 @@
 							<div>
 									<font size ="5">
 										<br>
-									<p><b>Teacher <b></p>
+										<center>
+									<p><b>             Teacher <b></p>
 										</font>
+										<center>
 									<h4> As a Teacher you can put your available times so students who would
 										like to request a meeting with you can easily be done according to your schedule
 									</h4>
-									<body>
+
 										<br>
 											<br>
 												<br>
 													<br>
 													<hr>
-										<center>
-										<img src="https://previews.123rf.com/images/ferli/ferli1211/ferli121100195/16244924-Group-of-asian-students-studying-together-at-home-Stock-Photo-college.jpg" height="450" width="600">
-<center>
+
+												<br><br>
+												<center>
+												<img src="https://users.encs.concordia.ca/~i-sip/s3pcps2016/assets/img/partner-logos/Con_Logo1.jpg" height="100" width="200">
+											<center>
+						</body>
 							</div>
 
 					</div>
