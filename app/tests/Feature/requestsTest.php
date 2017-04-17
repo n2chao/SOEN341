@@ -26,7 +26,7 @@ class requestsTest extends TestCase
       $course = $arr[2];
       //create a meeting request, note time is expired
       $response = $this->call('POST', 'requests/create', [
-          '_token' => csrf_token(),``
+          '_token' => csrf_token(),
           "currentWeek" => "1492315200",
           "time" => serialize(array("Sunday 12 AM", $studentB->id)),
           "course_id" => $course->id
@@ -97,7 +97,8 @@ class requestsTest extends TestCase
      public function testCreateMeetingRequestHelper(){
        $this->artisan("db:seed");
        $course = \App\Course::find(1);
-       if($course->users->count() < 2){
+       while($course->users->count() < 2){
+         $this->artisan("db:seed");
          $course = \App\Course::find(2);
        }
        $studentA = $course->users->get(0);

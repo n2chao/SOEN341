@@ -94,8 +94,8 @@ class meetingsTest extends TestCase
      public function testCreateMeetingHelper(){
        $this->artisan("db:seed");
        $course = \App\Course::find(1);
-       if($course->users->count() < 2){
-         fwrite(STDERR, print_r(\App\Course::find(2)->users->count(), TRUE));
+       while($course->users->count() < 2){
+         $this->artisan("db:seed");
          $course = \App\Course::find(2);
        }
        $student = $course->users->get(0);
