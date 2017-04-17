@@ -31,6 +31,7 @@ class RequestController extends Controller
          $this->validate(request(), [
              'time' => 'required'
              ]);
+        date_default_timezone_set("America/New_York");
         $data = clone($request);
         //array is serialized in client
         //serialization allows an array to be passed as value

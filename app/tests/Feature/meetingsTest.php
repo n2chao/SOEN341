@@ -60,7 +60,7 @@ class meetingsTest extends TestCase
              "instructor" => $teacher->id,
              "instructor-names-next" => null
          ]);
-         //if start_time not present,  assert that meeting is not be created
+         //if start_time not present in request, assert that meeting is not be created
        $this->assertTrue(\App\Meeting::get()->count() == 0);
        $this->assertTrue(\App\Attendance::get()->count() == 0);
      }
@@ -69,7 +69,7 @@ class meetingsTest extends TestCase
      * Test command meetings:closeExpired
      * NOTE : Test is highly dependent on “db:seed” command, should be refactored.
      */
-     public function testCloseExpiredMeetingsCommand(){
+     public function testCloseExpiredMeetingsSuccess(){
        $arr = $this->testCreateMeetingHelper();
        $student = $arr[0];
        $teacher = $arr[1];
@@ -81,6 +81,7 @@ class meetingsTest extends TestCase
            "start_time" => "Sunday 12 AM",
            "instructor-names-next" => null
        ]);
+       $this->assertTrue(\App\Meeting::get()->count() == 1);
        $this->artisan("meetings:closeExpired");
        //assert that meeting and corresponding attendances have been closed
        $this->assertTrue(\App\Meeting::get()->count() == 0);
@@ -94,6 +95,7 @@ class meetingsTest extends TestCase
        $this->artisan("db:seed");
        $course = \App\Course::find(1);
        if($course->users->count() < 2){
+         fwrite(STDERR, print_r(\App\Course::find(2)->users->count(), TRUE));
          $course = \App\Course::find(2);
        }
        $student = $course->users->get(0);
