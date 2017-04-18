@@ -33,7 +33,6 @@ class meetingsTest extends TestCase
         ]);
         //assert meeting created, and both student and teacher are attending
         $this->assertDatabaseHas('meetings', [
-            'course_id' => '1',
             'id' => '1',
             'instructorMeeting' => true
         ]);
@@ -92,6 +91,7 @@ class meetingsTest extends TestCase
      * NOTE : Test is highly dependent on behaviour of “db:seed” command, should be refactored.
      */
      public function testCreateMeetingHelper(){
+       $this->artisan("migrate:refresh");
        $this->artisan("db:seed");
        $course = \App\Course::find(1);
        while($course->users->count() < 2){
@@ -106,7 +106,7 @@ class meetingsTest extends TestCase
        //seeded schedules are random, assign fixed values
        $student->schedule->freetime = "111011100010010011001100011111101001111100100010100011010000010110010110001011111010001010010100000001110101111100011011000000111011001010000110100101001001001001101010";
        $teacher->schedule->freetime = "101011100010010011001100011111101001111100100010100011010000010110010110001011111010001010010100000001110101111100011011000000111011001010000110100101001001001001101010";
-       return array($student, $teacher);
+       return array($student, $teacher, $course);
      }
 
      // print to console during test
