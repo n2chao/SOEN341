@@ -94,7 +94,7 @@ class requestsTest extends TestCase
      /**
      * NOTE : Test is highly dependent on behaviour of “db:seed” command, should be refactored.
      */
-     public function testCreateMeetingRequestHelper(){
+     public function testCreateMeetingRequestHelper(){ 
        $this->artisan("db:seed");
        $course = \App\Course::find(1);
        while($course->users->count() < 2){
