@@ -41,7 +41,7 @@ $factory->define(App\Enrollment::class, function (Faker\Generator $faker) {
 
     return [
         'course_id' => $faker->numberBetween($min = 0, $max = 1),
-        'user_id' => $faker->numberBetween($min = 1, $max = 10),
+        'user_id' => $faker->unique()->numberBetween($min = 1, $max = 10),
     ];
 });
 
