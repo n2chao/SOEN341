@@ -21,7 +21,7 @@ The project also lets professors and teaching assistants submitting their availa
 * Ali Mouawieh 
 * Patrick Spensieri 
 * Amadou Fall
-
+* Abdelraouf Boumedal - Eggsaminator
 ## Technologies
 * PHP
 * Laravel
